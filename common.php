@@ -13,6 +13,5 @@ $mysqli = new mysqli ('localhost' , 'root' , 'root' , 'ForumIT');
     <link rel='stylesheet' href="style.css">
     <meta name="description" content="Forum">
     <meta name="keywords" content="IT">
-    <meta name="author" content="Minions">
-    <script src="validateRegister.js"></script>
+    <meta name="author" content="Minions">s
 </head>
