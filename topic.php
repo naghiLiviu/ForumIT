@@ -7,6 +7,7 @@ $isSetUserId = isset($_SESSION['userId']) || ($_SESSION['userId'] != null);
 $sqlTopic = "SELECT * FROM Topic WHERE SectionId='$sectionId' AND TopicStatus='Active' ";
 $resultTopic = $mysqli->query($sqlTopic);
 ?>
+<script></script>
 <body class="mainbody">
 <div class="container">
     <?php require("header.php"); ?>
