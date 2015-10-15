@@ -82,9 +82,11 @@
                     if ($dropDown == "admin") {
 
                         $mysqli->query("UPDATE User SET User.RoleId = 1 WHERE User.UserId =  '$memberId' ");
+                        header("Location: member.php");
                     }
                     if ($dropDown == "moderator") {
                         $mysqli->query("UPDATE User SET User.RoleId = 2 WHERE User.UserId =  '$memberId' ");
+                        header("Location: member.php");
                     }
                     $mysqli->close();
                 }

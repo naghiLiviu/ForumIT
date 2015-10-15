@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - ForumIT@localhost" uuid="9cf5cc13-8c7c-4ac9-8c23-a8fc14f3d028">
+    <database-info product="MySQL" version="5.5.44-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="ForumIT"/>
+    <table name="Address" schema="" catalog="ForumIT" type="TABLE">
+      <column name="AddressId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ContactDetailId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="StreetNumber" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="StreetName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="City" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Country" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="AddressId"/>
+    </table>
+    <table name="Comment" schema="" catalog="ForumIT" type="TABLE">
+      <column name="CommentId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CommentParentId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="UserId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="TopicId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Comment" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="Date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="CommentStatus" sqlType="ENUM" precision="7" scale="0" nullable="false" jdbcType="1" def="J0FjdGl2ZSc="/>
+      <primary-key name="PRIMARY" columns="CommentId"/>
+    </table>
+    <table name="ContactDetail" schema="" catalog="ForumIT" type="TABLE">
+      <column name="ContactDetailId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="UserId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="FirstName" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LastName" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PhoneNumber" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Picture" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ContactDetailId"/>
+    </table>
+    <table name="Role" schema="" catalog="ForumIT" type="TABLE">
+      <column name="RoleId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="RoleName" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="RoleId"/>
+    </table>
+    <table name="Section" schema="" catalog="ForumIT" type="TABLE">
+      <column name="SectionId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="SectionName" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="SectionStatus" sqlType="ENUM" precision="7" scale="0" nullable="false" jdbcType="1" def="J0FjdGl2ZSc="/>
+      <primary-key name="PRIMARY" columns="SectionId"/>
+    </table>
+    <table name="Topic" schema="" catalog="ForumIT" type="TABLE">
+      <column name="TopicId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="SectionId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="TopicName" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="TopicStatus" sqlType="ENUM" precision="7" scale="0" nullable="false" jdbcType="1" def="J0FjdGl2ZSc="/>
+      <primary-key name="PRIMARY" columns="TopicId"/>
+    </table>
+    <table name="User" schema="" catalog="ForumIT" type="TABLE">
+      <column name="UserId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="UserName" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Password" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Email" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="RoleId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="RegisterDate" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="UserStatus" sqlType="ENUM" precision="7" scale="0" nullable="false" jdbcType="1" def="J0FjdGl2ZSc="/>
+      <column name="Ban" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="BanDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="UserId"/>
+      <index name="Email" unique="true" columns="Email"/>
+      <index name="UserName" unique="true" columns="UserName"/>
+    </table>
+  </data-source>
+</component>

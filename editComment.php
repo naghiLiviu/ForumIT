@@ -20,7 +20,9 @@ if (!empty ($_POST['comment'])) {
         <br>
 
         <form method="post">
-            <textarea name="comment" rows="10" cols="40"><?php echo $commentArray[0]['Comment']; ?></textarea><br>
+            <label>
+                <textarea name="comment" rows="10" cols="40"><?php echo $commentArray[0]['Comment']; ?></textarea>
+            </label><br>
             <input type="submit" name="submit" value="Post a comment" class="button1">
         </form>
         <br><br>

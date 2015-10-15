@@ -3,8 +3,6 @@ require_once('common.php');
 ?>
 
 <body class="mainbody">
-<script src="validationNewSection.js">
-</script>
 <div class="container">
     <?php
     require('header.php');
@@ -24,7 +22,7 @@ require_once('common.php');
             ?>
             <p> Post a new section: </p>
             <br>
-            <form name="myForm"  onsubmit="return validateForm()"method="post" >
+            <form method="post">
                     <input type="text" name="newSection">
                 <br>
                 <br>

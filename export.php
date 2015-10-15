@@ -12,15 +12,3 @@ foreach($result as $key => $value){
     $exportString .= implode("|", $array) . "&&&";
 }
 //var_dump($exportString);
-file_put_contents("export.txt", $exportString, FILE_APPEND);
-$import = file_get_contents("export.txt");
-$show = explode("&&&", $import);
-$show = implode($show);
-echo $show;
-echo "<br><br><br>";
-$showOne = explode("|", $show);
-$showOne = implode($showOne);
-echo $showOne;
-echo "<br><br><br>";
-$showTwo = explode("=>", $showOne);
-echo $showTwo;
