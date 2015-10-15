@@ -3,7 +3,7 @@ function validateEmail(email) {
     return re.test(email);
 }
 function lettersOnly(param){
-    var letters = /^[a-zA-Z]*$/;
+    var letters = /^[a-zA-Z\s]*$/;
     return letters.test(param);
 }
 function onlyNumbers(num){
