@@ -1,7 +1,7 @@
 <?php
 session_start();
 $mysqli = new mysqli ('localhost' , 'root' , 'root' , 'ForumIT');
-// i am here!
+// i am here right now!
 ?>
 
 <!DOCTYPE html>
