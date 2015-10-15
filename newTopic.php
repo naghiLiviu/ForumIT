@@ -44,7 +44,7 @@ session_start();
             <p> Post a comment: </p>
             <label>
                 <textarea name="newComment" rows="10" cols="40"></textarea>
-            </label><br><br>
+            </label><br>
             <input type="submit" name="submit" value="Post" class="button1">
         </form>
         <script>
