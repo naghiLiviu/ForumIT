@@ -2,6 +2,7 @@
 <body class="mainbody">
 <div class="container">
     <?php require_once('header.php'); ?>
+    <script></script>
     <div class="regform">
 
         <h2>Frequently Asked Questions</h2>
