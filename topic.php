@@ -37,7 +37,6 @@ $resultTopic = $mysqli->query($sqlTopic);
                 $sqlComment = "SELECT * FROM Comment
                               LEFT JOIN User ON Comment.UserId = User.UserId
                               WHERE Comment.TopicId = '$topicId'AND Comment.CommentStatus='Active'
-                              GROUP BY Comment.TopicId
                               ORDER BY Comment.CommentId DESC";
                 $resultComment = $mysqli->query($sqlComment);
                 $countComment = $resultComment->num_rows;
