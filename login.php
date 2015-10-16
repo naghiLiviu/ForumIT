@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once('common.php');
 
 if ($_POST) {
@@ -47,17 +46,12 @@ if ($_POST) {
     }
 }
 ?>
-
-<html>
-<head>
-    <script src="validationLogin.js"></script>
-</head>
 <body class="mainbody">
+<script src="validationLogin.js"></script>
 <div class="container">
     <?php require_once('header.php'); ?>
     <div class="regform">
-        <form name="myForm" action="login.php"
-              onsubmit="return validateForm()" method="post">
+        <form name="myForm" action="login.php" onsubmit="return validateForm()" method="post">
             <dl>
                 <h2 class="titleform">Login</h2>
                 <hr>
@@ -88,17 +82,11 @@ if ($_POST) {
                         <input type="submit" value="Submit" name="submitButton" class="button1">
         </form>
     </div>
-
-
 </div>
 <br>
-
 <br>
-
 <div class="regform">
-
     <p class="registerLogin">Register</p>
-
     <p class="suggestionLogin">In order to login you must be registered. Registering takes only a few moments but gives
         you increased
         capabilities. The board administrator may also grant additional permissions to registered users.
@@ -110,11 +98,6 @@ if ($_POST) {
             <Button class="button1">Register</Button>
         </a>
     </div>
-
 </div>
 <?php require_once('footer.php'); ?>
-</div>
-
 </body>
-
-</html>

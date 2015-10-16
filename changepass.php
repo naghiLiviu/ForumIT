@@ -15,7 +15,7 @@ foreach ($result as $key => $value) {
                 if ($myArray[0]['Password'] == $oldPass) {
                     if ($newPass == $retypePass) {
                         $sql = "SELECT Password FROM User WHERE Password = '$oldPass'";
-                        $updatePass = "UPDATE User SET PASSWORD = '$newPass' WHERE User.UserId = '$userId'";
+                        $updatePass = "UPDATE User SET Password = '$newPass' WHERE User.UserId = '$userId'";
                         $mysqli->query($updatePass);
                         $_SESSION['message'] = "Password changed succesfully";
                     } else {
@@ -32,9 +32,6 @@ foreach ($result as $key => $value) {
 }
 ?>
 <body class = "mainbody">
-<head>
-<title>Change Password</title>
-</head>
 <div class="container">
     <?php require_once('header.php'); ?>
 <div class="regform">
@@ -77,4 +74,3 @@ foreach ($result as $key => $value) {
     <?php require_once('footer.php'); ?>
 </div>
 </body>
-</html>

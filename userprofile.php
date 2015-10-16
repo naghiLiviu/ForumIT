@@ -1,47 +1,44 @@
-<?php require_once('common.php');
-?>
-<body class="mainbody">
-<div class="container">
+<?php require_once('common.php'); ?>
+<?php
+$memberId = $_GET['userId'];
 
-
-    <?php require('header.php'); ?>
-    <?php
-    $memberId = $_GET['userId'];
-
-    $sqlResult = "SELECT * FROM User
+$sqlResult = "SELECT * FROM User
                   JOIN Role
                   ON User.RoleId = Role.RoleId
                   LEFT JOIN Comment
                   ON Comment.UserId = User.UserId
+                  LEFT JOIN ContactDetail
+                  ON ContactDetail.UserId = User.UserId
                   WHERE User.UserId =  '$memberId' ";
-    $userDetail = $mysqli->query($sqlResult);
-    $countPost = $userDetail->num_rows;
-    foreach ($userDetail as $value) {
-        if (!empty($value ['UserName'])) {
-            $detailName = $value['UserName'];
-        } else {
-            $detailName = 'N/A';
-        }
-        if (!empty ($value ['Email'])) {
-            $detailEmail = $value ['Email'];
-        } else {
-            $detailEmail = 'N/A';
-        }
-        if (!empty($value['RoleName'])) {
-            $role = $value['RoleName'];
-        } else {
-            $role = 'N/A';
-        }
-            $registerDate = $value['RegisterDate'];
-
-
+$userDetail = $mysqli->query($sqlResult);
+$countPost = $userDetail->num_rows;
+foreach ($userDetail as $value) {
+    if (!empty($value ['UserName'])) {
+        $detailName = $value['UserName'];
+    } else {
+        $detailName = 'N/A';
     }
-    ?>
-
+    if (!empty ($value ['Email'])) {
+        $detailEmail = $value ['Email'];
+    } else {
+        $detailEmail = 'N/A';
+    }
+    if (!empty($value['RoleName'])) {
+        $role = $value['RoleName'];
+    } else {
+        $role = 'N/A';
+    }
+    $registerDate = $value['RegisterDate'];
+    $picture = $value["Picture"];
+}
+?>
+<body class="mainbody">
+<div class="container">
+    <?php require('header.php'); ?>
     <div class="regform">
         <div class="leftpart">
             <?php
-            echo "Picture:";
+            echo "Picture: <img src=" . $picture . " class='userPhoto'>";
             echo "<br>";
             echo "User Name: $detailName";
             echo "<br>";

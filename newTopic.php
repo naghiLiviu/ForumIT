@@ -1,6 +1,5 @@
 <?php
 require_once('common.php');
-session_start();
 ?>
 
 <body class="mainbody">

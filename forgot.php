@@ -52,6 +52,4 @@ if(!empty($_POST["Email"])) {
     </div>
     <?php require_once('footer.php'); ?>
 </div>
-
 </body>
-</html>

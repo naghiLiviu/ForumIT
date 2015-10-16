@@ -13,4 +13,5 @@ $mysqli = new mysqli ('localhost' , 'root' , 'root' , 'ForumIT');
     <meta name="description" content="Forum">
     <meta name="keywords" content="IT">
     <meta name="author" content="Minions">
+    <script src="scripting.js"></script>
 </head>

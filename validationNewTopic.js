@@ -13,7 +13,6 @@ function validateForm() {
             return false;
         }
         else {
-
             if (y == null || y == "") {
                 alert("Comment must be filled out");
                 return false;

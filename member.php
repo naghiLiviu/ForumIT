@@ -34,8 +34,6 @@
                 echo "</tr>";
             }
             ?>
-
-
         </table>
         <script>
             var userPostId =<?php echo $userPostId; ?>;

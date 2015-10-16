@@ -1,7 +1,3 @@
-<head>
-<script src="scripting.js"></script>
-</head>
-
 <div class="header">
                 <span class="headerLeft">
                     <a href="index.php"><img src="img/forum.gif" class="logo"></a>

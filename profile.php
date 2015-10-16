@@ -265,4 +265,3 @@ if ($_POST) {
         }
     }
 </script>
-</html>
