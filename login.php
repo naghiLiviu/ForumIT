@@ -49,6 +49,9 @@ if ($_POST) {
 ?>
 
 <html>
+<head>
+    <script src="validationLogin.js"></script>
+</head>
 <body class="mainbody">
 <div class="container">
     <?php require_once('header.php'); ?>
