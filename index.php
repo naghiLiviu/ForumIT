@@ -8,9 +8,15 @@
     <div class="content">
         <?php
         if ($_SESSION["roleId"] == 1 || $_SESSION["roleId"] == 2) {
-            echo "<a href=\"newSection.php?sectionId=$sectionId\"><button class=\"button1\">Post a new Section</button> </a>";
+            echo "<button id='newSectionButton' class=\"button1\">Post a new Section</button>";
         }
         ?>
+        <div id="hiddenForm">
+            <p>New section name:</p>
+            <input type="text" id="newSectionName" title="inputNewSectionName">
+            <br><br>
+            <button id="submitNewSection" class="button1">Submit</button>
+        </div>
         <table>
             <tr>
                 <?php
@@ -67,18 +73,47 @@
             ?>
         </table>
 
-            <script>
-                var sectionId =<?php echo $sectionId; ?>;
-                function deleteFunction(sectionId) {
-                    if (confirm("Are you sure you want to delete this section?") == true) {
-                        window.location.href =("deleteSection.php?sectionId=" + sectionId);
-                    } else {
-                        window.location.href =("index.php");
-                    }
+        <script>
+            var sectionId =<?php echo $sectionId; ?>;
+            function deleteFunction(sectionId) {
+                if (confirm("Are you sure you want to delete this section?") == true) {
+                    window.location.href = ("deleteSection.php?sectionId=" + sectionId);
+                } else {
+                    window.location.href = ("index.php");
                 }
+            }
 
-            </script>
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#hiddenForm').hide();
+                $('#newSectionButton').on('click', function () {
+                    $('#hiddenForm').show();
+                    $("#newSectionButton").hide();
+                });
+                $('#submitNewSection').on('click', function () {
+                    $('#hiddenForm').hide();
+                })
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $("#submitNewSection").click(function () {
+                    var newSectionName = document.getElementById("newSectionName").value;
+                    $.ajax({
+                        method: "POST",
+                        url: "newSection.php",
+                        data: {
+                            newSectionName: newSectionName
+                        },
+                        success: function () {
+                            location.reload();
+                        }
+                    });
+                });
+            });
+        </script>
 
-    <?php require("footer.php"); ?>
-</div>
+        <?php require("footer.php"); ?>
+    </div>
 </body>

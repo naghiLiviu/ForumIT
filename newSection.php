@@ -1,40 +1,6 @@
 <?php
 require_once('common.php');
-?>
 
-<body class="mainbody">
-<div class="container">
-    <?php
-    require('header.php');
-    ?>
+$newSection = $_POST['newSectionName'];
 
-    <div class="regform">
-
-        <?php
-        if (isset($_SESSION['userId']) || $_SESSION['userId'] != null) {
-            if (!empty ($_POST['newSection'])) {
-                $newSection = $_POST['newSection'];
-                $sectionId = $_GET["sectionId"];
-                $mysqli->query("INSERT INTO Section (SectionName) VALUES ('$newSection')");
-                $lastTopicId = $mysqli->insert_id;
-                header("Location: index.php");
-            }
-            ?>
-            <p> Post a new section: </p>
-            <br>
-            <form method="post">
-                    <input type="text" name="newSection">
-                <br>
-                <br>
-                <input type="submit" name="submit" value="Post a new section" class="button1">
-            </form>
-            <?php
-        }
-        ?>
-        <br><br>
-    </div>
-
-    <?php require_once('footer.php'); ?>
-</div>
-</body>
-</html>
+$mysqli->query("INSERT INTO Section (SectionName) VALUES ('$newSection')");
