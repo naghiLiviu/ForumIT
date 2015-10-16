@@ -17,7 +17,8 @@ if ($_POST) {
         foreach ($result as $idValue) {
             $loginArray[] = $idValue;
         }
-        if ($result->num_rows && $loginArray[0]["UserStatus"] == "Active" && ($loginArray[0]["Ban"] == 0 || ($loginArray[0]["Ban"] == 1 && $loginArray[0]["BanDate"] < date("Y-m-d")))) {
+        if ($result->num_rows && $loginArray[0]["UserStatus"] == "Active" && ($loginArray[0]["Ban"] == 0 ||
+                ($loginArray[0]["Ban"] == 1 && $loginArray[0]["BanDate"] < date("Y-m-d")))) {
             $mysqli->query("UPDATE User SET Ban = 0, BanDate = NULL");
             $_SESSION['message'] = "Welcome " . $loginArray[0]["UserName"] . " into your account!";
             $redirect = 'index.php';
@@ -40,19 +41,14 @@ if ($_POST) {
             header("Location: $redirect");
         } else {
             //$redirect = 'login.php';
-            $_SESSION['message'] = 'GRESIT';
+            echo "<script> alert('Username or Password incorrect') </script>";
+
         }
     }
 }
 ?>
 
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="validationLogin.js"></script>
-    <title>Log In</title>
-
-</head>
 <body class="mainbody">
 <div class="container">
     <?php require_once('header.php'); ?>
