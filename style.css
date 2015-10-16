@@ -348,3 +348,7 @@ span{
     font-style: italic;
     border-bottom: solid;
 }
+
+.deleteButton{
+    margin-left: 70%;
+}

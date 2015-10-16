@@ -1,5 +1,8 @@
 <?php
 require('common.php');
+if (!isset($_SESSION['userId'])){
+    header("Location: login.php");
+}
 $userId = $_SESSION['userId'];
 $target_path = "img/";
 $target_path = $target_path . basename($_FILES['uploadedfile']['name']);
@@ -109,13 +112,17 @@ if ($_POST) {
 }
 
 ?>
+
 <body class="mainbody">
 <script src="profileValidation.js"></script>
 <div class="container">
     <?php require_once('header.php'); ?>
+
     <div class="regform">
         <h2>User Profile Page</h2>
-
+        <div class = "deleteButton">
+            <button class="button1" onclick="deleteFunction(' . $userId . ')">Delete Account</button>
+        </div>
         <form name = "profileForm" enctype="multipart/form-data" onsubmit="return profileForm2()" method="post">
             <dl>
 
@@ -244,7 +251,18 @@ if ($_POST) {
                 <input type="submit" value="Submit" name="submit1" class="button1">
             </div>
         </form>
+
     </div>
     <?php require_once('footer.php'); ?>
 </div>
 </body>
+<script>
+    function deleteFunction() {
+        if (confirm("Are you sure you want to delete your account?") == true) {
+            window.location.href =("deleteSelfUser.php");
+        } else {
+            window.location.href =("profile.php");
+        }
+    }
+</script>
+</html>
