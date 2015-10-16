@@ -33,7 +33,7 @@ foreach ($searchTopics as $value) {
 }
 ?>
 <body class="mainbody">
-<!--<script src="ajax.js"></script>-->
+
 <div class="container">
     <?php
     require('header.php');
@@ -46,7 +46,7 @@ foreach ($searchTopics as $value) {
             foreach ($row as $valueCommentParrent) {
                 $i++;
                 $commentId = $valueCommentParrent["CommentId"];
-//                var_dump($commentId);
+
             if ($valueCommentParrent["CommentParentId"] == 0) {
                 ?>
 
@@ -62,6 +62,7 @@ foreach ($searchTopics as $value) {
                     <hr>
                     <div id="hiddenForm<?php echo $i; ?>">
                         <textarea id="commentInput<?php echo $i; ?>" title="textarea"></textarea>
+                        <br><br>
                         <button class="button1" id="submitHidden<?php echo $i; ?>">Submit</button>
                     </div>
                     <?php if (isset($_SESSION['userId']) || $_SESSION['userId'] != null) { ?>
@@ -119,6 +120,7 @@ foreach ($searchTopics as $value) {
                         $('#hiddenForm<?php echo $i; ?>').hide();
                         $('#replyButton<?php echo $i; ?>').on('click', function () {
                             $('#hiddenForm<?php echo $i; ?>').show();
+                            $("#replyButton<?php echo $i; ?>").hide();
                         });
                         $('#submitHidden<?php echo $i; ?>').on('click', function () {
                             $('#hiddenForm<?php echo $i; ?>').hide();
