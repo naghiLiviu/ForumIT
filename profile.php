@@ -120,7 +120,7 @@ if ($_POST) {
 
     <div class="regform">
         <h2>User Profile Page</h2>
-        <div class = "deleteButton">
+        <div class="deleteButtonDiv">
             <button class="button1" onclick="deleteFunction(' . $userId . ')">Delete Account</button>
         </div>
         <form name = "profileForm" enctype="multipart/form-data" onsubmit="return profileForm2()" method="post">
