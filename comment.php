@@ -1,4 +1,5 @@
 <?php
+//bau bau
 require_once('common.php');
 ?>
 <?php
