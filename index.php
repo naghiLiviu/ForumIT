@@ -1,4 +1,6 @@
-<?php require("common.php"); ?>
+<?php require("common.php");
+//abra cadabra
+?>
 <body class="mainbody">
 <div class="container">
     <?php require("header.php");
