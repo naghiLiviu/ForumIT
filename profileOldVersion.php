@@ -1,5 +1,5 @@
 <?php
-require('common.php');
+require('Useful/common.php');
 $userId = $_SESSION['userId'];
 
 

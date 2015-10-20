@@ -1,4 +1,4 @@
-<?php require_once("common.php");
+<?php require_once("Useful/common.php");
 $topicId = $_GET["topicId"];
 $result = $mysqli->query("SELECT * FROM Topic WHERE TopicId = '$topicId '");
 $commentArray = array();

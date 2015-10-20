@@ -1,4 +1,4 @@
-<?php require("common.php");
+<?php require("Useful/common.php");
 //abra cadabra
 ?>
 <body class="mainbody">

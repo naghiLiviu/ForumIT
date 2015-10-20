@@ -1,5 +1,5 @@
 <?php
-require_once('common.php');
+require_once('Useful/common.php');
 
 $newSection = $_POST['newSectionName'];
 

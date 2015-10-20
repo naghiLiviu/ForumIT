@@ -1,4 +1,4 @@
-<?php require_once('common.php'); ?>
+<?php require_once('Useful/common.php'); ?>
 <body class="mainbody">
 <div class="container">
     <?php require('header.php');

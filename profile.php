@@ -1,6 +1,6 @@
 <?php
 //orice
-require('common.php');
+require('Useful/common.php');
 if (!isset($_SESSION['userId'])){
     header("Location: login.php");
 }

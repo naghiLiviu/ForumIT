@@ -1,4 +1,4 @@
-<?php require("common.php"); ?>
+<?php require("Useful/common.php"); ?>
 <?php
 $_SESSION['message'] = null;
 $sectionId = $_GET["sectionId"];

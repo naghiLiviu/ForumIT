@@ -1,5 +1,5 @@
 <?php
-require_once('common.php');
+require_once('Useful/common.php');
 $sectionId = $_GET["sectionId"];
 $result = $mysqli->query("SELECT SectionName FROM Section WHERE SectionId = '$sectionId '");
 $sectionArray = array();

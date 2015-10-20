@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ('common.php');
+require_once ('Useful/common.php');
 if (!empty ($_POST['username']) && !empty ($_POST['password'])){
     // preiau datele din formular
     $username = $_POST['username'];

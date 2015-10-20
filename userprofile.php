@@ -1,4 +1,4 @@
-<?php require_once('common.php'); ?>
+<?php require_once('Useful/common.php'); ?>
 <?php
 $memberId = $_GET['userId'];
 
@@ -60,7 +60,7 @@ foreach ($userDetail as $value) {
                     ?>
                     <form method="post">
                         Promote as :
-                        <select name="dropDown">
+                        <select name="dropDown" title="dropDownTitle">
                             <option value=""> - choose -</option>
                             <option value="admin">Administrator</option>
                             <option value="moderator">Moderator</option>
@@ -100,4 +100,3 @@ foreach ($userDetail as $value) {
     <?php require_once('footer.php'); ?>
 </div>
 </body>
-</html>
