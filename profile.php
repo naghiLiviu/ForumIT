@@ -20,6 +20,7 @@ if($_POST) {
 $sqlemail = "SELECT * FROM User WHERE User.UserId = '$userId'";
 
 $resulEmail = $mysqli->query($sqlemail);
+$myEmail = array();
 foreach ($resulEmail as $emailKey => $emailValue) {
     $myEmail[] = $emailValue;
 }
@@ -115,7 +116,7 @@ if ($_POST) {
 ?>
 
 <body class="mainbody">
-<script src="profileValidation.js"></script>
+<script src="View/profileValidation.js"></script>
 <div class="container">
     <?php require_once('header.php'); ?>
 

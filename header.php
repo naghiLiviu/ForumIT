@@ -32,7 +32,7 @@
                 <span class="userOption">
                     <a href="index.php">Home | </a>
                     <a href="member.php">Members | </a>
-                    <a href="faq.php">FAQ | </a>
+                    <a href="View/faq.php">FAQ | </a>
                     <?php
                     if (!isset($_SESSION['userId']) || $_SESSION['userId'] == null) {
                         echo "<a href=\"register.php\">Register |</a>";

@@ -25,7 +25,7 @@
                         <a href="index.php"><img src="img/home.jpg">HOME</a>
                     </span>
                     <span class="footerLink">
-                    <a href="faq.php">FAQ|</a>
+                    <a href="View/faq.php">FAQ|</a>
                     <a href="member.php">Members|</a>
                         <?php
                         if (!isset($_SESSION['userId']) || $_SESSION['userId'] == null) {

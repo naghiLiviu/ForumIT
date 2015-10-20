@@ -47,7 +47,7 @@ if ($_POST) {
 }
 ?>
 <body class="mainbody">
-<script src="validationLogin.js"></script>
+<script src="View/validationLogin.js"></script>
 <div class="container">
     <?php require_once('header.php'); ?>
     <div class="regform">
@@ -73,7 +73,6 @@ if ($_POST) {
                 </dl>
                 <dl>
                     <a class="link" href="forgot.php"> Forgot password?</a><br>
-                    <a class="link" href="resendEmail.php"> Resend activation e-mail</a>
 
                     <div class="buttons">
                         <a href="login.php">
