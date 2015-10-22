@@ -1,4 +1,4 @@
-<?php require_once("Utils/Db.php");
+<?php use Utils\Db;
 $commentId = $_GET["commentId"];
 $topicId = $_GET["topicId"];
 $result = $mysqli->query("SELECT Comment FROM Comment WHERE CommentId = '$commentId'");
