@@ -1,4 +1,4 @@
-<?php require("Useful/common.php");
+<?php require("Utils/Db.php");
 //abra cadabra
 ?>
 <body class="mainbody">

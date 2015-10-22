@@ -1,4 +1,4 @@
-<?php require_once('Useful/common.php'); ?>
+<?php use Utils\Db; ?>
 <?php
 $memberId = $_GET['userId'];
 

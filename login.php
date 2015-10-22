@@ -1,5 +1,5 @@
 <?php
-require_once('Useful/common.php');
+use Utils\Db;
 
 if ($_POST) {
     if (!empty ($_POST['username']) && !empty ($_POST['password'])) {

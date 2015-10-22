@@ -1,4 +1,4 @@
-<?php require_once('Useful/common.php'); ?>
+<?php use Utils\Db; ?>
 <body class="mainbody">
 <div class="container">
     <?php require('header.php');

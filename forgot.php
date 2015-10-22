@@ -1,4 +1,4 @@
-<?php require("Useful/common.php"); ?>
+<?php require("Utils/Db.php"); ?>
 <?php
 if(!empty($_POST["Email"])) {
     $password = substr(md5(rand(10000)), 0, 8);

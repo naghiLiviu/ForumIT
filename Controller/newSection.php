@@ -1,5 +1,5 @@
 <?php
-require_once('Useful/common.php');
+use Utils\Db;
 
 $newSection = $_POST['newSectionName'];
 

@@ -1,6 +1,6 @@
 <?php
 //bau bau
-require_once('Useful/common.php');
+use Utils\Db;
 ?>
 <?php
 $topicId = $_GET['topicId'];

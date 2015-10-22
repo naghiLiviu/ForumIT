@@ -1,5 +1,5 @@
 <?php
-require_once("Useful/common.php");
+require_once("Utils/Db.php");
 $target_path = "files/";
 $target_path = $target_path . basename($_FILES['uploadedfile']['name']);
 if($_POST) {
