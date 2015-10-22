@@ -1,5 +1,5 @@
 <?php
-require('Utils/Db.php');
+use Utils\Db
 // We check if all the fields are filled
 if (!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['emailConfirm']) && !empty($_POST['password'])
     && !empty($_POST['passwordconf']) && !empty($_POST['antispam'])

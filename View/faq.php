@@ -1,7 +1,6 @@
-<?php require("Utils/Db.php"); ?>
 <body class="mainbody">
 <div class="container">
-    <?php require_once('header.php'); ?>
+    <?php require_once('../header.php'); ?>
     <script></script>
     <div class="regform">
 
@@ -47,6 +46,6 @@
         </p>
 
     </div>
-    <?php require_once('footer.php'); ?>
+    <?php require_once('../footer.php'); ?>
 </div>
 </body>
