@@ -6,7 +6,8 @@
  * Time: 4:23 PM
  */
 
-require_once('../Controller/LoginController.php');
+include '../Controller/LoginController.php';
+
 ?>
 <!DOCTYPE html>
 <html>
