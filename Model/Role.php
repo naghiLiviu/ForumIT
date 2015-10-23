@@ -5,7 +5,7 @@
  * Date: 10/23/15
  * Time: 11:07 AM
  */
-namespace Model;
+//namespace Model;
 
 class Role
 {

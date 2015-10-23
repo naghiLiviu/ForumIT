@@ -5,13 +5,8 @@
  * Date: 10/23/15
  * Time: 10:58 AM
  */
-namespace Model;
 
-use Utils\Db;
-
-include '../Utils/Db.php';
-
-class Comment
+class Comment extends AbstractModel
 {
     public $mysqli;
     function __construct() {
@@ -20,7 +15,7 @@ class Comment
         }
     }
     public function countComments($userId) {
-        $result = $this->mysqli->query("SELECT CommentId FROM Comment WHERE UserId = '$userId'");
+        $result = $this->query("SELECT CommentId FROM Comment WHERE UserId = '$userId'");
         $countComment = $result->num_rows;
         return $countComment;
     }
