@@ -1,7 +1,21 @@
-<?php require("Utils/Db.php");
+<?php
+require("Utils/Db.php");
 //abra cadabra
 ?>
+<html>
+<head>
+    <link rel='stylesheet' href="View/style.css">
+<!---->
+<!--    <script src="../https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!--    <title>ForumIT</title>-->
+<!--    <link rel="icon" href="/img/forum.gif" type="image/x-icon">-->
+<!--    <meta name="description" content="Forum">-->
+<!--    <meta name="keywords" content="IT">-->
+<!--    <meta name="author" content="Minions">-->
+<!--    <script src="scripting.js"></script>-->
+</head>
 <body class="mainbody">
+
 <div class="container">
     <?php require("header.php");
     $_SESSION['message'] = null;
@@ -119,3 +133,4 @@
         <?php require("footer.php"); ?>
     </div>
 </body>
+</html>
