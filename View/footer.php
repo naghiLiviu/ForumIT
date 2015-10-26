@@ -1,5 +1,7 @@
 <?php
+
 include '../Controller/FooterController.php';
+
 ?>
 <div class="footer">
     <blockquote class="footerParagraph">Statistics</blockquote>

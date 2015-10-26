@@ -5,7 +5,7 @@
  * Date: 10/23/15
  * Time: 4:43 PM
  */
-include '../Utils/sessions.php';
+//include '../Utils/sessions.php';
 
 include '../Model/AbstractModel.php';
 //include '../Model/User.php';
