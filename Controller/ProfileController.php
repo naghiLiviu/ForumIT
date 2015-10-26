@@ -6,7 +6,7 @@
  * Time: 4:39 PM
  */
 
-include ('../Model/AbstractModel.php');
+include '../Model/AbstractModel.php';
 include '../Model/User.php';
 include '../Model/ContactDetail.php';
 include '../Model/Address.php';
