@@ -7,21 +7,22 @@
  */
 
 
-include '../Utils/sessions.php';
-
-include '../Model/AbstractModel.php';
-include '../Model/User.php';
-include '../Model/Comment.php';
-include '../Model/Topic.php';
+//include '../Utils/sessions.php';
+//
+//include '../Model/AbstractModel.php';
+//include '../Model/User.php';
+//include '../Model/Comment.php';
+//include '../Model/Topic.php';
 
 $comment = new Comment();
 $topic = new Topic();
 $user = new User();
 
 $resultNumberComment = $comment->selectComments();
-$resultNumberTopic = $topic->countTopics();
-$resultNumberUser = $user->countUsers();
+$countTopics = $topic->countTopics();
+$countUsers = $user->countUsers();
 $resultNewestMember = $user->newestMember();
+$countComments = $comment->countComments($userId);
 $newestMember = array();
 foreach($resultNewestMember as $newKey => $newValue) {
     $newestMember[] = $newValue;

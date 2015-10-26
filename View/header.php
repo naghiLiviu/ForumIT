@@ -5,7 +5,7 @@
  * Date: 10/26/15
  * Time: 12:03 PM
  */
-include '../Controller/FooterController.php';
+include '../Controller/HeaderController.php';
 ?>
 <div class="header">
                 <span class="headerLeft">
@@ -17,7 +17,7 @@ include '../Controller/FooterController.php';
                 </span>
                 <span class="headerRight">
                     <form method="get" action="search.php" id="searchform">
-                        <input type="text" name="name" placeholder="Search  your topic">
+                        <input type="text" name="SearchName" placeholder="Search your topic">
                         <input type="submit" name="submit" value="Search" class = "button1">
                     </form>
                 </span>
@@ -25,8 +25,9 @@ include '../Controller/FooterController.php';
 <div class="user">
                 <span class="userDetail">
                     <?php
-                    if (isset($_SESSION['userId']) || $_SESSION['userId'] != null) {
-                        require("userbox.php");
+
+                    if (isset($_SESSION['userId']) && $_SESSION['userId'] != null) {
+                       include 'userbox.php';
                     }
                     ?>
 </span>
@@ -40,8 +41,8 @@ include '../Controller/FooterController.php';
                 </span>
 <span class="userOption">
                     <a href="index.php">Home | </a>
-                    <a href="member.php">Members | </a>
-                    <a href="View/faq.php">FAQ | </a>
+                    <a href="../member.php">Members | </a>
+                    <a href="faq.php">FAQ | </a>
 
 <?php
     echo $registerLink;

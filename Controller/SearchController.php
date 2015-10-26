@@ -11,12 +11,13 @@ include('../Utils/sessions.php');
 include('../Model/AbstractModel.php');
 include('../Model/Topic.php');
 include('../Model/Comment.php');
+include('../Utils/View/Common.html');
 
 
 $topic = new Topic ();
 $comment = new Comment();
 
-
+$topicId = $_GET["topicId"];
 $searchTopic = $_GET['SearchName'];
 $searchMessage = '';
 $searchValue = '';
@@ -38,6 +39,7 @@ else  {
                 'SectionName' => $row['SectionName'],
                 'TopicName' => $row['TopicName'],
                 'TopicCount' => $resultComment,
+                'TopicId' => $topicId
             );
 
         }

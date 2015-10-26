@@ -1,7 +1,4 @@
 <?php
-
-include '../Utils/sessions.php';
-
 $registerLink = '';
 $loginLink = '';
 $logoutLink = '';

@@ -4,7 +4,7 @@ include '../Controller/FooterController.php';
 <div class="footer">
     <blockquote class="footerParagraph">Statistics</blockquote>
     <hr>
-    <p class="footerParagraph">Total posts <?php echo $numberComment; ?> &#149; Total topics <?php echo $numberTopic; ?> &#149; Total members <?php echo $numberUser; ?> &#149; Our newest
+    <p class="footerParagraph">Total posts <?php echo $countComments; ?> &#149; Total topics <?php echo $countTopics; ?> &#149; Total members <?php echo $countUsers; ?> &#149; Our newest
         member <?php echo $newestMember[0]["UserName"]; ?></p>
 
     <div class="footerOption">

@@ -5,11 +5,10 @@ include '../Controller/SearchController.php';
 
 <body class="mainbody">
 <div class="container">
-    <?php require("../header.php"); ?>
+<?php require("header.php"); ?>
     <div class="regform">
         <?php
         echo $searchValue;
-
         ?>
         <table border="1">
             <tr>
@@ -26,7 +25,7 @@ include '../Controller/SearchController.php';
                     <tr>
                     <td><?php echo $topicRow['SectionName']; ?></td>
                     <td>
-                        <a href="../comment.php?topicId=<?php echo $topicId; ?>"><?php echo $topicRow['TopicName']; ?></a>
+                        <a href="../comment.php?topicId=<?php echo $topicRow['TopicId']; ?>"><?php echo $topicRow['TopicName']; ?></a>
                     </td>
                     <td><?php echo $topicRow['TopicCount']; ?></td>
                 <?php }
@@ -37,6 +36,6 @@ include '../Controller/SearchController.php';
             ?>
         </table>
     </div>
-    <?php require ("../footer.php"); ?>
+    <?php require ("footer.php"); ?>
 </div>
 </body>

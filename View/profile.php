@@ -5,15 +5,12 @@
  * Date: 10/23/15
  * Time: 4:53 PM
  */
+include '../Controller/ProfileController.php';
 ?>
-<html>
-<head>
-    <link rel='stylesheet' href="../View/style.css">
-</head>
 <body class="mainbody">
 <script src="../View/profileValidation.js"></script>
 <div class="container">
-    <?php require_once('../header.php'); ?>
+    <?php require_once('header.php'); ?>
 
     <div class="regform">
         <h2>User Profile Page</h2>
@@ -150,7 +147,7 @@
         </form>
 
     </div>
-    <?php require_once('../footer.php'); ?>
+    <?php require_once('footer.php'); ?>
 </div>
 </body>
 </html>

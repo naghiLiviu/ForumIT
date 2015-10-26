@@ -1,22 +1,11 @@
 <?php
 include '../Controller/IndexController.php';
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <script src="../https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <title>ForumIT</title>
-    <link rel="icon" href="../img/forum.gif" type="image/x-icon">
-    <link rel='stylesheet' href="style.css">
-    <meta name="description" content="Forum">
-    <meta name="keywords" content="IT">
-    <meta name="author" content="Minions">
-    <script src="scripting.js"></script>
-</head>
+
 <body class="mainbody">
 <script src="validationLogin.js"></script>
 <div class="container">
-    <?php require_once('../header.php'); ?>
+    <?php include 'header.php'; ?>
 
     <div class="content">
 
@@ -50,17 +39,17 @@ include '../Controller/IndexController.php';
         </table>
 
 
-        <?php require("../footer.php"); ?>
+        <?php include 'footer.php'; ?>
     </div>
     <script>
-        var sectionId =<?php echo $sectionId; ?>;
-        function deleteFunction(sectionId) {
-            if (confirm("Are you sure you want to delete this section?") == true) {
-                window.location.href = ("deleteSection.php?sectionId=" + sectionId);
-            } else {
-                window.location.href = ("../View/index.php");
-            }
-        }
+//        var sectionId =<?php //echo $sectionId; ?>//;
+//        function deleteFunction(sectionId) {
+//            if (confirm("Are you sure you want to delete this section?") == true) {
+//                window.location.href = ("deleteSection.php?sectionId=" + sectionId);
+//            } else {
+//                window.location.href = ("../View/index.php");
+//            }
+//        }
 
     </script>
 </body>
