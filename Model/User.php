@@ -73,4 +73,14 @@ class User extends AbstractModel
 
     }
 
+    public  function getUserDetail($userId) {
+        $sqlString = 'SELECT * FROM User
+                      JOIN Role ON User.RoleId = Role.RoleId
+                      JOIN ContactDetail ON ContactDetail.UserId = User.UserId
+                      WHERE User.UserId = "' . $userId . '"';
+        $result = $this->query($sqlString);
+
+        return $result;
+    }
+
 }
