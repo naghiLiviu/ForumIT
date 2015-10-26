@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: isabela
@@ -7,7 +8,8 @@
  */
 class Topic extends AbstractModel
 {
-    public function getTopic($sectionId) {
+    public function getTopic($sectionId)
+    {
 
         $sqlString = 'SELECT * FROM Topic
                       LEFT JOIN Comment ON Comment.TopicId = Topic.TopicId
@@ -20,5 +22,14 @@ class Topic extends AbstractModel
         return $result;
     }
 
+    public function searchTopicAndSection($data){
+        $sqlString = 'SELECT * FROM Topic
+            LEFT JOIN Section
+            ON Topic.SectionId=Section.SectionId
+            WHERE TopicName LIKE  "%' . $data . '%" OR SectionName LIKE "%' . $data . '%"  ';
+        $result = $this->query($sqlString);
+        return $result;
 
+
+    }
 }
