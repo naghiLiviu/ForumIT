@@ -6,7 +6,7 @@
  * Time: 10:59 AM
  */
 //die('3');
-include('../Utils/sessions.php');
+//include('../Utils/sessions.php');
 
 include('../Model/AbstractModel.php');
 include('../Model/Topic.php');
