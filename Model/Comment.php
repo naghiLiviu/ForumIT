@@ -31,4 +31,14 @@ class Comment extends AbstractModel
         $result = $this->query($sqlString);
         return $result;
     }
+
+    public  function getCommentWithTopicId($topicId) {
+        $sqlString = 'SELECT * FROM Comment
+                      LEFT JOIN User ON Comment.UserId = User.UserId
+                      WHERE Comment.TopicId = "' . $topicId . '" AND Comment.CommentStatus="Active"
+                      ORDER BY Comment.CommentId DESC';
+        $result = $this->query($sqlString);
+
+        return $result;
+    }
 }

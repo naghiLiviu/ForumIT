@@ -42,5 +42,10 @@ class Topic extends AbstractModel
         return $countTopics;
     }
 
+    public function getTopicWithSectionId($sectionId) {
+        $sqlString = 'SELECT * FROM Topic WHERE SectionId = "' . $sectionId . '" AND TopicStatus = "Active"';
+        $result = $this->query($sqlString);
 
+        return $result;
+    }
 }
