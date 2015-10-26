@@ -1,4 +1,7 @@
-<?php include '../Controller/TopicController.php'; ?>
+<?php
+include '../Controller/TopicController.php';
+include '../Utils/View/Common.html';
+?>
 <body class="mainbody">
 <div class="container">
     <?php include 'header.php'; ?>
@@ -23,11 +26,11 @@
             foreach ($topics as $topic) {
             ?>
                 <tr>
-                    <td><?php $topic['TopicName']; ?></td>
-                    <td><?php $topic['Comments']; ?></td>
-                    <td><?php $topic['LastPost']; ?></td>
-                    <?php $topic['EditTopic']; ?>
-                    <?php $topic['DeleteTopic']; ?>
+                    <td><?php echo $topic['TopicName']; ?></td>
+                    <td><?php echo $topic['Comments']; ?></td>
+                    <td><?php echo $topic['LastPost']; ?></td>
+                    <?php echo $topic['EditTopic']; ?>
+                    <?php echo $topic['DeleteTopic']; ?>
                 </tr>
             <?php
             }

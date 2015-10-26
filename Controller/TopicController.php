@@ -6,7 +6,7 @@
  * Time: 1:28 PM
  */
 
-//include '../Utils/sessions.php';
+include '../Utils/sessions.php';
 include '../Model/AbstractModel.php';
 include '../Model/Topic.php';
 include '../Model/Comment.php';
@@ -15,7 +15,7 @@ include '../Model/Role.php';
 $newTopic = new Topic();
 $newComment = new Comment();
 
-$sectionId = 1;
+$sectionId = $_GET['sectionId'];
 
 $topic = array();
 $topicRow = array();
