@@ -46,7 +46,7 @@ if ($_POST) {
                 }
             }
 
-            header("Location: ../index.php");
+            header("Location: ../View/index.php");
         } else {
             echo "<script> alert('Username or Password incorrect'); </script>";
 
