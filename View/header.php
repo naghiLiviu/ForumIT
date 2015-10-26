@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: my1-asus
@@ -7,6 +8,7 @@
  */
 include '../Controller/HeaderController.php';
 ?>
+
 <div class="header">
                 <span class="headerLeft">
                     <a href="index.php"><img src="../img/forum.gif" class="logo"></a>
@@ -27,7 +29,10 @@ include '../Controller/HeaderController.php';
                     <?php
 
                     if (isset($_SESSION['userId']) && $_SESSION['userId'] != null) {
-                       include 'userbox.php';
+
+                        include 'userbox.php';
+
+
                     }
                     ?>
 </span>
@@ -41,7 +46,7 @@ include '../Controller/HeaderController.php';
                 </span>
 <span class="userOption">
                     <a href="index.php">Home | </a>
-                    <a href="../member.php">Members | </a>
+                    <a href="member.php">Members | </a>
                     <a href="faq.php">FAQ | </a>
 
 <?php

@@ -37,7 +37,7 @@ foreach ($searchTopics as $value) {
 
 <div class="container">
     <?php
-    require('header.php');
+    require('View/header.php');
     ?>
     <div class="regform">
         <?php
@@ -197,7 +197,7 @@ foreach ($searchTopics as $value) {
         </script>
 
         <br><br>
-        <?php require_once('footer.php'); ?>
+        <?php require_once('View/footer.php'); ?>
     </div>
 
 </div>

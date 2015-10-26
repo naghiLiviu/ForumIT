@@ -1,5 +1,5 @@
 <?php
-use Utils\Db
+use Utils\Db;
 $userId = $_SESSION['userId'];
 $sqlPass = "SELECT Password FROM User WHERE User.UserId = '$userId'";
 $result = $mysqli->query($sqlPass);

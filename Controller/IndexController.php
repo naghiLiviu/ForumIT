@@ -1,12 +1,12 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: isabela
  * Date: 10/23/15
  * Time: 4:43 PM
  */
-//include '../Utils/sessions.php';
-
+session_start();
 include '../Model/AbstractModel.php';
 //include '../Model/User.php';
 include '../Model/Comment.php';
@@ -25,6 +25,7 @@ $role = new Role();
 
 $resultSection = $section->getSection();
 $sections = array();
+var_dump($_SESSION);
 foreach ($resultSection as $sectionKey => $sectionValue) {
     $editLink = '';
     $deleteLink = '';

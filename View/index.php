@@ -1,11 +1,14 @@
 <?php
+
+
 include '../Controller/IndexController.php';
 ?>
 
 <body class="mainbody">
 <script src="validationLogin.js"></script>
 <div class="container">
-    <?php include 'header.php'; ?>
+    <?php include 'header.php';
+    ?>
 
     <div class="content">
 
