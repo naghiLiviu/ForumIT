@@ -23,7 +23,7 @@
                               WHERE Comment.UserId = $userPostId";
                 $countPost=$mysqli->query( $userPost);
                 $NoPost = $countPost->num_rows;
-                echo "<tr><td><a href='userprofile.php?userId=$userPostId'>" . $post['UserName'] . "</a></td><td>" . $post['RoleName'] . "</td><td>$NoPost</td>";
+                echo "<tr><td><a href='../userprofile.php?userId=$userPostId'>" . $post['UserName'] . "</a></td><td>" . $post['RoleName'] . "</td><td>$NoPost</td>";
                 if($_SESSION["roleId"] == 1 || $_SESSION["roleId"] == 2){
 
                     echo '<td><button onclick="banFunction(' . $userPostId . ')">Ban</button></td>';
