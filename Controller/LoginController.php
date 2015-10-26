@@ -13,7 +13,6 @@ $comment = new Comment();
 if ($_POST) {
     if (!empty ($_POST['username']) && !empty ($_POST['password'])) {
         // check if username and password are in DB
-
         $result = $user->checkUser($_POST['username'], $_POST['password']);
         $userLoginArray = array();
         foreach ($result as $idValue) {
@@ -26,9 +25,6 @@ if ($_POST) {
             $_SESSION['message'] = "Welcome " . $userLoginArray[0]["UserName"] . " into your account!";
             $_SESSION['userId'] = $userLoginArray[0]["UserId"];
             $_SESSION["roleId"] = $userLoginArray[0]["RoleId"];
-
-
-            $userId = $userLoginArray[0]["UserId"];
 
             $countComments = $comment->countComments($userLoginArray[0]['UserId']);
 //
@@ -46,7 +42,6 @@ if ($_POST) {
 //                    $user->updateRole(Role::LEGEND_USER, $userLoginArray[0]["UserId"]);
 //                }
 //            }
-
             header("Location: ../View/index.php");
         } else {
             echo "<script> alert('Username or Password incorrect'); </script>";

@@ -6,15 +6,12 @@
  * Date: 10/23/15
  * Time: 4:43 PM
  */
-session_start();
+
 include '../Model/AbstractModel.php';
-//include '../Model/User.php';
 include '../Model/Comment.php';
 include '../Model/Section.php';
 include '../Model/Topic.php';
 include '../Model/Role.php';
-include '../Utils/View/Common.html';
-//include 'UserBoxController.php';
 
 
 //$user = new User();
@@ -25,7 +22,7 @@ $role = new Role();
 
 $resultSection = $section->getSection();
 $sections = array();
-var_dump($_SESSION);
+
 foreach ($resultSection as $sectionKey => $sectionValue) {
     $editLink = '';
     $deleteLink = '';

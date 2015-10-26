@@ -1,9 +1,9 @@
 <?php
-
-
+session_start();
+var_dump($_SESSION);
 include '../Controller/IndexController.php';
+include '../Utils/View/Common.html';
 ?>
-
 <body class="mainbody">
 <script src="validationLogin.js"></script>
 <div class="container">
