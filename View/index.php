@@ -28,33 +28,40 @@ include '../Controller/IndexController.php';
         </div>
         <table>
             <tr>
-                <?php
-                if ($_SESSION["roleId"] == 1) {
-                    echo "<th></th><th></th>";
-                } elseif ($_SESSION["roleId"] == 1 || $_SESSION["roleId"] == 2) {
-                    echo "<th></th>";
-                }
-                ?>
+                <th></th>
+                <th></th>
                 <th>Section</th>
                 <th>Topics</th>
                 <th>Posts</th>
                 <th>Last post</th>
             </tr>
             <?php
-            foreach($sections as $section) { ?>
+            foreach ($sections as $section) { ?>
                 <tr>
-                    <td> <?php echo $section['Section']?></td>
-                    <td><?php echo $section['Topics']?></td>
-                    <td><?php echo $section['Posts']?></td>
-                    <td><?php echo $section['LastPost']?></td>
+                    <td> <?php echo $section['editLink'] ?></td>
+                    <td> <?php echo $section['deleteLink'] ?></td>
+                    <td> <?php echo $section['Section'] ?></td>
+                    <td><?php echo $section['Topics'] ?></td>
+                    <td><?php echo $section['Posts'] ?></td>
+                    <td><?php echo $section['LastPost'] ?></td>
                 </tr>
             <?php } ?>
 
         </table>
 
 
-
-        <?php require("footer.php"); ?>
+        <?php require("../footer.php"); ?>
     </div>
+    <script>
+        var sectionId =<?php echo $sectionId; ?>;
+        function deleteFunction(sectionId) {
+            if (confirm("Are you sure you want to delete this section?") == true) {
+                window.location.href = ("deleteSection.php?sectionId=" + sectionId);
+            } else {
+                window.location.href = ("../View/index.php");
+            }
+        }
+
+    </script>
 </body>
 </html>
