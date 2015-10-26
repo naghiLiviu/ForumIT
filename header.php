@@ -35,7 +35,7 @@
                     <a href="View/faq.php">FAQ | </a>
                     <?php
                     if (!isset($_SESSION['userId']) || $_SESSION['userId'] == null) {
-                        echo "<a href=\"register.php\">Register |</a>";
+                        echo "Register |</a>";
                         echo "<a href=\"login.php\">Login</a>";
                     } else {
                         echo "<a href =\"logout.php\">Log out</a>";

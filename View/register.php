@@ -1,53 +1,15 @@
 <?php
-use Utils\Db
-// We check if all the fields are filled
-if (!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['emailConfirm']) && !empty($_POST['password'])
-    && !empty($_POST['passwordconf']) && !empty($_POST['antispam'])
-) {
-    // We take the values into variables
-    $user = $_POST['username'];
-    $email = $_POST['email'];
-    $emailconf = $_POST['emailConfirm'];
-    $pass = md5($_POST['password']);
-    $passconf = md5($_POST['passwordconf']);
-    $spam = $_POST['antispam'];
-    $checkuser = "SELECT * FROM User WHERE UserName = '$user'";
-    $selectuser = $mysqli->query($checkuser);
-    $checkemail = "SELECT * FROM User WHERE Email = '$email'";
-    $selectemail = $mysqli->query($checkemail);
-
-    // we check if the username already exists in DB
-    if ($selectuser->num_rows) {
-        $_SESSION['register'] = "Username already exists!";
-    } else {
-        // we check if the email already exists in DB
-        if ($selectemail->num_rows) {
-            $_SESSION['register'] = "Email already exists!";
-        } else {
-            //we check if the email, password and spam match and we will insert data in DB
-            if ($email == $emailconf && $pass == $passconf && $spam == 6) {
-                $result = "INSERT INTO User (Email, Password, UserName, RoleId) VALUES ('$email', '$pass', '$user', '6')";
-                $insert = $mysqli->query($result);
-                header("Location: login.php");
-            } else {
-                $_SESSION['register'] = "The inserted data do not match";
-            }
-        }
-    }
-} else {
-    $_SESSION['register'] = "Please fill in all the fields ";
-}
-
+include '../Controller/RegisterController.php';
+include '../Utils/Common.html';
 ?>
-
 
 <body class="mainbody">
 
-<script src="View/validateRegister.js"></script>
+<script src="validateRegister.js"></script>
 
 <div class="container">
 
-    <?php require_once('header.php'); ?>
+    <?php require_once('../header.php'); ?>
 
     <div class="regform">
 
@@ -121,6 +83,6 @@ if (!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['emai
 
     </div>
 
-    <?php require_once('footer.php'); ?>
+    <?php require_once('../footer.php'); ?>
 </div>
 </body>

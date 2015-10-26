@@ -7,20 +7,9 @@
  */
 
 include '../Controller/LoginController.php';
-
+include '../Utils/Common.html';
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <script src="../https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <title>ForumIT</title>
-    <link rel="icon" href="../img/forum.gif" type="image/x-icon">
-    <link rel='stylesheet' href="style.css">
-    <meta name="description" content="Forum">
-    <meta name="keywords" content="IT">
-    <meta name="author" content="Minions">
-    <script src="scripting.js"></script>
-</head>
+
 <body class="mainbody">
 <script src="validationLogin.js"></script>
 <div class="container">
@@ -68,13 +57,12 @@ include '../Controller/LoginController.php';
         ensure you read any forum rules as you navigate around the board.</p>
     <hr>
     <div class="buttons">
-        <a class="regButton" href="../register.php">
+        <a class="regButton" href="register.php">
             <Button class="button1">Register</Button>
         </a>
     </div>
 </div>
 <?php require_once('../footer.php'); ?>
 </body>
-</html>
 
 
