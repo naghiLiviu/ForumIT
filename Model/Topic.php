@@ -22,7 +22,9 @@ class Topic extends AbstractModel
         return $result;
     }
 
-    public function searchTopicAndSection($data){
+
+    public function searchTopicAndSection($data)
+    {
         $sqlString = 'SELECT * FROM Topic
             LEFT JOIN Section
             ON Topic.SectionId=Section.SectionId
@@ -30,6 +32,15 @@ class Topic extends AbstractModel
         $result = $this->query($sqlString);
         return $result;
 
-
     }
+
+    public function countTopics()
+    {
+        $sqlString = 'SELECT TopicId FROM Topic';
+        $result = $this->query($sqlString);
+        $countTopics = $result->num_rows;
+        return $countTopics;
+    }
+
+
 }

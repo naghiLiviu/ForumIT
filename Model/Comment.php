@@ -19,11 +19,16 @@ class Comment extends AbstractModel
         $countComment = $result->num_rows;
         return $countComment;
     }
-    public function countCommentsByTopicId($topicId)
-    {
+    public function countCommentsByTopicId($topicId) {
         $result = $this->query('SELECT * FROM Comment WHERE TopicId="' . $topicId . '"');
         $countComment = $result->num_rows;
         return $countComment;
 
+    }
+
+    public function selectComments() {
+        $sqlString = 'SELECT CommentId FROM Comment';
+        $result = $this->query($sqlString);
+        return $result;
     }
 }
