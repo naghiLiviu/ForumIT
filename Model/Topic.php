@@ -19,6 +19,11 @@ class Topic extends AbstractModel
 
         return $result;
     }
-
+    public function countTopics() {
+        $sqlString = 'SELECT TopicId FROM Topic';
+        $result = $this->query($sqlString);
+        $countTopics = $result->num_rows;
+        return $countTopics;
+    }
 
 }

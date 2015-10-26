@@ -59,4 +59,18 @@ class User extends AbstractModel
         $this->query($updateUser);
     }
 
+    public function countUsers() {
+        $sqlString = 'SELECT * FROM User';
+        $result = $this->query($sqlString);
+        $countUsers = $result->num_rows;
+        return $countUsers;
+    }
+
+    public function newestMember() {
+        $sqlString = 'SELECT UserId, UserName FROM User ORDER BY UserId DESC LIMIT 1';
+        $result = $this->query($sqlString);
+        return $result;
+
+    }
+
 }
