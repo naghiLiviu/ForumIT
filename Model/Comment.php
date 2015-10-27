@@ -41,4 +41,15 @@ class Comment extends AbstractModel
 
         return $result;
     }
+
+    public function insertCommentsIntoLastTopic($userId, $lastTopicId, $comment) {
+        $sqlString = 'INSERT INTO Comment (UserId, TopicId, Comment) VALUES ("' .  $userId . '", "' .  $lastTopicId . '", "' .  $comment . '")';
+        $this->query($sqlString);
+
+    }
+
+    public function newComment($userId, $topicId, $comment) {
+        $sqlString = 'INSERT INTO Comment (UserId, TopicId, Comment) VALUES ("' .  $userId . '", "' .  $topicId . '", "' .  $comment . '")';
+        $this->query($sqlString);
+    }
 }
