@@ -5,7 +5,7 @@
  * Date: 10/26/15
  * Time: 10:44 AM
  */
-include '../Model/User.php';
+//include '../Model/User.php';
 $userData = new User();
 
 

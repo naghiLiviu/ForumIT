@@ -1,11 +1,11 @@
-git <?php
+<?php
 /**
  * Created by PhpStorm.
  * User: isabela
  * Date: 10/26/15
  * Time: 2:57 PM
  */
-include ('../Utils/View/Common.html');
+
 include ('../Model/AbstractModel.php');
 include ('../Model/User.php');
 include ('../Model/Comment.php');

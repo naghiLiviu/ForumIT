@@ -1,9 +1,11 @@
 <?php
+include '../Utils/sessions.php';
 include ('../Controller/MemberController.php');
+include '../Utils/View/Common.html';
 ?>
 <body class="mainbody">
 <div class="container">
-    <?php require('header.php');
+    <?php include 'header.php';
     ?>
     <div class="content">
         <table>
@@ -25,41 +27,22 @@ include ('../Controller/MemberController.php');
 
 
                 <?php
-                if ($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR) {
-
-                    echo '<td><button onclick="banFunction(' . $member['UserId'] . ')">Ban</button></td>';
-                }
-                if ($_SESSION["roleId"] == Role::ADMIN) {
-                    echo '<td><button onclick="deleteFunction(' . $member['UserId'] . ')">Delete</button></td>';
-                }
-                echo "</tr>";
+//                if ($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR) {
+//
+//                    echo '<td><button onclick="banFunction(' . $member['UserId'] . ')">Ban</button></td>';
+//                }
+//                if ($_SESSION["roleId"] == Role::ADMIN) {
+//                    echo '<td><button onclick="deleteFunction(' . $member['UserId'] . ')">Delete</button></td>';
+//                }
+//                echo "</tr>";
             }
             ?>
 
 
-        <script>
-            var userPostId =<?php echo $userPostId; ?>;
-            function deleteFunction(userPostId) {
-                if (confirm("Press a button!") == true) {
-                    window.location.href =("deleteUser.php?deleteUserId=" + userPostId);
-                } else {
-                    window.location.href =("member.php");
-                }
-            }
-
-        </script>
-        <script>
-            function banFunction(userPostId) {
-                if (confirm("Press a button!") == true) {
-                    window.location.href =("banUser.php?banUserId=" + userPostId);
-                } else {
-                    window.location.href =("member.php");
-                }
-            }
-
-        </script>
+        <script src="deleteUser.js"></script>
+        <script src="banUser.js"></script>
 
     </div>
-    <?php require('footer.php'); ?>
+    <?php include 'footer.php'; ?>
 </div>
 </body>
