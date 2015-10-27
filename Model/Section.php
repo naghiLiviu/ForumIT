@@ -14,6 +14,12 @@ class Section extends AbstractModel
 
         return $result;
     }
+    public function newSection($data) {
+        $sqlString = 'INSERT INTO Section (SectionName) VALUES ("' . $data . '")';
+        $result = $this->query($sqlString);
+
+        return $result;
+    }
 }
 
 

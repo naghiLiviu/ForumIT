@@ -1,6 +1,13 @@
-<?php
-use Utils\Db;
+sgit sta<?php
+$section = new Section();
 
-$newSection = $_POST['newSectionName'];
 
-$mysqli->query("INSERT INTO Section (SectionName) VALUES ('$newSection')");
+$newSection = $_GET['newSection'];
+if(empty($newSection)){
+    $newValue = 'please insert a new Section';
+}
+else {
+    $resultSearch = $section->newSection($newSection);
+
+
+}
