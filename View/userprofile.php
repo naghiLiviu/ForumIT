@@ -49,6 +49,11 @@ include '../Utils/View/Common.html';
     </div>
 
 
-    <?php require_once('footer.php'); ?>
+    <?php
+
+    include 'footer.php';
+
+    ?>
+
 </div>
 </body>

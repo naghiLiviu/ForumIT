@@ -52,4 +52,17 @@ class Comment extends AbstractModel
         $sqlString = 'INSERT INTO Comment (UserId, TopicId, Comment) VALUES ("' .  $userId . '", "' .  $topicId . '", "' .  $comment . '")';
         $this->query($sqlString);
     }
+
+    public function selectCommentsByTopic($topicId) {
+        $sqlString = 'SELECT *  FROM Comment JOIN Topic
+                  ON Comment.TopicId = Topic.TopicId
+                  JOIN User
+                  ON Comment.UserId = User.UserId
+                  JOIN Role
+                  ON User.RoleId=Role.RoleId
+                  WHERE Topic.TopicId = "' .  $topicId . '" AND Comment.CommentStatus = "Active"
+                  ORDER BY Comment.CommentParentId ASC ';
+        $result = $this->query($sqlString);
+        return $result;
+    }
 }

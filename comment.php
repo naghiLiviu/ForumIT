@@ -5,9 +5,9 @@ use Utils\Db;
 <?php
 $topicId = $_GET['topicId'];
 if (!empty ($_POST['comment'])) {
-    $comm = $_POST['comment'];
-    $userId2 = $_SESSION['userId'];
-    $mysqli->query("INSERT INTO Comment (UserId, TopicId, Comment) VALUES ('$userId2', '$topicId', '$comm')");
+    $comment = $_POST['comment'];
+    $userId = $_SESSION['userId'];
+    $mysqli->query("INSERT INTO Comment (UserId, TopicId, Comment) VALUES ('$userId', '$topicId', '$comment')");
 }
 ?>
 <?php
@@ -84,7 +84,7 @@ foreach ($searchTopics as $value) {
                     <p> Posts: <?php echo "$count"; ?></p>
                     <?php
                     if ($_SESSION["userId"] == 1 || $_SESSION["userId"] == 2 || $_SESSION["userId"] == $userId) {
-                        echo "<a href=\"editComment.php?commentId=$commentId&topicId=$topicId\">Edit          |</a>";
+                        echo ">Edit          |</a>";
                         echo "<button class=\"deleteButton\" onclick=\"deleteFunction(' . $commentId . ')\">Delete</button>";
 //                            <a href=\"deleteComment.php?commentId=$commentId&topicId=$topicId\">Delete</a>";
                     }

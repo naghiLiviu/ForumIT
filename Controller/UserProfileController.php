@@ -6,12 +6,11 @@
  * Time: 12:50 PM
  */
 include('../Model/AbstractModel.php');
-
-
 include '../Utils/sessions.php';
 include '../Model/Role.php';
 include '../Model/Comment.php';
 include '../Model/User.php';
+
 
 
 
@@ -40,7 +39,7 @@ foreach ($userProfile as $value) {
         $role = 'N/A';
     }
     $registerDate = $value['RegisterDate'];
-    $picture = $value["Picture"];
+    $picture = $value['Picture'];
 
 
     $userProfileArray = array(

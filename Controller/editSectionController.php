@@ -9,6 +9,7 @@ include '../Utils/sessions.php';
 include '../Utils/View/Common.html';
 include '../Model/AbstractModel.php';
 include '../Model/Section.php';
+include '../Model/User.php';
 
 
 $section = new Section();

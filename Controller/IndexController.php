@@ -12,7 +12,7 @@ include '../Model/Comment.php';
 include '../Model/Section.php';
 include '../Model/Topic.php';
 include '../Model/Role.php';
-//include '../Model/User.php';
+include '../Model/User.php';
 
 
 //$user = new User();

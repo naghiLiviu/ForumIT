@@ -1,8 +1,9 @@
 <body class="mainbody">
 <div class="container">
-    <?php include('header.php');
-    include '../Utils/View/Common.html';?>
-    <script></script>
+    <?php
+    include('header.php');
+    include '../Utils/View/Common.html';
+    include '../Utils/sessions.php';?>
     <div class="regform">
 
         <h2>Frequently Asked Questions</h2>
@@ -47,6 +48,8 @@
         </p>
 
     </div>
-    <?php require_once('footer.php'); ?>
+    <?php
+    include 'footer.php';
+    ?>
 </div>
 </body>

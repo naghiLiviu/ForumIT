@@ -16,6 +16,7 @@
 
 $comment = new Comment();
 $topic = new Topic();
+//die('dupa topic obj');
 $user = new User();
 $userId = $_GET['userId'];
 $resultNumberComment = $comment->selectComments();

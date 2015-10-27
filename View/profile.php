@@ -136,7 +136,7 @@ include '../Controller/ProfileController.php';
                     <input type="number" name="antispam" title="Anti Spam">
                 </dd>
             </dl>
-            <a href="changepass.php" class="button1">Change Password</a>
+            <a href="../changepass.php" class="button1">Change Password</a>
 
             <div class="buttons">
                 <a href="register.php">
