@@ -1,13 +1,10 @@
 <?php
+
+include '../Model/AbstractModel.php';
+include '../Model/Section.php';
+
 $section = new Section();
 
+$newSection = $_POST['newSectionName'];
 
-$newSection = $_GET['newSection'];
-if(empty($newSection)){
-    $newValue = 'please insert a new Section';
-}
-else {
-    $resultSearch = $section->newSection($newSection);
-
-
-}
+$section->newSection($newSection);

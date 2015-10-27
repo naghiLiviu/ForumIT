@@ -11,7 +11,7 @@ include '../Utils/View/Common.html';
     ?>
 
     <div class="content">
-
+        <button id="newSection">New Section</button>
         <div id="hiddenForm">
             <p>New section name:</p>
             <input type="text" id="newSectionName" title="inputNewSectionName">
@@ -20,8 +20,14 @@ include '../Utils/View/Common.html';
         </div>
         <table>
             <tr>
-                <th></th>
-                <th></th>
+                <?php
+                if ($_SESSION['roleId'] == Role::ADMIN || $_SESSION['roleId'] == Role::MODERATOR) {
+                    echo '<th></th>';
+                }
+                if ($_SESSION['userId'] == Role::ADMIN) {
+                    echo '<th></th>';
+                }
+                ?>
                 <th>Section</th>
                 <th>Topics</th>
                 <th>Posts</th>
@@ -31,8 +37,14 @@ include '../Utils/View/Common.html';
             foreach ($sections as $section) {
                 ?>
                 <tr>
-                    <td> <?php echo $section['editLink']; ?></td>
-                    <td> <?php echo $section['deleteLink']; ?></td>
+                    <?php
+                    if ($_SESSION['roleId'] == Role::ADMIN || $_SESSION['roleId'] == Role::MODERATOR) {
+                        echo '<td>' . $section['editLink'] . '</td>';
+                    }
+                    if ($_SESSION['roleId'] == Role::ADMIN) {
+                        echo '<td>' . $section['deleteLink'] . '</td>';
+                    }
+                    ?>
                     <td> <?php echo $section['Section']; ?></td>
                     <td><?php echo $section['Topics']; ?></td>
                     <td><?php echo $section['Posts']; ?></td>
@@ -46,16 +58,13 @@ include '../Utils/View/Common.html';
 
         <?php include 'footer.php';?>
     </div>
+    <script src="newSectionForm.js"></script>
+    <script src="postNewSection.js"></script>
     <script>
-//        var sectionId =<?php //echo $sectionId; ?>//;
-//        function deleteFunction(sectionId) {
-//            if (confirm("Are you sure you want to delete this section?") == true) {
-//                window.location.href = ("deleteSection.php?sectionId=" + sectionId);
-//            } else {
-//                window.location.href = ("../View/index.php");
-//            }
-//        }
-
+        $(document).ready(function () {
+            var userId = <?php echo $_SESSION["userId"];?>;
+        });
     </script>
+    <script src="deleteSection.js"></script>
 </body>
 </html>

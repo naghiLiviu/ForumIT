@@ -6,7 +6,7 @@
  * Time: 4:39 PM
  */
 
-//include ('../Utils/sessions.php');
+include ('../Utils/sessions.php');
 
 include '../Model/AbstractModel.php';
 include '../Model/User.php';
@@ -35,7 +35,7 @@ if($_POST) {
 }
 
 
-$sqlemail = $contactData->selectUserData($userId, $pass);
+$sqlemail = $contactData->getEmail($userId);
 $myEmail = array();
 foreach ($sqlemail as $emailKey => $emailValue) {
     $myEmail[] = $emailValue;
