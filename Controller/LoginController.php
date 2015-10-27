@@ -1,8 +1,8 @@
 <?php
 
-include ('../Utils/sessions.php');
+include '../Utils/sessions.php';
 
-include ('../Model/AbstractModel.php');
+include '../Model/AbstractModel.php';
 include '../Model/User.php';
 include '../Model/Comment.php';
 include '../Model/Role.php';
@@ -25,9 +25,7 @@ if ($_POST) {
             $_SESSION['message'] = "Welcome " . $userLoginArray[0]["UserName"] . " into your account!";
             $_SESSION['userId'] = $userLoginArray[0]["UserId"];
             $_SESSION["roleId"] = $userLoginArray[0]["RoleId"];
-
             $countComments = $comment->countComments($userLoginArray[0]['UserId']);
-//
 //            if (
 //                $userLoginArray[0]["RoleId"] != Role::ADMIN &&
 //                $userLoginArray[0]["RoleId"] != Role::MODERATOR &&
@@ -42,10 +40,10 @@ if ($_POST) {
 //                    $user->updateRole(Role::LEGEND_USER, $userLoginArray[0]["UserId"]);
 //                }
 //            }
-            header("Location: ../View/index.php");
+
+            header('Location: index.php');
         } else {
             echo "<script> alert('Username or Password incorrect'); </script>";
-
         }
 
     }
