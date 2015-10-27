@@ -48,4 +48,10 @@ class Topic extends AbstractModel
 
         return $result;
     }
+
+    public function newTopic($sectionId, $topicName) {
+        $sqlString = 'INSERT INTO Topic (SectionId, TopicName) VALUES ("' .  $sectionId . '", "' .  $topicName . '")';
+        $this->query($sqlString);
+
+    }
 }

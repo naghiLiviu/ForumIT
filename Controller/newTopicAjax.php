@@ -1,14 +1,18 @@
 <?php
+include '../Model/AbstractModel.php';
+include '../Model/Topic.php';
+include '../Model/Comment.php';
 
-$mysqli = new mysqli ('localhost', 'root', 'root', 'ForumIT');
+$insertTopic = new Topic();
+$insertComment = new Comment();
 
-$newTopic = $_POST['newTopicName'];
+$topicName = $_POST['newTopicName'];
 $sectionId = $_POST["sectionId"];
 $newComment = $_POST ['newTopicComment'];
 $userId = $_POST['userId'];
 
-$mysqli->query("INSERT INTO Topic (SectionId, TopicName) VALUES ('$sectionId', '$newTopic')");
+$addTopic = $insertTopic->newTopic($sectionId, $topicName);
 
 $lastTopicId = $mysqli->insert_id;
 
-$mysqli->query("INSERT INTO Comment (UserId, TopicId, Comment) VALUES ('$userId','$lastTopicId','$newComment')");
+$addComment = $insertComment->insertCommentsIntoLastTopic($userId, $lastTopicId, $comment);
