@@ -20,6 +20,10 @@ class Section extends AbstractModel
 
         return $result;
     }
+    public function deleteSection($sectionId) {
+        $sqlString = 'UPDATE Section SET SectionStatus="Deleted" WHERE SectionId= "' . $sectionId . '"';
+        $this->query($sqlString);
+    }
 }
 
 
