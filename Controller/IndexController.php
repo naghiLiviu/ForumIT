@@ -12,7 +12,7 @@ include '../Model/Comment.php';
 include '../Model/Section.php';
 include '../Model/Topic.php';
 include '../Model/Role.php';
-include '../Model/User.php';
+//include '../Model/User.php';
 
 
 //$user = new User();
@@ -33,7 +33,7 @@ foreach ($resultSection as $sectionKey => $sectionValue) {
 
     if ($sectionValue["SectionStatus"] == "Active") {
         if ($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR) {
-            $editLink = '<a href="../View/editSection.php">Edit</a>';
+            $editLink = '<a href="../View/editSection.php?sectionId=' . $sectionValue['SectionId'] . '">Edit</a>';
 
             if ($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR) {
                 $deleteLink = '<button class="deleteButton" onclick="deleteFunction(' . $sectionId . ')">Delete</button>';
@@ -53,6 +53,7 @@ foreach ($resultSection as $sectionKey => $sectionValue) {
         $lastPost = $topicArray[0]["UserName"];
         $sectionRow = array(
             'Section' => $sectionValue['SectionName'],
+            'SectionId' => $sectionValue['SectionId'],
             'Topics' => $countTopic,
             'Posts' => $countPosts,
             'LastPost' => $lastPost,

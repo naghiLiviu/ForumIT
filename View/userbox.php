@@ -1,4 +1,8 @@
-<?php include '../Controller/UserBoxController.php';?>
+<?php
+
+include '../Controller/UserBoxController.php';
+?>
+
 <span class="userProfile">
 <img src="<?php echo $userArray[0]['Picture']; ?>" class='userPhoto'>
 </span>

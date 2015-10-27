@@ -1,23 +1,15 @@
 <?php
-use Utils\Db;
-$sectionId = $_GET["sectionId"];
-$result = $mysqli->query("SELECT SectionName FROM Section WHERE SectionId = '$sectionId '");
-$sectionArray = array();
-foreach($result as $key => $value){
-    $sectionArray[] = $value;
-}
-if (!empty ($_POST['section'])) {
-    $section = $_POST['section'];
-    $mysqli->query("UPDATE Section SET SectionName='$section' WHERE SectionId = '$sectionId'");
-    header("Location: index.php");
-}
+
+include ('../Controller/editSectionController.php');
 
 ?>
 
 <body class="mainbody">
 <div class="container">
     <?php
-    require('header.php');
+
+    include('header.php');
+
     ?>
 
     <div class="regform">
@@ -35,7 +27,7 @@ if (!empty ($_POST['section'])) {
         <br><br>
     </div>
 
-    <?php require_once('footer.php'); ?>
+    <?php include('footer.php'); ?>
 </div>
 </body>
 </html>

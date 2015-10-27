@@ -45,7 +45,8 @@ include '../Utils/View/Common.html';
                         echo '<td>' . $section['deleteLink'] . '</td>';
                     }
                     ?>
-                    <td> <?php echo $section['Section']; ?></td>
+<!--                    <td><a href="editSection.php?sectionId=--><?php //echo $section['SectionId'];?><!-- ">Edit</a></td>-->
+                    <td><a href="topic.php?sectionId=<?php echo $section['SectionId'];?> "> <?php echo $section['Section']; ?></a></td>
                     <td><?php echo $section['Topics']; ?></td>
                     <td><?php echo $section['Posts']; ?></td>
                     <td><?php echo $section['LastPost']; ?></td>

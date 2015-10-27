@@ -24,6 +24,19 @@ class Section extends AbstractModel
         $sqlString = 'UPDATE Section SET SectionStatus="Deleted" WHERE SectionId= "' . $sectionId . '"';
         $this->query($sqlString);
     }
+    public function editSection($sectionId, $sectionToEdit)
+    {
+        $sqlString = 'UPDATE Section SET SectionName="' . $sectionToEdit .'" WHERE SectionId = "' . $sectionId . '"';
+
+        $this->query($sqlString);
+    }
+    public function getSectionById($data)
+    {
+        $sqlString = 'SELECT * FROM Section WHERE SectionStatus = "Active" AND SectionId= "' . $data . '"';
+        $result = $this->query($sqlString);
+
+        return $result;
+    }
 }
 
 
