@@ -9,7 +9,7 @@ include '../Utils/View/Common.html';
         <div class="leftpart">
             <?php
 
-            echo 'Picture: <img src="' . $userProfileArray['UserName'] .  '" class="userPhoto">';
+            echo 'Picture: <img src="../' . $userProfileArray['Picture'] .  '" class="userPhoto">';
             echo "<br>";
             echo "User Name: " . $userProfileArray['UserName'];
             echo "<br>";
