@@ -121,4 +121,10 @@ class User extends AbstractModel
         return $result;
     }
 
+    public function getEmail($userId) {
+        $sqlString = 'SELECT Email from User WHERE UserId = "' . $userId . '"';
+        $result = $this->query($sqlString);
+        return $result;
+    }
+
 }
