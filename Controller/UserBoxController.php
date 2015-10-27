@@ -16,5 +16,7 @@ $getUserData = $userData->getUserDetail($userId);
 $userArray = array();
 
 foreach ($getUserData as $userValue) {
+
     $userArray[] = $userValue;
+
 }

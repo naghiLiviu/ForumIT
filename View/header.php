@@ -7,6 +7,7 @@
  * Time: 12:03 PM
  */
 include '../Controller/HeaderController.php';
+
 ?>
 
 <div class="header">
@@ -33,14 +34,19 @@ include '../Controller/HeaderController.php';
                         include 'userbox.php';
 
 
+
+
                     }
                     ?>
 </span>
 <span class="userDetail">
                       <?php
+
                       if (!empty($_SESSION['message'])) {
                           echo $_SESSION['message'];
+
                           $_SESSION['message'] = null;
+
                       }
                       ?>
                 </span>
@@ -50,6 +56,7 @@ include '../Controller/HeaderController.php';
                     <a href="faq.php">FAQ | </a>
 
 <?php
+
     echo $registerLink;
     echo $loginLink;
     echo $logoutLink;

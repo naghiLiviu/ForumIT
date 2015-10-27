@@ -1,4 +1,4 @@
-sgit sta<?php
+<?php
 $section = new Section();
 
 

@@ -6,6 +6,9 @@
  * Date: 10/22/15
  * Time: 1:55 PM
  */
+
+//include '../Model/AbstractModel.php';
+
 class User extends AbstractModel
 {
     public function checkUser($username, $password)

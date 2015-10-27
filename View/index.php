@@ -1,13 +1,13 @@
 <?php
-session_start();
-var_dump($_SESSION);
+
 include '../Controller/IndexController.php';
 include '../Utils/View/Common.html';
 ?>
 <body class="mainbody">
 <script src="validationLogin.js"></script>
 <div class="container">
-    <?php include 'header.php';
+    <?php
+    include 'header.php';
     ?>
 
     <div class="content">
@@ -28,21 +28,23 @@ include '../Utils/View/Common.html';
                 <th>Last post</th>
             </tr>
             <?php
-            foreach ($sections as $section) { ?>
+            foreach ($sections as $section) {
+                ?>
                 <tr>
-                    <td> <?php echo $section['editLink'] ?></td>
-                    <td> <?php echo $section['deleteLink'] ?></td>
-                    <td> <?php echo $section['Section'] ?></td>
-                    <td><?php echo $section['Topics'] ?></td>
-                    <td><?php echo $section['Posts'] ?></td>
-                    <td><?php echo $section['LastPost'] ?></td>
+                    <td> <?php echo $section['editLink']; ?></td>
+                    <td> <?php echo $section['deleteLink']; ?></td>
+                    <td> <?php echo $section['Section']; ?></td>
+                    <td><?php echo $section['Topics']; ?></td>
+                    <td><?php echo $section['Posts']; ?></td>
+                    <td><?php echo $section['LastPost']; ?></td>
                 </tr>
-            <?php } ?>
+            <?php
+            } ?>
 
         </table>
 
 
-        <?php include 'footer.php'; ?>
+        <?php include 'footer.php';?>
     </div>
     <script>
 //        var sectionId =<?php //echo $sectionId; ?>//;

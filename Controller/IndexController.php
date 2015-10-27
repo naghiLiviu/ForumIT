@@ -6,12 +6,13 @@
  * Date: 10/23/15
  * Time: 4:43 PM
  */
-
+include '../Utils/sessions.php';
 include '../Model/AbstractModel.php';
 include '../Model/Comment.php';
 include '../Model/Section.php';
 include '../Model/Topic.php';
 include '../Model/Role.php';
+include '../Model/User.php';
 
 
 //$user = new User();
