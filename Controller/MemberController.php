@@ -27,17 +27,3 @@ foreach ($resultMember as $member) {
 $members[] = $member;
 
 }
-
-
-
-//                echo "<tr><td><a href='../userprofile.php?userId=$userPostId'>" . $post['UserName'] . "</a></td><td>" . $post['RoleName'] . "</td><td>$NoPost</td>";
-//                if($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR){
-//
-//                    echo '<td><button onclick="banFunction(' . $userPostId . ')">Ban</button></td>';
-//                }
-//                if($_SESSION["roleId"] == 1){
-//                    echo '<td><button onclick="deleteFunction(' . $userPostId . ')">Delete</button></td>';
-//                }
-//                echo "</tr>";
-//            }
-//

@@ -8,12 +8,12 @@
 
 class Comment extends AbstractModel
 {
-    public $mysqli;
-    function __construct() {
-        if(empty($this->mysqli)) {
-            $this->mysqli = new Db();
-        }
-    }
+//    public $mysqli;
+//    function __construct() {
+//        if(empty($this->mysqli)) {
+//            $this->mysqli = new Db();
+//        }
+//    }
     public function countComments($userId) {
         $result = $this->query("SELECT CommentId FROM Comment WHERE UserId = '$userId'");
         $countComment = $result->num_rows;

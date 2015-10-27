@@ -17,7 +17,7 @@ include ('../Controller/MemberController.php');
                 ?>
                 <tr>
                     <td>
-                        <a href="userProfile.php?userId=<?php echo $member['UserId']; ?>"><?php echo $member['UserName']; ?></a>
+                        <a href="userprofile.php?userId=<?php echo $member['UserId']; ?>"><?php echo $member['UserName']; ?></a>
                     </td>
                     <td><?php echo $member['RoleName']; ?></td>
                     <td><?php echo $member['NumberPosts']; ?></td>

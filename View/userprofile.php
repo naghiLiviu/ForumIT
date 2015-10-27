@@ -1,36 +1,6 @@
-<?php use Utils\Db; ?>
 <?php
-$memberId = $_GET['userId'];
-
-$sqlResult = "SELECT * FROM User
-                  JOIN Role
-                  ON User.RoleId = Role.RoleId
-                  LEFT JOIN Comment
-                  ON Comment.UserId = User.UserId
-                  LEFT JOIN ContactDetail
-                  ON ContactDetail.UserId = User.UserId
-                  WHERE User.UserId =  '$memberId' ";
-$userDetail = $mysqli->query($sqlResult);
-$countPost = $userDetail->num_rows;
-foreach ($userDetail as $value) {
-    if (!empty($value ['UserName'])) {
-        $detailName = $value['UserName'];
-    } else {
-        $detailName = 'N/A';
-    }
-    if (!empty ($value ['Email'])) {
-        $detailEmail = $value ['Email'];
-    } else {
-        $detailEmail = 'N/A';
-    }
-    if (!empty($value['RoleName'])) {
-        $role = $value['RoleName'];
-    } else {
-        $role = 'N/A';
-    }
-    $registerDate = $value['RegisterDate'];
-    $picture = $value["Picture"];
-}
+include '../Controller/UserProfileController.php';
+include '../Utils/View/Common.html';
 ?>
 <body class="mainbody">
 <div class="container">
@@ -38,25 +8,27 @@ foreach ($userDetail as $value) {
     <div class="regform">
         <div class="leftpart">
             <?php
-            echo "Picture: <img src=" . $picture . " class='userPhoto'>";
+
+            echo 'Picture: <img src="' . $userProfileArray['UserName'] .  '" class="userPhoto">';
             echo "<br>";
-            echo "User Name: $detailName";
+            echo "User Name: " . $userProfileArray['UserName'];
             echo "<br>";
-            echo "Email: $detailEmail";
+            echo "Email: " . $userProfileArray['Email'];
             echo "<br>";
-            echo "Rank : $role";
+            echo "Rank : " . $userProfileArray['RoleName'];
             echo "<br>";
             echo "Posts: $countPost";
 
             ?>
+
         </div>
 
         <div class="rightpart">
             <?php
-            echo "Register Date: $registerDate";
+            echo "Register Date: " . $userProfileArray['RegisterDate'];
             echo "<br>";
-            if ($_SESSION["roleId"] == 1) {
-                if ($role != "Admin") {
+            if ($_SESSION["roleId"] == Role::ADMIN) {
+//                if ($role != Role::ADMIN) {
                     ?>
                     <form method="post">
                         Promote as :
@@ -69,28 +41,8 @@ foreach ($userDetail as $value) {
                         <input type="submit" value="Submit" name="submitButton" class="button1">
                     </form>
                     <?php
-                }
             }
-            $dropDown = $_POST['dropDown'];
-            if ($_POST) {
-
-                if ($_POST['dropDown'] != "") {
-
-                    if ($dropDown == "admin") {
-
-                        $mysqli->query("UPDATE User SET User.RoleId = 1 WHERE User.UserId =  '$memberId' ");
-                        header("Location: member.php");
-                    }
-                    if ($dropDown == "moderator") {
-                        $mysqli->query("UPDATE User SET User.RoleId = 2 WHERE User.UserId =  '$memberId' ");
-                        header("Location: member.php");
-                    }
-                    $mysqli->close();
-                }
-            }
-            //
             ?>
-
 
         </div>
         <div class="clearFix"></div>
