@@ -9,7 +9,7 @@ class Section extends AbstractModel
 {
     public function getSection() {
 
-        $sqlString = 'SELECT * FROM Section';
+        $sqlString = 'SELECT * FROM Section WHERE SectionStatus = "Active" ';
         $result = $this->query($sqlString);
 
         return $result;
