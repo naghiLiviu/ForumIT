@@ -1,6 +1,6 @@
 <?php
 include '../Controller/RegisterController.php';
-include '../Utils/Common.html';
+include '../Utils/View/Common.html';
 ?>
 
 <body class="mainbody">
@@ -9,7 +9,7 @@ include '../Utils/Common.html';
 
 <div class="container">
 
-    <?php require_once('../header.php'); ?>
+    <?php require_once('header.php'); ?>
 
     <div class="regform">
 
@@ -83,6 +83,6 @@ include '../Utils/Common.html';
 
     </div>
 
-    <?php require_once('../footer.php'); ?>
+    <?php require_once('footer.php'); ?>
 </div>
 </body>
