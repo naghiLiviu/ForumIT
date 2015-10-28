@@ -25,7 +25,7 @@ include '../Controller/SearchController.php';
                     <tr>
                     <td><?php echo $topicRow['SectionName']; ?></td>
                     <td>
-                        <a href="../comment.php?topicId=<?php echo $topicRow['TopicId']; ?>"><?php echo $topicRow['TopicName']; ?></a>
+                        <a href="comment.php?topicId=<?php echo $topicRow['TopicId']; ?>"><?php echo $topicRow['TopicName']; ?></a>
                     </td>
                     <td><?php echo $topicRow['TopicCount']; ?></td>
                 <?php }
