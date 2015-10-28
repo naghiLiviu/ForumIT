@@ -27,6 +27,12 @@ class User extends AbstractModel
 
         $this->query($sqlString);
     }
+    public function banUser($banUserId, $banDate)
+    {
+        $sqlString = 'UPDATE User SET Ban = 1, BanDate = "' . $banDate . '" WHERE UserId = "' . $banUserId . '"';
+
+        $this->query($sqlString);
+    }
 
     public function updateRole($roleId, $userId)
     {
@@ -101,7 +107,7 @@ class User extends AbstractModel
         $sqlString = 'SELECT * FROM User
                       JOIN Role
                       ON User.RoleId = Role.RoleId
-                      WHERE User.UserStatus="Active"';
+                      WHERE User.UserStatus="Active" AND Ban =0 ';
         $result = $this->query($sqlString);
         return $result;
     }
