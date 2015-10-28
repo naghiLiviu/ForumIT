@@ -23,7 +23,8 @@ $resultNumberComment = $comment->selectComments();
 $countTopics = $topic->countTopics();
 $countUsers = $user->countUsers();
 $resultNewestMember = $user->newestMember();
-$countComments = $comment->countComments($userId);
+$comments = $comment->selectComments();
+$countComments = $comments->num_rows;
 $newestMember = array();
 
 foreach($resultNewestMember as $newKey => $newValue) {
