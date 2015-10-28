@@ -28,6 +28,9 @@ $deleteTopic = '';
 
 $resultTopic = $newTopic->getTopicWithSectionId($sectionId);
 
+if (isset($_SESSION['userId']) && $_SESSION['userId'] != null) {
+    $newTopicPost = '<button id="newTopicButton" class="button1" > Post a new topic </button >';
+}
 foreach ($resultTopic as $topicValue) {
     $topicRow[] = $topicValue;
     $commentLink = '<a href="comment.php?topicId=' . $topicValue['TopicId'] . '">' . $topicValue['TopicName'] . '</a>';
@@ -37,10 +40,6 @@ foreach ($resultTopic as $topicValue) {
 
     foreach ($resultComment as $commentValue) {
         $comment[] = $commentValue;
-    }
-
-    if (isset($_SESSION['userId']) && $_SESSION['userId'] != null) {
-        $newTopicPost = '<button id="newTopicButton" class="button1" > Post a new topic </button >';
     }
 
     if ($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR) {

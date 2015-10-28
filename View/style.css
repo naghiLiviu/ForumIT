@@ -222,6 +222,7 @@
     color: #787878;
     width: 70%;
     margin-left: 5px;
+    overflow: auto;
     border-radius: 25px;
 }
 
