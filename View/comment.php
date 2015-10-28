@@ -5,13 +5,15 @@
  * Date: 10/27/15
  * Time: 1:39 PM
  */
+include '../Controller/CommentController.php';
+include '../Utils/View/Common.html';
 ?>
 
 <body class="mainbody">
 
 <div class="container">
     <?php
-    require('View/header.php');
+    require('header.php');
     ?>
     <div class="regform">
         <?php
@@ -48,17 +50,19 @@
                     <p><cite><?php echo $valueCommentParrent['UserName']; ?></cite></p>
 
                     <p><?php echo $valueCommentParrent["RoleName"]; ?></p>
-                    <?php
-                    $userId = $valueCommentParrent['UserId'];
-                    $sqlStringP = "SELECT * FROM Comment
-                        WHERE Comment.UserId = '$userId' ";
-                    $countResult = $mysqli->query($sqlStringP);
-                    $count = $countResult->num_rows;
-                    ?>
-                    <p> Posts: <?php echo "$count"; ?></p>
+<!--                    --><?php
+//                    $userId = $valueCommentParrent['UserId'];
+//                    $sqlStringP = "SELECT * FROM Comment
+//                        WHERE Comment.UserId = '$userId' ";
+//                    $countResult = $mysqli->query($sqlStringP);
+//                    $count = $countResult->num_rows;
+//                    $userId = $valueCommentParrent['UserId'];
+//                    $countComments = $comment->countComments( $userId);
+//                    ?>
+                    <p> Posts: <?php echo "$countComments"; ?></p>
                     <?php
                     if ($_SESSION["userId"] == 1 || $_SESSION["userId"] == 2 || $_SESSION["userId"] == $userId) {
-                        echo ">Edit          |</a>";
+                        echo "<a href=\"editComment.php?commentId=$commentId&topicId=$topicId\"> Edit          |</a>";
                         echo "<button class=\"deleteButton\" onclick=\"deleteFunction(' . $commentId . ')\">Delete</button>";
 //                            <a href=\"deleteComment.php?commentId=$commentId&topicId=$topicId\">Delete</a>";
                     }
@@ -79,7 +83,7 @@
             if ($_SESSION["userId"] == 1 || $_SESSION["userId"] == 2 || $_SESSION["userId"] == $valueCommentParrent) {
                 echo "</div>";
                 echo "<div id=\"userOption\">";
-                echo "<a href=\"editComment.php?commentId=$commentId&topicId=$topicId\">Edit          |</a>";
+                echo "<a href=\"editComment.php?commentId=$commentId&topicId=$topicId\">Edit |</a>";
                 echo "<button class=\"deleteButton\" onclick=\"deleteFunction(' . $commentId . ')\">Delete</button>";
                 echo "</div>";
                 echo "<div class=\"clearFix\"></div>";
@@ -170,6 +174,7 @@
             }
         </script>
 
+        <div class="clearFix"></div>
         <br><br>
         <?php require_once('footer.php'); ?>
     </div>

@@ -65,4 +65,16 @@ class Comment extends AbstractModel
         $result = $this->query($sqlString);
         return $result;
     }
+    public function editComment($commentId, $comment)
+{
+    $sqlString = 'UPDATE Comment SET Comment="' . $comment .'" WHERE CommentId = "' . $commentId . '"';
+
+    $this->query($sqlString);
+}
+    public function getCommentByCommentId($data)
+    {
+        $sqlString = 'SELECT Comment FROM Comment WHERE CommentId = "' . $data . '"';
+        $result = $this->query($sqlString);
+        return $result;
+    }
 }

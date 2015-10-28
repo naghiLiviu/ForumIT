@@ -6,8 +6,11 @@
  * Time: 1:37 PM
  */
 
+include '../Utils/sessions.php';
 include '../Model/AbstractModel.php';
 include '../Model/Comment.php';
+include '../Model/User.php';
+include '../Model/Topic.php';
 
 $commentObject = new Comment();
 
@@ -29,5 +32,15 @@ foreach ($searchTopics as $value) {
         } else {
             $arrayComments["id" . $value["CommentParentId"]][] = $value;
         }
+    }
+}
+foreach ($arrayComments as $key => $row) {
+    foreach ($row as $valueCommentParrent) {
+        $i++;
+        $commentId = $valueCommentParrent["CommentId"];
+
+        $userId2 = $valueCommentParrent['UserId'];
+        $countComments = $commentObject->countComments($userId2);
+
     }
 }
