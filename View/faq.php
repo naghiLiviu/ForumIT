@@ -1,9 +1,14 @@
+<?php
+include '../Utils/sessions.php';
+include '../Model/AbstractModel.php';
+include '../Model/User.php';
+include '../Model/Topic.php';
+include '../Model/Comment.php';
+include '../Utils/View/Common.html';
+?>
 <body class="mainbody">
 <div class="container">
-    <?php
-    include('header.php');
-    include '../Utils/View/Common.html';
-    include '../Utils/sessions.php';?>
+    <?php include('header.php'); ?>
     <div class="regform">
 
         <h2>Frequently Asked Questions</h2>
