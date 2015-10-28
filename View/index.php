@@ -45,27 +45,27 @@ include '../Utils/View/Common.html';
                         echo '<td>' . $section['deleteLink'] . '</td>';
                     }
                     ?>
-<!--                    <td><a href="editSection.php?sectionId=--><?php //echo $section['SectionId'];?><!-- ">Edit</a></td>-->
-                    <td><a href="topic.php?sectionId=<?php echo $section['SectionId'];?> "> <?php echo $section['Section']; ?></a></td>
+                    <!--                    <td><a href="editSection.php?sectionId=-->
+                    <?php //echo $section['SectionId'];?><!-- ">Edit</a></td>-->
+                    <td>
+                        <a href="topic.php?sectionId=<?php echo $section['SectionId']; ?> "> <?php echo $section['Section']; ?></a>
+                    </td>
                     <td><?php echo $section['Topics']; ?></td>
                     <td><?php echo $section['Posts']; ?></td>
                     <td><?php echo $section['LastPost']; ?></td>
                 </tr>
-            <?php
+                <?php
             } ?>
 
         </table>
 
 
-        <?php include 'footer.php';?>
+        <?php include 'footer.php'; ?>
     </div>
     <script src="newSectionForm.js"></script>
     <script src="postNewSection.js"></script>
     <script>
-        $(document).ready(function () {
-            var userId = <?php echo $_SESSION["userId"];?>;
-        });
+        var sectionId =<?php echo $section['SectionId']; ?>;
     </script>
     <script src="deleteSection.js"></script>
 </body>
-</html>
