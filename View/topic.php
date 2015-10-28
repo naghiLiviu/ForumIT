@@ -43,10 +43,8 @@ include '../Utils/View/Common.html';
 <script src="newTopicForm.js"></script>
 
 <script>
-    $(document).ready(function () {
         var userId = <?php echo $_SESSION["userId"];?>;
         var sectionId = <?php echo $_GET["sectionId"]; ?>;
-    });
 </script>
 
 <script src="postNewTopic.js"></script>

@@ -7,7 +7,7 @@ $(document).ready(function () {
         var newTopicName = document.getElementById("newTopicName").value;
         $.ajax({
             method: "POST",
-            url: "newTopicAjax.php",
+            url: "../Controller/newTopicAjax.php",
             data: {
                 newTopicName: newTopicName,
                 newTopicComment: newTopicComment,

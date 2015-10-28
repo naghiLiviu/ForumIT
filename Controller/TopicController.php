@@ -44,8 +44,8 @@ foreach ($resultTopic as $topicValue) {
     }
 
     if ($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR) {
-        $editTopic = '<td><a href="editTopic.php?topicId=$topicId">Edit </a></td>';
-        $deleteTopic = '<td><button class="deleteButton" onclick="deleteFunction(' . $topicRow['TopicId'] . ')" id="demo">
+        $editTopic = '<td><a href="editTopic.php?topicId=' . $topicValue['TopicId'] . '">Edit </a></td>';
+        $deleteTopic = '<td><button class="deleteButton" onclick="deleteFunction(' . $topicValue['TopicId'] . ')" id="demo">
                     Delete</button></td></tr>';
     }
 

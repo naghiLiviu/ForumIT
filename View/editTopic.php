@@ -1,16 +1,6 @@
-<?php use Utils\Db;
-$topicId = $_GET["topicId"];
-$result = $mysqli->query("SELECT * FROM Topic WHERE TopicId = '$topicId '");
-$commentArray = array();
-foreach($result as $key => $value){
-    $topicArray[] = $value;
-}
-if (!empty ($_POST['topic']) && $_POST["dropDown"] != "") {
-    $topic = $_POST['topic'];
-    $sectionId = $_POST["dropDown"];
-    $mysqli->query("UPDATE Topic SET TopicName='$topic', SectionId='$sectionId' WHERE TopicId = '$topicId'");
-    header("Location: index.php");
-}
+<?php
+include '../Controller/editTopicController.php';
+include '../Utils/View/Common.html';
 ?>
 <body class="mainbody">
 <div class="container">
@@ -20,11 +10,10 @@ if (!empty ($_POST['topic']) && $_POST["dropDown"] != "") {
         <br>
 
         <form method="post">
-            <input type="text" name="topic" value="<?php echo $topicArray[0]['TopicName']; ?>"><br>
-            <select name="dropDown">
+            <input type="text" name="topic" value="<?php echo $topicArray[0]['TopicName']; ?>" title="changeTopicName"><br>
+            <select name="dropDown" title="selectFromSection">
                 <option value=""> - Select a section - </option>
                 <?php
-                $resultSection = $mysqli->query("SELECT * FROM Section");
                 foreach($resultSection as $sectionKey => $sectionValue) {
                     ?>
                     <option
