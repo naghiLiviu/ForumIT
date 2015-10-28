@@ -25,5 +25,5 @@ foreach($result as $key => $value){
 $resultSection = $section->getSection();
 if (!empty ($_POST['topic']) && $_POST["dropDown"] != "") {
     $topic->updateTopic($_POST['topic'], $_POST['dropDown'], $topicId);
-    header("Location: index.php");
+    header("Location: ../View/topic.php?sectionId=" . $_POST['dropDown']);
 }
