@@ -10,6 +10,7 @@ include '../Utils/sessions.php';
 include '../Model/Role.php';
 include '../Model/Comment.php';
 include '../Model/User.php';
+include '../Model/Topic.php';
 
 
 
