@@ -32,7 +32,7 @@ foreach ($resultTopic as $topicValue) {
     $topicRow[] = $topicValue;
     $commentLink = '<a href="comment.php?topicId=' . $topicValue['TopicId'] . '">' . $topicValue['TopicName'] . '</a>';
 
-    $resultComment = $newComment->getCommentWithTopicId($topic['TopicId']);
+    $resultComment = $newComment->getCommentWithTopicId($topicValue['TopicId']);
     $countComment = $resultComment->num_rows;
 
     foreach ($resultComment as $commentValue) {
