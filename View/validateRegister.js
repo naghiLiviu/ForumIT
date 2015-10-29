@@ -18,37 +18,55 @@ function validateUserName(userName) {
 }
 
 function validateForm() {
+    //alert('aici');
+    if
+    (
+        !empty(document.forms["register_form"]["username"].value) &&
+        !empty(document.forms["register_form"]["email"].value) &&
+        !empty(emailConf = document.forms["register_form"]["emailConfirm"].value)
+    ) {
+        var userName = document.forms["register_form"]["username"].value;
+        var email = document.forms["register_form"]["email"].value;
+        var emailConf = document.forms["register_form"]["emailConfirm"].value;
+        var antispam = document.forms["register_form"]["antispam"].value;
+        var validatedEmail = validateEmail(email);
+        var validatedUserName = validateUserName(userName);
 
-    var userName = document.forms["register_form"]["username"].value;
-    var email = document.forms["register_form"]["email"].value;
-    var emailConf = document.forms["register_form"]["emailConfirm"].value;
+
+        if (userName == null || userName == "") {
+            alert("Username must be filled out!");
+            return false;
+        }
+        if (!validatedUserName) {
+            alert("Username must have at least 3 characters, maximum 15, letters or numbers!");
+            return false;
+        }
+        if (email == null || email == "") {
+            alert("E-mail must be filled out!");
+            return false;
+        }
+        if (!validatedEmail) {
+            alert("Invalid e-mail format!");
+            return false;
+        }
+        if (email != emailConf) {
+            alert("E-mail doesn't match!");
+            return false;
+        }
+        if (antispam == null || antispam == "") {
+            alert("Antispam not filled out!");
+            return false;
+        }
+        if (antispam != 6) {
+            alert("Antispam is not that value!");
+            return false;
+        }
+    }
     var password = document.forms["register_form"]["password"].value;
     var passwordConf = document.forms["register_form"]["passwordconf"].value;
-    var antispam = document.forms["register_form"]["antispam"].value;
-    var validatedEmail = validateEmail(email);
     var validatedPassword = validatePassword(password);
-    var validatedUserName = validateUserName(userName);
 
-    if (userName == null || userName == "") {
-        alert("Username must be filled out!");
-        return false;
-    }
-    if (!validatedUserName) {
-        alert("Username must have at least 3 characters, maximum 15, letters or numbers!");
-        return false;
-    }
-    if (email == null || email == "") {
-        alert("E-mail must be filled out!");
-        return false;
-    }
-    if (!validatedEmail) {
-        alert("Invalid e-mail format!");
-        return false;
-    }
-    if (email != emailConf) {
-        alert("E-mail doesn't match!");
-        return false;
-    }
+
     if (password == null || password == "") {
         alert("Password not fiiled out!");
         return false;
@@ -61,12 +79,5 @@ function validateForm() {
         alert("Password doesn't match!");
         return false;
     }
-    if (antispam == null || antispam == "") {
-        alert("Antispam not filled out!");
-        return false;
-    }
-    if (antispam != 6) {
-        alert("Antispam is not that value!");
-        return false;
-    }
+
 }

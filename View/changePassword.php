@@ -5,18 +5,19 @@ include '../Utils/View/Common.html';
 ?>
 
 <body class = "mainbody">
+<script src="validatePasswordChange.js"></script>
 <div class="container">
     <?php require_once('header.php'); ?>
     <div class="regform">
         <h2>Change Password</h2>
 
-        <form action = "changePassword.php" method="post">
+        <form name="PasswordChange" method="post" onsubmit="return validateChangePassword()">
             <dl>
                 <dt>
                     <label for="OldPassword">Old Password: </label>
                 </dt>
                 <dd>
-                    <input type="password" name="OldPassword" title="Old Password">
+                    <input type="password" name="OldPassword">
                 </dd>
             </dl>
             <dl>
@@ -24,7 +25,7 @@ include '../Utils/View/Common.html';
                     <label for="NewPassword">New Password: </label>
                 </dt>
                 <dd>
-                    <input type="password" name="NewPassword" title="New Password">
+                    <input type="password" name="NewPassword">
                 </dd>
             </dl>
             <dl>
@@ -32,7 +33,7 @@ include '../Utils/View/Common.html';
                     <label for="RetypePassword">Retype Password: </label>
                 </dt>
                 <dd>
-                    <input type="password" name="RetypePassword" title="Retype your new password">
+                    <input type="password" name="PasswordConfirm" title="Password Confirm">
                 </dd>
             </dl>
             <div class="buttons">
