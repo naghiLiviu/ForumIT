@@ -8,9 +8,9 @@
 
 class Address extends AbstractModel
 {
-    public function updateUserAddress($country, $city, $streetName, $streetNumber, $userId) {
+    public function updateUserAddress($country, $city, $streetName, $streetNumber, $contactDetailId) {
         $updateAddress       = 'UPDATE Address SET Country = "' .  $country . '", City = "' .  $city . '", StreetName = "' .  $streetName . '",
-                               StreetNumber = "' .  $streetNumber . '" WHERE Address.ContactDetailId = "' .  $userId . '"';
+                               StreetNumber = "' .  $streetNumber . '" WHERE Address.ContactDetailId = "' .  $contactDetailId . '"';
 
         $this->query($updateAddress);
     }

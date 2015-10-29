@@ -19,7 +19,6 @@ include '../Controller/ProfileController.php';
         </div>
         <form name = "profileForm" enctype="multipart/form-data" onsubmit="return profileForm2()" method="post">
             <dl>
-
                 <hr>
             </dl>
             <dl>
@@ -28,8 +27,7 @@ include '../Controller/ProfileController.php';
                     <br>
                 </dt>
                 <dd>
-                    <input type="text" name="firstName" title="First Name"
-                           value="<?php echo $detailArray[0]['FirstName']; ?>">
+                    <input type="text" name="firstName" title="First Name" value="<?php echo $detailArray[0]['FirstName']; ?>">
                 </dd>
             </dl>
             <dl>
