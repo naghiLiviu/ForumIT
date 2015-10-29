@@ -133,4 +133,9 @@ class User extends AbstractModel
         return $result;
     }
 
+    public function deleteUser($userId) {
+        $sqlString = 'UPDATE User SET UserStatus="Deleted" WHERE UserId="' . $userId . '"';
+        $this->query($sqlString);
+    }
+
 }

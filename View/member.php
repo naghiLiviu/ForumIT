@@ -38,10 +38,10 @@ include ('../Controller/MemberController.php');
 
     </table>
         <script>
-            var userPostId =<?php echo $userPostId; ?>;
+            var userPostId =<?php echo $member['UserId']; ?>;
             function deleteFunction(userPostId) {
-                if (confirm("Press a button!") == true) {
-                    window.location.href =("deleteUser.php?deleteUserId=" + userPostId);
+                if (confirm("Are you sure you want to delete this user?") == true) {
+                    window.location.href =("../Controller/deleteUser.php?deleteUserId=" + userPostId);
                 } else {
                     window.location.href =("member.php");
                 }
@@ -50,7 +50,7 @@ include ('../Controller/MemberController.php');
         </script>
         <script>
             function banFunction(userPostId) {
-                if (confirm("Do you want to ban this user?") == true) {
+                if (confirm("Are you sure you want to ban this user?") == true) {
                     window.location.href =("banUser.php?banUserId=" + userPostId);
                 } else {
                     window.location.href =("member.php");
