@@ -84,7 +84,7 @@ include '../Utils/View/Common.html';
                 echo "</div>";
                 echo "<div id=\"userOption\">";
                 echo "<a href=\"editComment.php?commentId=$commentId&topicId=$topicId\">Edit |</a>";
-                echo "<button class=\"deleteButton\" onclick=\"deleteFunction(' . $commentId . ')\">Delete</button>";
+                echo "<button class=\"deleteButton\" onclick=\"deleteFunction(" . $commentId . ")\">Delete</button>";
                 echo "</div>";
                 echo "<div class=\"clearFix\"></div>";
                 echo "</div>";
@@ -103,6 +103,7 @@ include '../Utils/View/Common.html';
                         });
                         $('#submitHidden<?php echo $i; ?>').on('click', function () {
                             $('#hiddenForm<?php echo $i; ?>').hide();
+                            $("#replyButton<?php echo $i; ?>").show();
                         })
                     });
                 </script>
@@ -116,7 +117,7 @@ include '../Utils/View/Common.html';
                             var replyComment = document.getElementById("commentInput<?php echo $i; ?>").value;
                             $.ajax({
                                 method: "POST",
-                                url: "ajax.php",
+                                url: "../Controller/ajax.php",
                                 data: {
                                     replyComment: replyComment,
                                     commentId: commentId,
@@ -155,7 +156,7 @@ include '../Utils/View/Common.html';
 
             function deleteFunction(commentId) {
                 if (confirm("Are you sure you want to delete this comment?") == true) {
-                    window.location.href = ("deleteComment.php?commentId=" + commentId + "&topicId=" + topicId);
+                    window.location.href = ("../Controller/deleteComment.php?commentId=" + commentId + "&topicId=" + topicId);
                 } else {
                     window.location.href = ("comment.php?topicId=" + topicId);
 

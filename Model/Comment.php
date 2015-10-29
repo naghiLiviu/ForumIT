@@ -77,4 +77,9 @@ class Comment extends AbstractModel
         $result = $this->query($sqlString);
         return $result;
     }
+
+    public function deleteComment($commentId) {
+        $sqlString = 'UPDATE Comment SET CommentStatus="Deleted" WHERE CommentId="' . $commentId . '"';
+        $this->query($sqlString);
+    }
 }
