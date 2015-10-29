@@ -63,7 +63,7 @@ include '../Utils/View/Common.html';
                     <?php
                     if ($_SESSION["userId"] == 1 || $_SESSION["userId"] == 2 || $_SESSION["userId"] == $userId) {
                         echo "<a href=\"editComment.php?commentId=$commentId&topicId=$topicId\"> Edit          |</a>";
-                        echo "<button class=\"deleteButton\" onclick=\"deleteFunction(' . $commentId . ')\">Delete</button>";
+                        echo "<button class=\"deleteButton\" onclick=\"deleteFunction(" . $commentId . ")\">Delete</button>";
 //                            <a href=\"deleteComment.php?commentId=$commentId&topicId=$topicId\">Delete</a>";
                     }
                     ?>
