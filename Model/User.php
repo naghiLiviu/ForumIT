@@ -133,9 +133,16 @@ class User extends AbstractModel
         return $result;
     }
 
-    public function deleteUser($userId) {
-        $sqlString = 'UPDATE User SET UserStatus="Deleted" WHERE UserId="' . $userId . '"';
+    public function getPassword($userId) {
+        $sqlString = 'SELECT Password FROM User WHERE User.UserId = "' . $userId . '"';
+        $result = $this->query($sqlString);
+        return $result;
+    }
+
+    public function updatePassword($newPass, $userId) {
+        $sqlString = 'UPDATE User SET Password = "' . $newPass . '" WHERE User.UserId = "' . $userId . '"';
         $this->query($sqlString);
+
     }
 
 }

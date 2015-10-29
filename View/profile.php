@@ -6,6 +6,8 @@
  * Time: 4:53 PM
  */
 include '../Controller/ProfileController.php';
+include '../Utils/View/Common.html';
+
 ?>
 <body class="mainbody">
 <script src="../View/profileValidation.js"></script>
@@ -134,7 +136,7 @@ include '../Controller/ProfileController.php';
                     <input type="number" name="antispam" title="Anti Spam">
                 </dd>
             </dl>
-            <a href="../changepass.php" class="button1">Change Password</a>
+            <a href="changePassword.php" class="button1">Change Password</a>
 
             <div class="buttons">
                 <a href="register.php">

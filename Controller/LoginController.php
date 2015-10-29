@@ -6,6 +6,7 @@ include '../Model/AbstractModel.php';
 include '../Model/User.php';
 include '../Model/Comment.php';
 include '../Model/Role.php';
+include '../Model/Topic.php';
 
 $user    = new User();
 $comment = new Comment();
