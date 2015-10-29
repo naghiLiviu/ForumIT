@@ -49,10 +49,10 @@ class User extends AbstractModel
         return $result;
     }
 
-    public function registerUser($username, $email, $password, $roleId)
+    public function registerUser($username, $password,$email,  $roleId)
     {
         $crypt = md5($password);
-        $sqlString = "INSERT INTO User (Email, Password, UserName, RoleId) VALUES ('$email', '$crypt', '$username', '$roleId')";
+        $sqlString = "INSERT INTO User (UserName, Password, Email, RoleId) VALUES ('$username', '$crypt', '$email', '$roleId')";
         $this->query($sqlString);
     }
 
