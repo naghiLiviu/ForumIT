@@ -35,12 +35,11 @@ include ('../Controller/MemberController.php');
                 echo "</tr>";
             }
             ?>
-
     </table>
         <script>
             var userPostId =<?php echo $member['UserId']; ?>;
             function deleteFunction(userPostId) {
-                if (confirm("Are you sure you want to delete this user?") == true) {
+                if (confirm("Are you sure you want to deWlete this user?") == true) {
                     window.location.href =("../Controller/deleteUser.php?deleteUserId=" + userPostId);
                 } else {
                     window.location.href =("member.php");
