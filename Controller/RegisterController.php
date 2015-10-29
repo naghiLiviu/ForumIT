@@ -11,6 +11,8 @@
 include('../Model/AbstractModel.php');
 include '../Model/User.php';
 include '../Model/Role.php';
+include '../Model/Topic.php';
+include '../Model/Comment.php';
 
 $user = new User();
 

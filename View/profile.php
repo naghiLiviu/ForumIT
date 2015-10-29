@@ -7,7 +7,6 @@
  */
 include '../Controller/ProfileController.php';
 include '../Utils/View/Common.html';
-
 ?>
 <body class="mainbody">
 <script src="../View/profileValidation.js"></script>
@@ -17,7 +16,7 @@ include '../Utils/View/Common.html';
     <div class="regform">
         <h2>User Profile Page</h2>
         <div class="deleteButtonDiv">
-            <button class="button1" onclick="deleteFunction(' . $userId . ')">Delete Account</button>
+            <button class="button1" onclick="deleteFunction(<?php echo $userId; ?>)">Delete Account</button>
         </div>
         <form name = "profileForm" enctype="multipart/form-data" onsubmit="return profileForm2()" method="post">
             <dl>
@@ -145,6 +144,16 @@ include '../Utils/View/Common.html';
                 <input type="submit" value="Submit" name="submit1" class="button1">
             </div>
         </form>
+        <script>
+            var userPostId =<?php echo $userId; ?>;
+            function deleteFunction(userPostId) {
+                if (confirm("Are you sure you want to delete this user?") == true) {
+                    window.location.href =("../Controller/deleteUserProfile.php?deleteUserId=" + userPostId);
+                } else {
+                    window.location.href =("profile.php");
+                }
+            }
+        </script>
 
     </div>
     <?php require_once('footer.php'); ?>

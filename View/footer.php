@@ -15,7 +15,7 @@ include '../Controller/FooterController.php';
                     </span>
                     <span class="footerLink">
                     <a href="faq.php">FAQ|</a>
-                    <a href="../member.php">Members|</a>
+                    <a href="member.php">Members|</a>
                         <?php
                             echo $registerLink;
                             echo $loginLink;
