@@ -36,8 +36,7 @@ include '../Utils/View/Common.html';
                     </dd>
                 </dl>
                 <dl>
-<!--                    <a class="link" href="../forgot.php"> Forgot password?</a><br>-->
-
+                    <a class="link" href="forgotPassword.php"> Forgot password?</a><br>
                     <div class="buttons">
                         <a href="login.php">
                             <button class="button1">Reset</button>

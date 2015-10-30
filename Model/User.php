@@ -155,4 +155,10 @@ class User extends AbstractModel
         $this->query($sqlString);
     }
 
+    public function changeForgottenPassword($password, $email) {
+        $pass = md5($password);
+        $sqlString = 'UPDATE User SET Password="' . $pass . '" WHERE Email="' . $email . '"';
+        $this->query($sqlString);
+    }
+
 }
