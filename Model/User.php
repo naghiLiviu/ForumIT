@@ -52,7 +52,8 @@ class User extends AbstractModel
     public function registerUser($username, $password,$email,  $roleId)
     {
         $crypt = md5($password);
-        $sqlString = "INSERT INTO User (UserName, Password, Email, RoleId, UserStatus) VALUES ('$username', '$crypt', '$email', '$roleId', 'Deleted')";
+        $sqlString = "INSERT INTO User (UserName, Password, Email, RoleId, UserStatus) VALUES ('$username', '$crypt', '$email', '$roleId',
+                     'Registered')";
         $this->query($sqlString);
     }
 
@@ -163,6 +164,12 @@ class User extends AbstractModel
 
     public function getUserId($email) {
         $sqlString = 'SELECT UserId FROM User WHERE Email = "' . $email . '"';
+        $result = $this->query($sqlString);
+        return $result;
+    }
+
+    public function getStatus($userId) {
+        $sqlString = 'SELECT UserStatus FROM User WHERE UserId = "' . $userId . '"';
         $result = $this->query($sqlString);
         return $result;
     }

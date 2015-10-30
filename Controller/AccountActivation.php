@@ -11,9 +11,16 @@ include '../Model/User.php';
 
 $userId = $_GET['userId'];
 $userActivate = new User();
-
-$userActivate->activateUserAccount($userId);
-$_SESSION['message'] = 'Account succesfully activated !';
-header('Location: ../View/login.php');
-
-
+$status = $userActivate->getStatus($userId);
+$userStatus = '';
+foreach($status as $value) {
+    $userStatus = $value['UserStatus'];
+}
+if($userStatus == 'Registered') {
+    $userActivate->activateUserAccount($userId);
+    $_SESSION['message'] = 'Account succesfully activated !';
+    header('Location: ../View/login.php');
+} else {
+    $_SESSION['message'] = 'Validation link has expired';
+    header('Location: ../View/register.php');
+}
