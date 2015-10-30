@@ -30,11 +30,16 @@ if ($_POST) {
         } else {
             //we check if the email, password and spam match and we will insert data in DB
             if ($_POST['email'] == $_POST['emailConfirm'] && $_POST['password'] == $_POST['passwordconf'] && $_POST['antispam'] == 6) {
-                $user->registerUser($_POST['username'], $_POST['password'], $_POST['email'], Role::USER);
                 $email = $_POST['email'];
+                $user->registerUser($_POST['username'], $_POST['password'], $_POST['email'], Role::USER);
+                $result = $user->getUserId($email);
+                $userId = '';
+                foreach($result as $value) {
+                   $userId = $value['UserId'];
+                }
                 $subject = 'Account Activation';
                 $headers = 'From:noreply@forumIT.com' . "\r\n";
-                $message = '<a href="http://forumit/Controller/AccountActivation.php"> Click here if you want to activate your account on ForumIT</a>';
+                $message = 'http://forumit/Controller/AccountActivation.php?userId=' . $userId . '" Click here if you want to activate your account on ForumIT';
                 mail($email, $subject, $message, $headers);
                 header("Location: login.php");
             } else {
