@@ -35,7 +35,7 @@ if ($_POST) {
                 $result = $user->getUserId($email);
                 $userId = '';
                 foreach($result as $value) {
-                   $userId = $value['UserId'];
+                   $userId = openssl_encrypt($value['UserId'], "AES-256-CBC", "25c6c7ff35b9979b151f2136cd13b0ff");
                 }
                 $subject = 'Account Activation';
                 $headers = 'From:noreply@forumIT.com' . "\r\n";
