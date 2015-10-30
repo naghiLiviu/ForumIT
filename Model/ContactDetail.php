@@ -22,8 +22,7 @@ class ContactDetail extends AbstractModel
                                WHERE ContactDetail.UserId = "' .  $userId . '"';
 
         $this->query($updateContactDetail);
-
-
+        return $this->last_id;
     }
 
     public function insertUserProfile($fname, $lname, $phone, $target_path, $userId) {
