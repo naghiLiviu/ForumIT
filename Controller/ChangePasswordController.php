@@ -5,10 +5,8 @@
  * Date: 10/29/15
  * Time: 1:07 PM
  */
-include '../Model/AbstractModel.php';
-include '../Model/User.php';
-include '../Model/Topic.php';
-include '../Model/Comment.php';
+include '../Utils/sessions.php';
+include '../Utils/autoload.php';
 
 $password = new User();
 

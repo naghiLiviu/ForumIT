@@ -6,8 +6,7 @@
  * Time: 2:27 PM
  */
 include '../Utils/sessions.php';
-include '../Model/AbstractModel.php';
-include '../Model/User.php';
+include '../Utils/autoload.php';
 
 $user = new User();
 

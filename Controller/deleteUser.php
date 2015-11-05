@@ -1,6 +1,6 @@
 <?php
-include '../Model/AbstractModel.php';
-include '../Model/User.php';
+include '../Utils/sessions.php';
+include '../Utils/autoload.php';
 
 $user = new User();
 

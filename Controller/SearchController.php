@@ -8,10 +8,8 @@
 //die('3');
 //include('../Utils/sessions.php');
 
-include('../Model/AbstractModel.php');
-include('../Model/Topic.php');
-include('../Model/Comment.php');
-include('../Utils/View/Common.html');
+include '../Utils/sessions.php';
+include '../Utils/autoload.php';
 
 
 $topic = new Topic ();

@@ -6,10 +6,7 @@
  * Time: 4:07 PM
  */
 include '../Utils/sessions.php';
-include '../Utils/View/Common.html';
-include '../Model/AbstractModel.php';
-include '../Model/Section.php';
-include '../Model/User.php';
+include '../Utils/autoload.php';
 
 
 $section = new Section();

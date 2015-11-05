@@ -6,7 +6,8 @@
  * Time: 10:44 AM
  */
 //include '../Model/User.php';
-$userData = new User();
+include '../Utils/sessions.php';
+include '../Utils/autoload.php';
 
 
 $userId = $_SESSION['userId'];

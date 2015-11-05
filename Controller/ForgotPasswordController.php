@@ -7,10 +7,7 @@
  */
 
 include '../Utils/sessions.php';
-include '../Model/AbstractModel.php';
-include '../Model/User.php';
-include '../Model/Topic.php';
-include '../Model/Comment.php';
+include '../Utils/autoload.php';
 
 $user = new User();
 

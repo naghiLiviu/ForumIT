@@ -6,14 +6,8 @@
  * Time: 4:39 PM
  */
 
-include('../Utils/sessions.php');
-
-include '../Model/AbstractModel.php';
-include '../Model/User.php';
-include '../Model/ContactDetail.php';
-include '../Model/Address.php';
-include '../Model/Topic.php';
-include '../Model/Comment.php';
+include '../Utils/sessions.php';
+include '../Utils/autoload.php';
 
 $contactData = new User();
 $contactDetails = new ContactDetail();

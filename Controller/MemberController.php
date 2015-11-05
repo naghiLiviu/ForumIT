@@ -6,13 +6,8 @@
  * Time: 2:57 PM
  */
 
-include ('../Utils/View/Common.html');
-include ('../Model/AbstractModel.php');
-include ('../Model/User.php');
-include ('../Model/Comment.php');
-include ('../Model/Role.php');
 include '../Utils/sessions.php';
-include '../Model/Topic.php';
+include '../Utils/autoload.php';
 
 
 $newUser= new User();

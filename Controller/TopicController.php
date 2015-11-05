@@ -7,11 +7,7 @@
  */
 
 include '../Utils/sessions.php';
-include '../Model/AbstractModel.php';
-include '../Model/Topic.php';
-include '../Model/Comment.php';
-include '../Model/Role.php';
-include '../Model/User.php';
+include '../Utils/autoload.php';
 
 $newTopic = new Topic();
 $newComment = new Comment();

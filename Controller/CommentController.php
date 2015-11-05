@@ -7,10 +7,7 @@
  */
 
 include '../Utils/sessions.php';
-include '../Model/AbstractModel.php';
-include '../Model/Comment.php';
-include '../Model/User.php';
-include '../Model/Topic.php';
+include '../Utils/autoload.php';
 
 $commentObject = new Comment();
 

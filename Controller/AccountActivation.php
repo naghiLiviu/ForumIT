@@ -6,8 +6,7 @@
  * Time: 10:59 AM
  */
 include '../Utils/sessions.php';
-include '../Model/AbstractModel.php';
-include '../Model/User.php';
+include '../Utils/autoload.php';
 
 $userId = openssl_decrypt($_GET['userId'], "AES-256-CBC", "25c6c7ff35b9979b151f2136cd13b0ff");
 $userActivate = new User();

@@ -5,14 +5,8 @@
  * Date: 10/27/15
  * Time: 12:50 PM
  */
-include('../Model/AbstractModel.php');
 include '../Utils/sessions.php';
-include '../Model/Role.php';
-include '../Model/Comment.php';
-include '../Model/User.php';
-include '../Model/Topic.php';
-
-
+include '../Utils/autoload.php';
 
 
 $user = new User();

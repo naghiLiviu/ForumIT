@@ -6,10 +6,8 @@
  * Time: 11:43 AM
  */
 
-include '../Model/AbstractModel.php';
-include '../Model/User.php';
-include '../Model/Topic.php';
-include '../Model/Section.php';
+include '../Utils/sessions.php';
+include '../Utils/autoload.php';
 
 $topic = new Topic();
 $section = new Section();

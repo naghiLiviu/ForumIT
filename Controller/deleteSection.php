@@ -1,6 +1,6 @@
 <?php
-include '../Model/AbstractModel.php';
-include '../Model/Section.php';
+include '../Utils/sessions.php';
+include '../Utils/autoload.php';
 $sectionId = $_GET["sectionId"];
 $section = new Section();
 

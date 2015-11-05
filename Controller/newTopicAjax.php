@@ -1,7 +1,6 @@
 <?php
-include '../Model/AbstractModel.php';
-include '../Model/Topic.php';
-include '../Model/Comment.php';
+include '../Utils/sessions.php';
+include '../Utils/autoload.php';
 
 $insertTopic = new Topic();
 $insertComment = new Comment();
