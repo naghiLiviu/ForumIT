@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 nbproject
 ._*
 .vagrant
@@ -9,3 +10,7 @@ nbproject
 .settings
 vendor
 composer.phar
+=======
+.idea/workspace.xml
+.idea
+>>>>>>> 68bbb8e1fb5edf552b23d5752dd28b43c7b0581c
