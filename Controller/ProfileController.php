@@ -5,9 +5,10 @@
  * Date: 10/22/15
  * Time: 4:39 PM
  */
-
+//namespace ProfileController;
 include '../Utils/sessions.php';
 include '../Utils/autoload.php';
+
 
 $contactData = new User();
 $contactDetails = new ContactDetail();
@@ -26,6 +27,7 @@ $streetNumber = $_POST['streetNumber'];
 $phone = $_POST['phoneNumber'];
 $email = $_POST['email'];
 $pass = md5($_POST['password']);
+//$contactData->setPassword(md5($_POST['password']));
 $passconf = md5($_POST['passwordconf']);
 $spam = $_POST['antispam'];
 

@@ -11,6 +11,12 @@
 
 class User extends AbstractModel
 {
+//    public $password;
+
+//    public function setPassword ($password) {
+//        $this->$password = $password;
+//    }
+
     public function checkUser($username, $password)
     {
         $crypt = md5($password);
@@ -52,7 +58,8 @@ class User extends AbstractModel
     public function registerUser($username, $password,$email,  $roleId)
     {
         $crypt = md5($password);
-        $sqlString = "INSERT INTO User (UserName, Password, Email, RoleId, UserStatus) VALUES ('$username', '$crypt', '$email', '$roleId',
+        $sqlString = "INSERT INTO User (UserName, Password, Email, RoleId, UserStatus) VALUES ('$username', '$crypt',
+                     '$email', '$roleId',
                      'Registered')";
         $this->query($sqlString);
     }
@@ -173,5 +180,7 @@ class User extends AbstractModel
         $result = $this->query($sqlString);
         return $result;
     }
+
+
 
 }
