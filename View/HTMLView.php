@@ -6,6 +6,8 @@
  * Date: 11/6/15
  * Time: 2:50 PM
  */
+namespace View;
+
 class HTMLView extends AbstractView
 {
     public function render($viewName)
