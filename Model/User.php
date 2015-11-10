@@ -6,8 +6,7 @@
  * Date: 10/22/15
  * Time: 1:55 PM
  */
-
-//include '../Model/AbstractModel.php';
+namespace Model;
 
 class User extends AbstractModel
 {

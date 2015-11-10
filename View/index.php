@@ -1,4 +1,14 @@
 <?php
+include '../Utils/autoload.php';
+
+//$viewFactory = new Model\ViewFactory();
+//var_dump($viewFactory->create('test'));
+
+//Parse route parameters and decide which controller to use
+//include layout if necessary
+//execute controller action
+
+//var_dump($_GET);
 
 include '../Controller/IndexController.php';
 include '../Utils/View/Common.html';

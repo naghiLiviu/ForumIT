@@ -5,18 +5,13 @@
  * Date: 10/26/15
  * Time: 10:59 AM
  */
-
-//include '../Utils/autoload.php';
-//include '../Utils/sessions.php';
-//include '../Model/AbstractModel.php';
-//include '../Model/User.php';
-//include '../Model/Comment.php';
-//include '../Model/Topic.php';
+use Model\Comment as Comment;
+use Model\Topic as Topic;
 
 $comment = new Comment();
 $topic = new Topic();
 //die('dupa topic obj');
-$user = new User();
+$user = new Model\User();
 $userId = $_GET['userId'];
 $resultNumberComment = $comment->selectComments();
 $countTopics = $topic->countTopics();

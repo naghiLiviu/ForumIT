@@ -6,14 +6,15 @@
  * Date: 10/23/15
  * Time: 4:43 PM
  */
+use Model\Role as Role;
+
 include '../Utils/sessions.php';
-include '../Utils/autoload.php';
 
 
-//$user = new User();
-$comment = new Comment();
-$section = new Section();
-$topic = new Topic ();
+$user = new Model\User();
+$comment = new Model\Comment();
+$section = new Model\Section();
+$topic = new Model\Topic ();
 $role = new Role();
 
 $resultSection = $section->getSection();

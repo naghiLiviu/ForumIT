@@ -5,8 +5,7 @@
  * Date: 10/23/15
  * Time: 3:39 PM
  */
-
-include '../Utils/Db.php';
+namespace Model;
 
 class AbstractModel
 {
@@ -15,13 +14,13 @@ class AbstractModel
     function __construct()
     {
         if (empty($this->mysqliObject)) {
-            $this->mysqliObject = new Db();
+            $this->mysqliObject = new \Utils\Db();
         }
     }
 
     function query($data)
     {
-        $mysqliConnection = new mysqli ('localhost', 'root', 'root', 'ForumIT');
+        $mysqliConnection = new \mysqli ('localhost', 'root', 'root', 'ForumIT');
 
         return $mysqliConnection->query($data);
     }

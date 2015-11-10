@@ -6,7 +6,8 @@
  * Date: 11/6/15
  * Time: 2:54 PM
  */
-use View\ViewInterface;
+namespace View;
+
 abstract class AbstractView implements ViewInterface
 {
     protected $vars;

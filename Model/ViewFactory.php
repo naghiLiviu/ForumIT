@@ -6,8 +6,8 @@
  * Time: 11:37 AM
  */
 
-namespace Factory;
-use Autoload;
+namespace Model;
+
 class ViewFactory
 {
     public function __construct () {
@@ -18,9 +18,9 @@ class ViewFactory
         //prinde-te in ce context esti
         $context = '';
         if ($context == 'html') {
-            return new \HTMLView($viewName);
+            return new \View\HTMLView($viewName);
         } else {
-                return new \JSONView($viewName);
+                return new \View\JSONView($viewName);
             }
     }
 }

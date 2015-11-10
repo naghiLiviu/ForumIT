@@ -1,5 +1,5 @@
 <?php
-//namespace Utils;
+namespace Utils;
 
 //use mysqli;
 
@@ -17,7 +17,7 @@ class Db
 
     private function mysqlConnection()
     {
-        $mysqliConnection = new mysqli ('localhost' , 'root' , 'root' , 'ForumIT');
+        $mysqliConnection = new \mysqli ('localhost' , 'root' , 'root' , 'ForumIT');
         return $mysqliConnection;
     }
 }

@@ -5,6 +5,7 @@
  * Date: 10/23/15
  * Time: 10:58 AM
  */
+namespace Model;
 
 class Comment extends AbstractModel
 {

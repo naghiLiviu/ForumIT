@@ -6,6 +6,8 @@
  * Date: 10/23/15
  * Time: 4:53 PM
  */
+namespace Model;
+
 class Topic extends AbstractModel
 {
     public function getTopic($sectionId)

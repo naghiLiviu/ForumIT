@@ -5,6 +5,8 @@
  * Date: 10/23/15
  * Time: 4:52 PM
  */
+namespace Model;
+
 class Section extends AbstractModel
 {
     public function getSection() {

@@ -9,6 +9,13 @@
 
 function __autoload($class_name)
 {
-    include '../Model/' . $class_name . '.php';
+    //echo $class_name;
+    if(strstr($class_name, '\\')) {
+        $classPath = '../' . $class_name . '.php';
+        $classPath = str_replace('\\', '/', $classPath);
+        if(file_exists($classPath)) {
+            require_once $classPath;
+        }
+    }
 }
 
