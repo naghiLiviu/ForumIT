@@ -1,4 +1,8 @@
 <?php
+namespace Controller;
+use Model\User as User;
+use Model\Comment as Comment;
+
 include '../Utils/sessions.php';
 include '../Utils/autoload.php';
 

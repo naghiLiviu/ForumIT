@@ -5,13 +5,15 @@
  * Date: 10/26/15
  * Time: 10:59 AM
  */
+namespace Controller;
 use Model\Comment as Comment;
 use Model\Topic as Topic;
+use Model\User as User;
 
 $comment = new Comment();
 $topic = new Topic();
 //die('dupa topic obj');
-$user = new Model\User();
+$user = new User();
 $userId = $_GET['userId'];
 $resultNumberComment = $comment->selectComments();
 $countTopics = $topic->countTopics();

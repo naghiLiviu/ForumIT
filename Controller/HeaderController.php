@@ -1,4 +1,5 @@
 <?php
+namespace Controller;
 $registerLink = '';
 $loginLink = '';
 $logoutLink = '';

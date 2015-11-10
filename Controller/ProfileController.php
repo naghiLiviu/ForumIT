@@ -5,7 +5,11 @@
  * Date: 10/22/15
  * Time: 4:39 PM
  */
-//namespace ProfileController;
+namespace Controller;
+use Model\User as User;
+use Model\ContactDetail as ContactDetail;
+use Model\Address as Address;
+
 include '../Utils/sessions.php';
 include '../Utils/autoload.php';
 

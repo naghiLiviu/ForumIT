@@ -5,8 +5,9 @@
  * Date: 10/26/15
  * Time: 10:59 AM
  */
-//die('3');
-//include('../Utils/sessions.php');
+namespace Controller;
+use Model\Topic as Topic;
+use Model\Comment as Comment;
 
 include '../Utils/sessions.php';
 include '../Utils/autoload.php';

@@ -1,4 +1,6 @@
 <?php
+namespace Controller;
+use Model\User as User;
 include '../Utils/sessions.php';
 include '../Utils/autoload.php';
 

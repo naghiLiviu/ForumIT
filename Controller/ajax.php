@@ -1,4 +1,6 @@
 <?php
+namespace Controller;
+
 $mysqli = new mysqli ('localhost' , 'root' , 'root' , 'ForumIT');
 $commentId = $_POST["commentId"];
 $topicId = $_POST["topicId"];

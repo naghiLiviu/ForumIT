@@ -1,4 +1,6 @@
 <?php
+namespace Controller;
+use Model\Section as Section;
 
 include '../Utils/sessions.php';
 include '../Utils/autoload.php';

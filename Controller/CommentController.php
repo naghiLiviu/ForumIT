@@ -5,7 +5,8 @@
  * Date: 10/27/15
  * Time: 1:37 PM
  */
-
+namespace Controller;
+use Model\Comment as Comment;
 include '../Utils/sessions.php';
 include '../Utils/autoload.php';
 

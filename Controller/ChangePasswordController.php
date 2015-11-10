@@ -5,6 +5,8 @@
  * Date: 10/29/15
  * Time: 1:07 PM
  */
+namespace Controller;
+use Model\User as User;
 include '../Utils/sessions.php';
 include '../Utils/autoload.php';
 

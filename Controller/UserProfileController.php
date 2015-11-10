@@ -5,6 +5,11 @@
  * Date: 10/27/15
  * Time: 12:50 PM
  */
+namespace Controller;
+use Model\User as User;
+use Model\Comment as Comment;
+use Model\Role as Role;
+
 include '../Utils/sessions.php';
 include '../Utils/autoload.php';
 
@@ -59,7 +64,7 @@ if ($_POST) {
             header("Location: /View/member.php");
         }
         if ($dropDown == "moderator") {
-            $result = $user->updateRole(Role::MODERATOR, $memberId);
+            $user->updateRole(Role::MODERATOR, $memberId);
             header("Location: /View/member.php");
         }
         $mysqli->close();

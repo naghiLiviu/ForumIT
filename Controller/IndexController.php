@@ -6,15 +6,20 @@
  * Date: 10/23/15
  * Time: 4:43 PM
  */
+namespace Controller;
 use Model\Role as Role;
+use Model\User as User;
+use Model\Comment as Comment;
+use Model\Section as Section;
+use Model\Topic as Topic;
 
 include '../Utils/sessions.php';
 
 
-$user = new Model\User();
-$comment = new Model\Comment();
-$section = new Model\Section();
-$topic = new Model\Topic ();
+$user = new User();
+$comment = new Comment();
+$section = new Section();
+$topic = new Topic ();
 $role = new Role();
 
 $resultSection = $section->getSection();
