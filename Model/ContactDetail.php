@@ -5,6 +5,7 @@
  * Date: 10/24/15
  * Time: 1:40 PM
  */
+namespace Model;
 class ContactDetail extends AbstractModel
 {
     public function selectUserProfile($userId) {

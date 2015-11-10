@@ -5,7 +5,7 @@
  * Date: 10/24/15
  * Time: 1:55 PM
  */
-
+namespace Model;
 class Address extends AbstractModel
 {
     public function updateUserAddress($country, $city, $streetName, $streetNumber, $contactDetailId) {
