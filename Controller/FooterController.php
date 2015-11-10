@@ -6,9 +6,8 @@
  * Time: 10:59 AM
  */
 
-
+//include '../Utils/autoload.php';
 //include '../Utils/sessions.php';
-//
 //include '../Model/AbstractModel.php';
 //include '../Model/User.php';
 //include '../Model/Comment.php';

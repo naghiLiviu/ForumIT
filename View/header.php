@@ -33,10 +33,6 @@ include '../Controller/HeaderController.php';
                     if (isset($_SESSION['userId']) && $_SESSION['userId'] != null) {
 
                         include 'userbox.php';
-
-
-
-
                     }
                     ?>
 </span>

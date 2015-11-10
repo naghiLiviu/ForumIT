@@ -5,6 +5,7 @@ include '../Utils/autoload.php';
 $user    = new User();
 $comment = new Comment();
 
+
 if ($_POST) {
     if (!empty ($_POST['username']) && !empty ($_POST['password'])) {
         // check if username and password are in DB

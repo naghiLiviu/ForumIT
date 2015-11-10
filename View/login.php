@@ -5,7 +5,6 @@
  * Date: 10/22/15
  * Time: 4:23 PM
  */
-
 include '../Controller/LoginController.php';
 include '../Utils/View/Common.html';
 ?>
@@ -13,7 +12,7 @@ include '../Utils/View/Common.html';
 <body class="mainbody">
 <script src="validationLogin.js"></script>
 <div class="container">
-    <?php require_once('header.php'); ?>
+    <?php require_once('header.php');?>
     <div class="regform">
         <form name="myForm" onsubmit="return validateForm()" method="post">
             <dl>
@@ -61,7 +60,7 @@ include '../Utils/View/Common.html';
         </a>
     </div>
 </div>
-<?php require_once('footer.php'); ?>
+<?php require_once('footer.php');?>
 </body>
 
 
