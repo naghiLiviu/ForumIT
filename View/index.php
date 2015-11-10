@@ -1,5 +1,7 @@
 <?php
 include '../Utils/autoload.php';
+use Model\Role as Role;
+
 
 //$viewFactory = new Model\ViewFactory();
 //var_dump($viewFactory->create('test'));

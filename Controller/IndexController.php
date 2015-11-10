@@ -15,16 +15,13 @@ use Model\Topic as Topic;
 
 include '../Utils/sessions.php';
 
-
-$user = new User();
 $comment = new Comment();
 $section = new Section();
 $topic = new Topic ();
-$role = new Role();
 
 $resultSection = $section->getSection();
 $sections = array();
-
+$topicArray = array();
 foreach ($resultSection as $sectionKey => $sectionValue) {
     $editLink = '';
     $deleteLink = '';
@@ -42,15 +39,12 @@ foreach ($resultSection as $sectionKey => $sectionValue) {
         }
 
         $countPosts = 0;
-        $topicArray = array();
         foreach ($resultTopic as $topicKey => $topicValue) {
-            $topicId = $topicValue["TopicId"];
             $topicArray[] = $topicValue;
             $countPosts = $comment->countCommentsByTopicId($topicValue["TopicId"]);
-
             $countPosts += $countPosts;
-
         }
+
         $lastPost = $topicArray[0]["UserName"];
         $sectionRow = array(
             'Section' => $sectionValue['SectionName'],
@@ -61,6 +55,7 @@ foreach ($resultSection as $sectionKey => $sectionValue) {
             'editLink' => $editLink,
             'deleteLink' => $deleteLink,
         );
+
         $sections[] = $sectionRow;
     }
 }
