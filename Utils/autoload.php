@@ -6,12 +6,9 @@
  * Time: 2:28 PM
  */
 
-namespace Autoload;
 
-class Autoload
+function __autoload($class_name)
 {
-    function __autoload($class_name)
-    {
-        include '../Model/' . $class_name . '.php';
-    }
+    include '../Model/' . $class_name . '.php';
 }
+
