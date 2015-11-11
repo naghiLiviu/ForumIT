@@ -6,7 +6,7 @@
  * Date: 10/26/15
  * Time: 12:03 PM
  */
-namespace View;
+//namespace View;
 include '../Controller/HeaderController.php';
 
 ?>

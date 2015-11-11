@@ -1,5 +1,5 @@
 <?php
-namespace View;
+//namespace View;
 include '../Controller/UserProfileController.php';
 include '../Utils/View/Common.html';
 ?>

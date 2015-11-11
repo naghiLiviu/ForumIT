@@ -6,6 +6,7 @@
  * Time: 10:59 AM
  */
 namespace Controller;
+use View;
 use Model\Topic as Topic;
 use Model\Comment as Comment;
 

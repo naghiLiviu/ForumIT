@@ -1,5 +1,6 @@
 <?php
 include ('../Controller/MemberController.php');
+use Model\Role;
 ?>
 <body class="mainbody">
 <div class="container">

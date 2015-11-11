@@ -1,5 +1,5 @@
 <?php
-namespace View;
+//namespace View;
 
 include '../Controller/editTopicController.php';
 include '../Utils/View/Common.html';

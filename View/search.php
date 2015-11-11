@@ -1,5 +1,5 @@
 <?php
-namespace View;
+//namespace View;
 include '../Controller/SearchController.php';
 ?>
 

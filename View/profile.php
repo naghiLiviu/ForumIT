@@ -5,7 +5,7 @@
  * Date: 10/23/15
  * Time: 4:53 PM
  */
-namespace View;
+//namespace View;
 include '../Controller/ProfileController.php';
 include '../Utils/View/Common.html';
 ?>

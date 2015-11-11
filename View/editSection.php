@@ -5,7 +5,7 @@
  * Date: 10/28/15
  * Time: 11:15 AM
  */
-namespace View;
+//namespace View;
 
 include ('../Controller/editSectionController.php');
 include '../Utils/View/Common.html';

@@ -5,7 +5,7 @@
  * Date: 10/27/15
  * Time: 1:39 PM
  */
-namespace View;
+//namespace View;
 include '../Controller/CommentController.php';
 include '../Utils/View/Common.html';
 ?>
