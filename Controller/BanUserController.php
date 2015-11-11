@@ -14,5 +14,5 @@ $user = new User();
 
 $banUserId = $_GET["banUserId"];
 $banDate = date("Y-m-d", strtotime("+15 days"));
-$banUser = $user->banUser($banUserId, $banDate);
+$user->banUser($banUserId, $banDate);
 header("Location: member.php");

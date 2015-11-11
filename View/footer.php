@@ -1,5 +1,5 @@
 <?php
-
+namespace View;
 include '../Controller/FooterController.php';
 
 ?>

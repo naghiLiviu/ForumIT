@@ -1,4 +1,6 @@
 <?php
+namespace View;
+
 include '../Utils/sessions.php';
 include '../Model/AbstractModel.php';
 include '../Model/User.php';

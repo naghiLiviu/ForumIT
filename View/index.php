@@ -1,4 +1,5 @@
 <?php
+namespace View;
 include '../Utils/autoload.php';
 use Model\Role as Role;
 

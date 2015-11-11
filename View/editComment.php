@@ -1,4 +1,6 @@
 <?php
+namespace View;
+
 include '../Controller/EditCommentController.php';
 include '../Utils/View/Common.html';
 

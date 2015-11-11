@@ -1,4 +1,5 @@
 <?php
+namespace View;
 include '../Utils/sessions.php';
 include '../Controller/ChangePasswordController.php';
 include '../Utils/View/Common.html';

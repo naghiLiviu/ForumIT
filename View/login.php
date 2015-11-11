@@ -5,6 +5,7 @@
  * Date: 10/22/15
  * Time: 4:23 PM
  */
+namespace View;
 include '../Controller/LoginController.php';
 include '../Utils/View/Common.html';
 ?>

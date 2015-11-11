@@ -1,5 +1,5 @@
 <?php
-
+namespace View;
 include '../Controller/UserBoxController.php';
 ?>
 

@@ -5,7 +5,7 @@
  * Date: 10/30/15
  * Time: 10:20 AM
  */
-
+namespace View;
 include '../Controller/ForgotPasswordController.php';
 include '../Utils/View/Common.html';
 ?>

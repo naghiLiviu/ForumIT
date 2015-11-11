@@ -37,10 +37,10 @@ include ('../Controller/MemberController.php');
             ?>
     </table>
         <script>
-            var userPostId =<?php echo $member['UserId']; ?>;
-            function deleteFunction(userPostId) {
+            var userId =<?php echo $member['UserId']; ?>;
+            function deleteFunction(userId) {
                 if (confirm("Are you sure you want to deWlete this user?") == true) {
-                    window.location.href =("../Controller/deleteUser.php?deleteUserId=" + userPostId);
+                    window.location.href =("../Controller/deleteUser.php?deleteUserId=" + userId);
                 } else {
                     window.location.href =("member.php");
                 }
@@ -48,9 +48,9 @@ include ('../Controller/MemberController.php');
 
         </script>
         <script>
-            function banFunction(userPostId) {
+            function banFunction(userId) {
                 if (confirm("Are you sure you want to ban this user?") == true) {
-                    window.location.href =("banUser.php?banUserId=" + userPostId);
+                    window.location.href =("../Controller/BanUserController.php?banUserId=" + userId);
                 } else {
                     window.location.href =("member.php");
                 }

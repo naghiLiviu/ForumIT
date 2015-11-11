@@ -1,5 +1,5 @@
 <?php
-//die('2');
+namespace View;
 include '../Controller/SearchController.php';
 ?>
 
