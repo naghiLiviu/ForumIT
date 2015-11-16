@@ -13,14 +13,15 @@ class ViewFactory
     public function __construct () {
 
     }
-    public function create ($viewName)
+    public function create ($viewName, $variables)
     {
-        //prinde-te in ce context esti
-        $context = '';
-        if ($context == 'html') {
-            return new \View\HTMLView($viewName);
+        if (php_sapi_name() == 'cli') {
+            $view = new \View\JSONView($viewName);
+            $view->addVariables($variables);
         } else {
-                return new \View\JSONView($viewName);
-            }
+            $view = new \View\HTMLView($viewName);
+            $view->addVariables($variables);
+        }
+        return $view;
     }
 }

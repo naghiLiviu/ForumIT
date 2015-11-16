@@ -10,9 +10,15 @@ namespace View;
 
 class HTMLView extends AbstractView
 {
-    public function render($viewName)
+    public function render()
     {
         extract($this->vars);
+
+        if(file_exists('../View/'.$this->viewName.'.php')) {
+            include '../View/'.$this->viewName.'.php';
+        } else {
+            echo 'Could not locate the template file';
+        }
         //code that gets the right html file and includes it
     }
 }

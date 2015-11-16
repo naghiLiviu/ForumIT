@@ -11,12 +11,18 @@ namespace View;
 abstract class AbstractView implements ViewInterface
 {
     protected $vars;
+    protected $viewName;
+
+    public function __construct($viewName)
+    {
+        $this->viewName = $viewName;
+    }
 
     public function addVariables($vars)
     {
         $this->vars = $vars;
     }
 
-    abstract  public function render($viewName);
+    abstract  public function render();
 
 }

@@ -9,13 +9,9 @@ namespace View;
 
 class JSONView extends AbstractView
 {
-    public function __construct($viewName)
+    public function render()
     {
-        //blabla
-    }
-
-    public function render($viewName)
-    {
+        var_dump(json_encode($this->vars));
         //code that takes the vars and spits them out as json
     }
 

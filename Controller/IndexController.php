@@ -13,7 +13,13 @@ use Model\Comment as Comment;
 use Model\Section as Section;
 use Model\Topic as Topic;
 
+//include '../Utils/autoload.php';
 include '../Utils/sessions.php';
+
+$viewModel = $viewFactory->create('testIndex');
+$viewModel->addVariables (array('myTest' => 'acesta este un text'));
+$viewModel->render();
+var_dump($viewModel);
 
 $comment = new Comment();
 $section = new Section();

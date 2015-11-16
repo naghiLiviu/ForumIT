@@ -4,15 +4,9 @@ include '../Utils/autoload.php';
 use Model\Role as Role;
 
 
-//$viewFactory = new Model\ViewFactory();
-//var_dump($viewFactory->create('test'));
+$viewFactory = new Model\ViewFactory();
 
-//Parse route parameters and decide which controller to use
-//include layout if necessary
-//execute controller action
-
-//var_dump($_GET);
-
+//in functie de parametri din link new IndexController(); $view = IndexController->indexAction(); $view->render();
 include '../Controller/IndexController.php';
 include '../Utils/View/Common.html';
 ?>
