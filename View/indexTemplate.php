@@ -1,7 +1,6 @@
 <?php
 //include '../Utils/autoload.php';
-//use Model\Role as Role;
-
+use Model\Role as Role;
 
 //$viewFactory = new Model\ViewFactory();
 

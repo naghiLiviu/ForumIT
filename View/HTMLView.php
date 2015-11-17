@@ -15,7 +15,7 @@ class HTMLView extends AbstractView
 //        extract($this->vars);
 
         if(file_exists($this->viewName)) {
-            include '$this->viewName';
+            include $this->viewName;
         } else {
             echo 'Could not locate the template file';
         }
