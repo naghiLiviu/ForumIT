@@ -25,3 +25,6 @@ include '../Controller/FooterController.php';
     </div>
     <p class="footerPower">Powered by Minions! They are milions!</p>
 </div>
+</div>
+</body>
+</html>
