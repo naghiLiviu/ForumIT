@@ -12,10 +12,11 @@ class HTMLView extends AbstractView
 {
     public function render()
     {
-//        extract($this->vars);
+        extract($this->vars);
 
-        if(file_exists($this->viewName)) {
-            include $this->viewName;
+        $viewPath = $this->viewName.'Template.php';
+        if(file_exists($viewPath)) {
+            include $viewPath;
         } else {
             echo 'Could not locate the template file';
         }

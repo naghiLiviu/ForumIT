@@ -7,13 +7,13 @@ function getPage($string)
     $explode = explode('/', $string);
     return $explode[count($explode)-1];
 }
-if (getPage($_SERVER['PHP_SELF']) == 'index.php'){
-    $viewName = 'indexTemplate.php';
-} else {
-    $viewName = getPage($_SERVER['PHP_SELF']);
-}
-$viewFactory = new Model\ViewFactory();
-$viewModel = $viewFactory->create($viewName);
+$route = getPage($_SERVER['PHP_SELF']);
+$route = explode('.', $route);
+$route = array_shift($route);
+
+$controller = new Controller\Index();
+$viewModel = $controller->indexAction();
+
 $viewModel->render();
 //in functie de parametri din link new IndexController(); $view = IndexController->indexAction(); $view->render();
 

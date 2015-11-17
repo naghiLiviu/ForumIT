@@ -5,7 +5,6 @@ use Model\Role as Role;
 //$viewFactory = new Model\ViewFactory();
 
 //in functie de parametri din link new IndexController(); $view = IndexController->indexAction(); $view->render();
-include '../Controller/IndexController.php';
 ?>
 <div class="content">
     <button id="newSection">New Section</button>
