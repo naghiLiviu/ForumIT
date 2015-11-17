@@ -10,9 +10,7 @@ $viewFactory = new Model\ViewFactory();
 include '../Controller/IndexController.php';
 include '../Utils/View/Common.html';
 ?>
-<body class="mainbody">
-<script src="validationLogin.js"></script>
-<div class="container">
+
     <?php
     include 'header.php';
     ?>

@@ -11,21 +11,6 @@ include '../Controller/HeaderController.php';
 
 ?>
 
-<div class="header">
-                <span class="headerLeft">
-                    <a href="index.php"><img src="../img/forum.gif" class="logo"></a>
-                </span>
-                <span class="headerCenter">
-
-                    <h1>Best IT forum ever!</h1>
-                </span>
-                <span class="headerRight">
-                    <form method="get" action="search.php" id="searchform">
-                        <input type="text" name="SearchName" placeholder="Search your topic">
-                        <input type="submit" name="submit" value="Search" class = "button1">
-                    </form>
-                </span>
-</div>
 <div class="user">
                 <span class="userDetail">
                     <?php

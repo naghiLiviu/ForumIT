@@ -19,6 +19,5 @@ class HTMLView extends AbstractView
         } else {
             echo 'Could not locate the template file';
         }
-        //code that gets the right html file and includes it
     }
 }
