@@ -65,4 +65,10 @@ class UserController
 
         return $viewModel;
     }
+
+    public function logoutAction()
+    {
+        session_destroy();
+        header('Location: index.php?Controller=Controller\Index&Action=indexAction&Template=index');
+    }
 }
