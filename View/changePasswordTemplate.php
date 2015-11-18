@@ -1,15 +1,12 @@
 <?php
-namespace View;
-include '../Utils/sessions.php';
-include '../Controller/ChangePasswordController.php';
-include '../Utils/View/Common.html';
+/**
+ * Created by PhpStorm.
+ * User: slobodan
+ * Date: 11/18/15
+ * Time: 5:14 PM
+ */
 ?>
-
-<body class = "mainbody">
-<script src="validatePasswordChange.js"></script>
-<div class="container">
-    <?php require_once('header.php'); ?>
-    <div class="regform">
+<div class="regform">
         <h2>Change Password</h2>
 
         <form name="PasswordChange" method="post" onsubmit="return validateChangePassword()">
@@ -46,6 +43,4 @@ include '../Utils/View/Common.html';
 
         </form>
     </div>
-    <?php require_once('footer.php'); ?>
-</div>
-</body>
+<script src="validatePasswordChange.js"></script>

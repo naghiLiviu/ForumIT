@@ -44,7 +44,7 @@ use Model\Role as Role;
                 <!--                    <td><a href="editSection.php?sectionId=-->
                 <?php //echo $section['SectionId'];?><!-- ">Edit</a></td>-->
                 <td>
-                    <a href="topic.php?sectionId=<?php echo $section['SectionId']; ?> "> <?php echo $section['Section']; ?></a>
+                    <a href="index.php?Controller=Controller\TopicController&Action=topicAction&Template=topic&sectionId=<?php echo $section['SectionId']; ?> "> <?php echo $section['Section']; ?></a>
                 </td>
                 <td><?php echo $section['Topics']; ?></td>
                 <td><?php echo $section['Posts']; ?></td>
