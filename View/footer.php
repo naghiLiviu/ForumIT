@@ -11,7 +11,7 @@ include '../Controller/FooterController.php';
 
     <div class="footerOption">
                     <span class="footerHome">
-                        <a href="index.php"><img src="../img/home.jpg">HOME</a>
+                        <a href="index.php?Controller=Controller\IndexController&Action=indexAction&Template=index"><img src="../img/home.jpg">HOME</a>
                     </span>
                     <span class="footerLink">
                     <a href="faqTemplate.php">FAQ|</a>

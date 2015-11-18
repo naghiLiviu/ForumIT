@@ -8,7 +8,7 @@ use Model\Section as Section;
 use Model\Topic as Topic;
 use Model\ViewFactory as ViewFactory;
 
-class Index
+class IndexController
 {
     public function indexAction()
     {

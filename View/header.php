@@ -33,7 +33,7 @@ include '../Controller/HeaderController.php';
                       ?>
                 </span>
 <span class="userOption">
-                    <a href="http://forumit/View/index.php?Controller=Controller\Index&Action=indexAction&Template=index">Home | </a>
+                    <a href="index.php?Controller=Controller\IndexController&Action=indexAction&Template=index">Home | </a>
                     <a href="index.php?Controller=Controller\MemberController&Action=memberAction&Template=member">Members | </a>
                     <a href="faqTemplate.php">FAQ | </a>
 

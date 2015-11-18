@@ -12,7 +12,7 @@ use Model\ViewFactory as ViewFactory;
 //include '../Utils/sessions.php';
 //include '../Utils/autoload.php';
 
-class Comments
+class CommentController
 {
     public function commentAction()
     {

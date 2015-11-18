@@ -37,7 +37,7 @@ class TopicController
         }
         foreach ($resultTopic as $topicValue) {
             $topicRow[] = $topicValue;
-            $commentLink = '<a href="index.php?Controller=Controller\Comments&Action=commentAction&Template=comment&topicId=' . $topicValue['TopicId'] . '">' . $topicValue['TopicName'] . '</a>';
+            $commentLink = '<a href="index.php?Controller=Controller\CommentController&Action=commentAction&Template=comment&topicId=' . $topicValue['TopicId'] . '">' . $topicValue['TopicName'] . '</a>';
 
             $resultComment = $newComment->getCommentWithTopicId($topicValue['TopicId']);
             $countComment = $resultComment->num_rows;
