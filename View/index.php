@@ -1,4 +1,5 @@
 <?php
+include '../Utils/sessions.php';
 include '../Utils/autoload.php';
 include '../Utils/View/Common.html';
 include 'header.php';

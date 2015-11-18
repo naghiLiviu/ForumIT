@@ -1,20 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: my1-asus
- * Date: 10/22/15
- * Time: 4:23 PM
+ * User: slobodan
+ * Date: 11/18/15
+ * Time: 11:54 AM
  */
-namespace View;
-include '../Controller/LoginController.php';
-include '../Utils/View/Common.html';
 ?>
-
-<body class="mainbody">
-<script src="validationLogin.js"></script>
-<div class="container">
-    <?php require_once('header.php');?>
-    <div class="regform">
+<div class="regform">
         <form name="myForm" onsubmit="return validateForm()" method="post">
             <dl>
                 <h2 class="titleform">Login</h2>
@@ -52,7 +44,7 @@ include '../Utils/View/Common.html';
     <p class="suggestionLogin">In order to login you must be registered. Registering takes only a few moments but gives
         you increased
         capabilities. The board administrator may also grant additional permissions to registered users.
-        Before you register please ensure you are familiar with our terms of use and related policies. Please
+Before you register please ensure you are familiar with our terms of use and related policies. Please
         ensure you read any forum rules as you navigate around the board.</p>
     <hr>
     <div class="buttons">
@@ -61,7 +53,4 @@ include '../Utils/View/Common.html';
         </a>
     </div>
 </div>
-<?php require_once('footer.php');?>
-</body>
-
-
+<script src="validationLogin.js"></script>
