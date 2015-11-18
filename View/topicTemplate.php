@@ -1,12 +1,4 @@
-<?php
-//namespace View;
-include '../Controller/TopicController.php';
-include '../Utils/View/Common.html';
-?>
-<body class="mainbody">
-<div class="container">
-    <?php include 'header.php'; ?>
-    <div class="content">
+ <div class="content">
         <?php echo $newTopicPost; ?>
         <div id="hiddenForm">
             <p>New topic name:</p>
@@ -24,6 +16,7 @@ include '../Utils/View/Common.html';
                 <th>Last post</th>
             </tr>
             <?php
+//            var_dump($topics);
             foreach ($topics as $topic) {
             ?>
                 <tr>
@@ -38,17 +31,13 @@ include '../Utils/View/Common.html';
             ?>
         </table>
     </div>
-    <?php include 'footer.php'; ?>
-</div>
-
 <script src="newTopicForm.js"></script>
 
 <script>
-        var userId = <?php echo $_SESSION["userId"];?>;
-        var sectionId = <?php echo $_GET["sectionId"]; ?>;
+    var userId = <?php echo $_SESSION["userId"];?>;
+    var sectionId = <?php echo $_GET["sectionId"]; ?>;
 </script>
 
 <script src="postNewTopic.js"></script>
 
 <script src="deleteTopic.js"></script>
-</body>
