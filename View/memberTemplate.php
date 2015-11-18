@@ -1,12 +1,4 @@
-<?php
-include ('../Controller/MemberController.php');
-use Model\Role;
-?>
-<body class="mainbody">
-<div class="container">
-    <?php require('header.php');
-    ?>
-    <div class="content">
+ <div class="content">
         <table>
             <tr>
                 <th>USER</th>
@@ -25,14 +17,14 @@ use Model\Role;
 
 
                 <?php
-                if ($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR) {
-
-                    echo '<td><button onclick="banFunction(' . $member['UserId'] . ')">Ban</button></td>';
-                }
-                if ($_SESSION["roleId"] == Role::ADMIN) {
-                    echo '<td><button onclick="deleteFunction(' . $member['UserId'] . ')">Delete</button></td>';
-                    echo '</tr>';
-                }
+//                if ($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR) {
+//
+//                    echo '<td><button onclick="banFunction(' . $member['UserId'] . ')">Ban</button></td>';
+//                }
+//                if ($_SESSION["roleId"] == Role::ADMIN) {
+//                    echo '<td><button onclick="deleteFunction(' . $member['UserId'] . ')">Delete</button></td>';
+//                    echo '</tr>';
+//                }
                 echo "</tr>";
             }
             ?>
@@ -58,8 +50,3 @@ use Model\Role;
             }
 
         </script>
-
-    </div>
-    <?php require('footer.php'); ?>
-</div>
-</body>

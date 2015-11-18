@@ -8,10 +8,13 @@
 namespace Controller;
 use Model\User as User;
 use Model\Comment as Comment;
+use Model\ViewFactory as ViewFactory;
 
-include '../Utils/sessions.php';
-include '../Utils/autoload.php';
 
+class MemberController
+{
+    public function memberAction()
+    {
 
 $newUser= new User();
 $newComment = new Comment();
@@ -24,4 +27,16 @@ foreach ($resultMember as $member) {
     $member['NumberPosts'] = $numberPosts;
 $members[] = $member;
 
+}
+        $viewVars = array(
+            'members' => $members,
+        );
+
+        $viewFactory = new ViewFactory();
+        $viewModel = $viewFactory->create($_GET['Template']);
+        $viewModel->addVariables($viewVars);
+
+        return $viewModel;
+
+    }
 }
