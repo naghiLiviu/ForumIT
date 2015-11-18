@@ -33,9 +33,9 @@ include '../Controller/HeaderController.php';
                       ?>
                 </span>
 <span class="userOption">
-                    <a href="index.php">Home | </a>
+                    <a href="http://forumit/View/index.php?Controller=Controller\Index&Action=indexAction&Template=index">Home | </a>
                     <a href="member.php">Members | </a>
-                    <a href="faq.php">FAQ | </a>
+                    <a href="faqTemplate.php">FAQ | </a>
 
 <?php
 

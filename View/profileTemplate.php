@@ -1,20 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: my1-asus
- * Date: 10/23/15
- * Time: 4:53 PM
- */
-//namespace View;
-include '../Controller/ProfileControllerVechi.php';
-include '../Utils/View/Common.html';
-?>
-<body class="mainbody">
-<script src="../View/profileValidation.js"></script>
-<div class="container">
-    <?php require_once('header.php'); ?>
 
-    <div class="regform">
+?>
+<div class="regform">
         <h2>User Profile Page</h2>
         <div class="deleteButtonDiv">
             <button class="button1" onclick="deleteFunction(<?php echo $userId; ?>)">Delete Account</button>
@@ -145,19 +132,4 @@ include '../Utils/View/Common.html';
                 <input type="submit" value="Submit" name="submit1" class="button1">
             </div>
         </form>
-        <script>
-            var userPostId =<?php echo $userId; ?>;
-            function deleteFunction(userPostId) {
-                if (confirm("Are you sure you want to delete this user?") == true) {
-                    window.location.href =("../Controller/deleteUserProfile.php?deleteUserId=" + userPostId);
-                } else {
-                    window.location.href =("profile.php");
-                }
-            }
-        </script>
-
-    </div>
-    <?php require_once('footer.php'); ?>
 </div>
-</body>
-</html>

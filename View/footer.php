@@ -14,7 +14,7 @@ include '../Controller/FooterController.php';
                         <a href="index.php"><img src="../img/home.jpg">HOME</a>
                     </span>
                     <span class="footerLink">
-                    <a href="faq.php">FAQ|</a>
+                    <a href="faqTemplate.php">FAQ|</a>
                     <a href="member.php">Members|</a>
                         <?php
                             echo $registerLink;

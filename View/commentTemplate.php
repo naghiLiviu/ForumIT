@@ -1,23 +1,6 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: my1-asus
- * Date: 10/27/15
- * Time: 1:39 PM
- */
-//namespace View;
-include '../Controller/CommentController.php';
-include '../Utils/View/Common.html';
-?>
 
-<body class="mainbody">
-
-<div class="container">
-    <?php
-    require('header.php');
-    ?>
     <div class="regform">
-        <?php
+      <?php
         $i = 0;
         $commentId = null;
         foreach ($arrayComments as $key => $row) {
@@ -51,21 +34,11 @@ include '../Utils/View/Common.html';
                     <p><cite><?php echo $valueCommentParrent['UserName']; ?></cite></p>
 
                     <p><?php echo $valueCommentParrent["RoleName"]; ?></p>
-<!--                    --><?php
-//                    $userId = $valueCommentParrent['UserId'];
-//                    $sqlStringP = "SELECT * FROM Comment
-//                        WHERE Comment.UserId = '$userId' ";
-//                    $countResult = $mysqli->query($sqlStringP);
-//                    $count = $countResult->num_rows;
-//                    $userId = $valueCommentParrent['UserId'];
-//                    $countComments = $comment->countComments( $userId);
-//                    ?>
                     <p> Posts: <?php echo "$countComments"; ?></p>
                     <?php
                     if ($_SESSION["userId"] == 1 || $_SESSION["userId"] == 2 || $_SESSION["userId"] == $userId) {
                         echo "<a href=\"editComment.php?commentId=$commentId&topicId=$topicId\"> Edit          |</a>";
                         echo "<button class=\"deleteButton\" onclick=\"deleteFunction(" . $commentId . ")\">Delete</button>";
-//                            <a href=\"deleteComment.php?commentId=$commentId&topicId=$topicId\">Delete</a>";
                     }
                     ?>
                 </div>
@@ -178,8 +151,3 @@ include '../Utils/View/Common.html';
 
         <div class="clearFix"></div>
         <br><br>
-        <?php require_once('footer.php'); ?>
-    </div>
-
-</div>
-</body>

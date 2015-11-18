@@ -2,10 +2,6 @@
 namespace View;
 include '../Utils/autoload.php';
 include '../Utils/sessions.php';
-//include '../Model/AbstractModel.php';
-//include '../Model/User.php';
-//include '../Model/Topic.php';
-//include '../Model/Comment.php';
 include '../Utils/View/Common.html';
 ?>
 <body class="mainbody">

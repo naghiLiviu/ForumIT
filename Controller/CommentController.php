@@ -11,6 +11,7 @@ include '../Utils/sessions.php';
 include '../Utils/autoload.php';
 
 $commentObject = new Comment();
+$i = 0;
 
 $topicId = $_GET['topicId'];
 if (!empty ($_POST['comment'])) {
