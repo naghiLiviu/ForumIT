@@ -13,7 +13,7 @@ use Model\ViewFactory as ViewFactory;
 
 
 
-class Topics
+class TopicController
 {
     public function topicAction()
     {
