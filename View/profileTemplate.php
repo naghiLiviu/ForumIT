@@ -126,7 +126,7 @@
             <a href="changePassword.php" class="button1">Change Password</a>
 
             <div class="buttons">
-                <a href="register.php">
+                <a href="registerTemplate.php">
                     <button class="button1">Reset</button>
                 </a>
                 <input type="submit" value="Submit" name="submit1" class="button1">

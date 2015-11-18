@@ -48,7 +48,7 @@ Before you register please ensure you are familiar with our terms of use and rel
         ensure you read any forum rules as you navigate around the board.</p>
     <hr>
     <div class="buttons">
-        <a class="regButton" href="register.php">
+        <a class="regButton" href="registerTemplate.php">
             <Button class="button1">Register</Button>
         </a>
     </div>

@@ -1,15 +1,4 @@
-<?php
-include '../Controller/RegisterController.php';
-include '../Utils/View/Common.html';
-?>
 
-<body class="mainbody">
-
-<script src="validateRegister.js"></script>
-
-<div class="container">
-
-    <?php require_once('header.php'); ?>
 
     <div class="regform">
 
@@ -73,7 +62,7 @@ include '../Utils/View/Common.html';
             <br>
 
             <div class="buttons">
-                <a href="register.php">
+                <a href="registerTemplate.php">
                     <button class="button1">Reset</button>
                 </a>
                 <input type="submit" value="Submit" name="submit" class="button1">
@@ -82,7 +71,3 @@ include '../Utils/View/Common.html';
         </form>
 
     </div>
-
-    <?php require_once('footer.php'); ?>
-</div>
-</body>
