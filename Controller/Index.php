@@ -63,7 +63,7 @@ class Index
         );
 
         $viewFactory = new ViewFactory();
-        $viewModel = $viewFactory->create('index');
+        $viewModel = $viewFactory->create($_GET['Template']);
         $viewModel->addVariables($viewVars);
 
         return $viewModel;
