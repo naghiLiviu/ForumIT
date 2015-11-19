@@ -318,4 +318,14 @@ class UserController
 
         header("Location: index.php?Controller=Controller\\MemberController&Action=memberAction&Template=member");
     }
+
+    public function deleteProfileAction()
+    {
+        session_destroy();
+        $user = new User();
+
+        $user->deleteUser($_GET["deleteUserId"]);
+
+        header("Location: index.php?Controller=Controller\\IndexController&Action=indexAction&Template=index");
+    }
 }

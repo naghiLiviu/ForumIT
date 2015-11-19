@@ -30,7 +30,7 @@
                 <dl>
                     <a class="link" href="forgotPassword.php"> Forgot password?</a><br>
                     <div class="buttons">
-                        <a href="login.php">
+                        <a href="index.php?Controller=Controller\UserController&Action=loginAction&Template=login">
                             <button class="button1">Reset</button>
                         </a>
                         <input type="submit" value="Submit" name="submitButton" class="button1">

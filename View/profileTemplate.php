@@ -1,10 +1,8 @@
-<?php
 
-?>
 <div class="regform">
         <h2>User Profile Page</h2>
         <div class="deleteButtonDiv">
-            <button class="button1" onclick="deleteFunction(<?php echo $userId; ?>)">Delete Account</button>
+            <button class="button1" onclick="deleteFunction(<?php echo $_SESSION['userId']; ?>)">Delete Account</button>
         </div>
         <form name = "profileForm" enctype="multipart/form-data" onsubmit="return profileForm2()" method="post">
             <dl>
@@ -123,7 +121,7 @@
                     <input type="number" name="antispam" title="Anti Spam">
                 </dd>
             </dl>
-            <a href="changePassword.php" class="button1">Change Password</a>
+            <a href="index.php?Controller=Controller\UserController&Action=changePasswordAction&Template=changePassword" class="button1">Change Password</a>
 
             <div class="buttons">
                 <a href="registerTemplate.php">
@@ -133,3 +131,12 @@
             </div>
         </form>
 </div>
+<script>
+    function deleteFunction(userId) {
+        if (confirm("Are you sure you want to leave from our forum?") == true) {
+            window.location.href =("index.php?Controller=Controller\\UserController&Action=deleteProfileAction&deleteUserId=" + userId);
+        } else {
+            window.location.href =("index.php?Controller=Controller\\UserController&Action=profileAction&Template=profile&userId=" + userId);
+        }
+    }
+</script>

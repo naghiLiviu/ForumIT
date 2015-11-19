@@ -62,7 +62,7 @@
             <br>
 
             <div class="buttons">
-                <a href="registerTemplate.php">
+                <a href="index.php?Controller=Controller\UserController&Action=registerAction&Template=register">
                     <button class="button1">Reset</button>
                 </a>
                 <input type="submit" value="Submit" name="submit" class="button1">
