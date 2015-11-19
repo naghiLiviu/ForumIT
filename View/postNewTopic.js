@@ -14,7 +14,7 @@ $(document).ready(function () {
                 userId: userId,
                 sectionId: sectionId
             },
-            success: function () {
+            complete: function () {
                 location.reload();
             }
         });
