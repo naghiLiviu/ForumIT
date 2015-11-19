@@ -44,13 +44,21 @@ class Comment extends AbstractModel
     }
 
     public function insertCommentsIntoLastTopic($userId, $lastTopicId, $comment) {
-        $sqlString = 'INSERT INTO Comment (UserId, TopicId, Comment) VALUES ("' .  $userId . '", "' .  $lastTopicId . '", "' .  $comment . '")';
+        $sqlString = 'INSERT INTO Comment (UserId, TopicId, Comment) VALUES ("' .  $userId . '", "' .  $lastTopicId . '",
+         "' .  $comment . '")';
         $this->query($sqlString);
 
     }
 
     public function newComment($userId, $topicId, $comment) {
-        $sqlString = 'INSERT INTO Comment (UserId, TopicId, Comment) VALUES ("' .  $userId . '", "' .  $topicId . '", "' .  $comment . '")';
+        $sqlString = 'INSERT INTO Comment (UserId, TopicId, Comment) VALUES ("' .  $userId . '", "' .  $topicId . '",
+         "' .  $comment . '")';
+        $this->query($sqlString);
+    }
+
+    public function replyComment($userId, $topicId, $replyComment, $commentId) {
+        $sqlString = 'INSERT INTO Comment (UserId, TopicId, Comment, CommentParentId) VALUES ("' . $userId . '",
+         "' . $topicId . '", "' . $replyComment . '", "' . $commentId . '")';
         $this->query($sqlString);
     }
 

@@ -1,6 +1,7 @@
 
     <div class="regform">
       <?php
+        $topicId = $_GET['topicId'];
         $i = 0;
         $commentId = null;
         foreach ($arrayComments as $key => $row) {
@@ -36,7 +37,7 @@
                     <p><?php echo $valueCommentParrent["RoleName"]; ?></p>
                     <p> Posts: <?php echo "$countComments"; ?></p>
                     <?php
-                    if ($_SESSION["userId"] == 1 || $_SESSION["userId"] == 2 || $_SESSION["userId"] == $userId) {
+                    if ($_SESSION['roleId'] == Model\Role::ADMIN || $_SESSION["roleId"] == Model\Role::MODERATOR || $_SESSION["userId"] == $valueCommentParrent['UserId']) {
                         echo "<a href=index.php?Controller=Controller\\CommentController&Action=editAction&Template=editComment&commentId=$commentId&topicId=" . $_GET['topicId'] . ">Edit         |</a>";
                         echo "<a href=index.php?Controller=Controller\\CommentController&Action=deleteAction&Template=comment&topicId=".$_GET['topicId']."&commentId=$commentId>Delete</a>";
                     }
@@ -91,7 +92,7 @@
                             var replyComment = document.getElementById("commentInput<?php echo $i; ?>").value;
                             $.ajax({
                                 method: "POST",
-                                url: "../Controller/ajax.php",
+                                url: "index.php?Controller=Controller\\CommentController&Action=replyAction",
                                 data: {
                                     replyComment: replyComment,
                                     commentId: commentId,
@@ -109,7 +110,7 @@
             }
         }
         ?>
-    </div>
+<
     <?php if (isset($_SESSION['userId']) || $_SESSION['userId'] != null) { ?>
     <div class="regform">
 
@@ -151,3 +152,4 @@
 
         <div class="clearFix"></div>
         <br><br>
+

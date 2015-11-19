@@ -101,4 +101,14 @@ class CommentController
         return $viewModel;
 
     }
+
+    public function replyAction()
+    {
+        $replyCommentObject = new Comment();
+        $commentId = $_POST["commentId"];
+        $topicId = $_POST["topicId"];
+        $userId = $_POST["userId"];
+        $replyComment =  $_POST["replyComment"];
+        $replyCommentObject->replyComment($userId, $topicId, $replyComment, $commentId);
+    }
 }
