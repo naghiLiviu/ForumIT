@@ -54,7 +54,8 @@ class Topic extends AbstractModel
 
     public function newTopic($sectionId, $topicName) {
         $sqlString = 'INSERT INTO Topic (SectionId, TopicName) VALUES ("' .  $sectionId . '", "' .  $topicName . '")';
-        $this->query($sqlString);
+        $result = $this->query($sqlString);
+        return  $result->insert_id;
 
     }
 

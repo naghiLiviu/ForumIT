@@ -3,8 +3,8 @@
  */
 function deleteFunction(id) {
     if (confirm("Are you sure you want to delete this topic?") == true) {
-        window.location.href =("../Controller/deleteTopic.php?topicId=" + id + "&sectionId=" + sectionId);
+        window.location.href =("index.php?Controller=Controller\\TopicController&Action=deleteAction&Template=topic&topicId=" + id + "&sectionId=" + sectionId);
     } else {
-        window.location.href =("topic.php?sectionId=" + sectionId);
+        window.location.href =("index.php?Controller=Controller\\TopicController&Action=deleteAction&Template=topic&sectionId=' . $sectionId" + sectionId);
     }
 }

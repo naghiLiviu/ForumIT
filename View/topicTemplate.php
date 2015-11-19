@@ -16,7 +16,6 @@
                 <th>Last post</th>
             </tr>
             <?php
-//            var_dump($topics);
             foreach ($topics as $topic) {
             ?>
                 <tr>

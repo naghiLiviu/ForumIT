@@ -9,6 +9,7 @@ namespace Controller;
 use Model\Topic as Topic;
 use Model\Comment as Comment;
 use Model\Role as Role;
+use Model\Section as Section;
 use Model\ViewFactory as ViewFactory;
 
 
@@ -47,7 +48,7 @@ class TopicController
             }
 
             if ($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR) {
-                $editTopic = '<td><a href="editTopic.php?topicId=' . $topicValue['TopicId'] . '">Edit </a></td>';
+                $editTopic = '<td><a href="index.php?Controller=Controller\TopicController&Action=editAction&Template=editTopic&sectionId='.$sectionId.'&topicId='.$topicValue['TopicId'].'">Edit </a></td>';
                 $deleteTopic = '<td><button class="deleteButton" onclick="deleteFunction(' . $topicValue['TopicId'] . ')" id="demo">
                     Delete</button></td></tr>';
             }
@@ -67,10 +68,6 @@ class TopicController
         $viewVars = array(
             'topics' => $topics,
             'newTopicPost' => $newTopicPost,
-//            '$resultTopic' => $resultTopic,
-//            '$resultComment' => $resultComment,
-//            'comment' => $comment,
-//            'topics' => $topics,
         );
 
         $viewFactory = new ViewFactory();
@@ -79,5 +76,65 @@ class TopicController
 
         return $viewModel;
 
+    }
+
+    public function editAction()
+    {
+
+        $topic = new Topic();
+        $section = new Section();
+
+        $topicId = $_GET["topicId"];
+        $sectionId = $_GET['sectionId'];
+
+        $result = $topic->getTopicWhereTopicId($topicId);
+        $commentArray = array();
+        $topicArray = array();
+        foreach ($result as $key => $value) {
+            $topicArray[] = $value;
+        }
+        $resultSection = $section->getSection();
+        if (!empty ($_POST['topic']) && $_POST["dropDown"] != "") {
+            $topic->updateTopic($_POST['topic'], $_POST['dropDown'], $topicId);
+            header('Location: index.php?Controller=Controller\TopicController&Action=topicAction&Template=topic&sectionId='.$sectionId);
+
+        }
+        $viewVars = array(
+            'topicArray' => $topicArray,
+            'topic' => $topic,
+            'resultSection' => $resultSection,
+        );
+
+        $viewFactory = new ViewFactory();
+        $viewModel = $viewFactory->create($_GET['Template']);
+        $viewModel->addVariables($viewVars);
+
+        return $viewModel;
+    }
+    public function addAction()
+    {
+        $insertTopic = new Topic();
+        $insertComment = new Comment();
+
+        $topicName = $_POST['newTopicName'];
+        $sectionId = $_POST["sectionId"];
+        $newComment = $_POST ['newTopicComment'];
+        $userId = $_POST['userId'];
+
+        $lastTopicId = $insertTopic->newTopic($sectionId, $topicName);
+
+        $insertComment->insertCommentsIntoLastTopic($userId, $lastTopicId, $newComment);
+
+    }
+    public function deleteAction()
+    {
+        $topicId = $_GET["topicId"];
+        $sectionId = $_GET['sectionId'];
+
+        $deleteTopic = new Topic();
+
+        $deleteTopic->deleteTopic($topicId);
+
+        header('Location: index.php?Controller=Controller\TopicController&Action=topicAction&Template=topic&sectionId=' . $sectionId);
     }
 }

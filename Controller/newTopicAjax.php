@@ -18,4 +18,4 @@ $addTopic = $insertTopic->newTopic($sectionId, $topicName);
 
 $lastTopicId = $mysqli->insert_id;
 
-$addComment = $insertComment->insertCommentsIntoLastTopic($userId, $lastTopicId, $comment);
+$addComment = $insertComment->insertCommentsIntoLastTopic($userId, $lastTopicId, $newComment);
