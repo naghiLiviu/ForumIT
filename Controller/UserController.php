@@ -267,7 +267,7 @@ class UserController
                     if ($pass == $passconf && $spam == '6') {
                         $sqlVerify = $contactData->selectUserData($userId, $pass);
                         if ($sqlVerify->num_rows) {
-                            $contactDetails->insertUserProfile($fname, $lname, $phone, $target_path, $userId);
+//                            $contactDetails->insertUserProfile($fname, $lname, $phone, $target_path, $userId);
 //                            $lastContactDetailId = $mysqli->insert_id;
 //                            $contactAddress->insertUserAddress($country, $city, $streetName, $streetNumber,
 //                                $lastContactDetailId);

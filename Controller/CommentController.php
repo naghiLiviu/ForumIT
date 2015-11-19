@@ -64,4 +64,41 @@ class CommentController
         return $viewModel;
 
     }
+
+    public function deleteAction()
+    {
+        $comment = new Comment();
+        $comment->deleteComment($_GET['commentId']);
+        header('Location: index.php?Controller=Controller\CommentController&Action=commentAction&Template=comment&topicId=' . $_GET['topicId']);
+    }
+
+    public function editAction()
+    {
+
+        $comment = new Comment();
+
+        $commentId = $_GET["commentId"];
+
+        $commentToEdit = $comment->getCommentByCommentId($commentId);
+
+        $commentArray = array();
+        foreach($commentToEdit as $key => $value) {
+            $commentArray = $value;
+        }
+        if (!empty ($_POST['comment'])) {
+            $comm = $_POST['comment'];
+            $comment->editComment($commentId, $comm);
+            header('Location: index.php?Controller=Controller\CommentController&Action=commentAction&Template=comment&topicId=' . $_GET['topicId']);
+        }
+        $viewVars = array(
+            'commentArray' => $commentArray,
+        );
+
+        $viewFactory = new ViewFactory();
+        $viewModel = $viewFactory->create($_GET['Template']);
+        $viewModel->addVariables($viewVars);
+
+        return $viewModel;
+
+    }
 }

@@ -22,8 +22,8 @@ $commentArray = array();
 foreach($commentToEdit as $key => $value) {
     $commentArray = $value;
 }
-    if (!empty ($_POST['comment'])) {
-        $comm = $_POST['comment'];
-        $commentEdited = $comment->editComment($commentId, $comm);
-        header("Location: comment.php?topicId=$topicId");
-    }
+if (!empty ($_POST['comment'])) {
+    $comm = $_POST['comment'];
+    $commentEdited = $comment->editComment($commentId, $comm);
+    header("Location: comment.php?topicId=$topicId");
+}

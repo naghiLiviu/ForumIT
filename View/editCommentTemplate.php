@@ -1,13 +1,4 @@
-<?php
-//namespace View;
 
-include '../Controller/EditCommentController.php';
-include '../Utils/View/Common.html';
-
-?>
-<body class="mainbody">
-<div class="container">
-    <?php require_once("header.php"); ?>
     <div class="regform">
         <p> Post a comment: </p>
         <br>
@@ -20,6 +11,3 @@ include '../Utils/View/Common.html';
         </form>
         <br><br>
     </div>
-    <?php require_once("footer.php"); ?>
-</div>
-</body>

@@ -37,8 +37,8 @@
                     <p> Posts: <?php echo "$countComments"; ?></p>
                     <?php
                     if ($_SESSION["userId"] == 1 || $_SESSION["userId"] == 2 || $_SESSION["userId"] == $userId) {
-                        echo "<a href=\"editComment.php?commentId=$commentId&topicId=$topicId\"> Edit          |</a>";
-                        echo "<button class=\"deleteButton\" onclick=\"deleteFunction(" . $commentId . ")\">Delete</button>";
+                        echo "<a href=index.php?Controller=Controller\\CommentController&Action=editAction&Template=editComment&commentId=$commentId&topicId=" . $_GET['topicId'] . ">Edit         |</a>";
+                        echo "<a href=index.php?Controller=Controller\\CommentController&Action=deleteAction&Template=comment&topicId=".$_GET['topicId']."&commentId=$commentId>Delete</a>";
                     }
                     ?>
                 </div>
