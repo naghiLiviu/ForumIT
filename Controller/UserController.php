@@ -50,7 +50,7 @@ class UserController
 //                }
 //            }
 
-                    header('Location: index.php?Controller=Controller\Index&Action=indexAction&Template=index');
+                    header('Location: index.php?Controller=Controller\IndexController&Action=indexAction&Template=index');
                 } else {
                     echo "<script> alert('Username or Password incorrect'); </script>";
                 }
@@ -71,7 +71,7 @@ class UserController
     public function logoutAction()
     {
         session_destroy();
-        header('Location: index.php?Controller=Controller\Index&Action=indexAction&Template=index');
+        header('Location: index.php?Controller=Controller\IndexController&Action=indexAction&Template=index');
     }
 
     public function changePasswordAction()
