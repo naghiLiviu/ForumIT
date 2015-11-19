@@ -12,6 +12,7 @@ use Model\Comment as Comment;
 use Model\ContactDetail as ContactDetail;
 use Model\Address as Address;
 use Model\ViewFactory as ViewFactory;
+use Model\Role as Role;
 
 class UserController
 {
@@ -164,7 +165,7 @@ class UserController
                         $headers = 'From:noreply@forumIT.com' . "\r\n";
                         $message = 'http://forumit/View/index.php?Controller=Controller\Register&Action=accountActivationAction&userId=' . $userId . '" Click here if you want to activate your account on ForumIT';
                         mail($email, $subject, $message, $headers);
-                        header("Location: index.php?Controller=Controller\UserController&Action=loginAction&Template=login");
+                        header("Location: index.php?Controller=Controller\\UserController&Action=loginAction&Template=login");
                     } else {
                         echo '<script>alert("The inserted data do not match");</script>';
                     }

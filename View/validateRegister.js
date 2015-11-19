@@ -19,18 +19,18 @@ function validateUserName(userName) {
 
 function validateForm() {
     //alert('aici');
+    var userName = document.forms["register_form"]["username"].value;
+    var email = document.forms["register_form"]["email"].value;
+    var emailConf = document.forms["register_form"]["emailConfirm"].value;
+    var antispam = document.forms["register_form"]["antispam"].value;
+    var validatedEmail = validateEmail(email);
+    var validatedUserName = validateUserName(userName);
     if
     (
-        !empty(document.forms["register_form"]["username"].value) &&
-        !empty(document.forms["register_form"]["email"].value) &&
-        !empty(emailConf = document.forms["register_form"]["emailConfirm"].value)
+        userName != null || userName != "" &&
+        email != null || email != "" &&
+        emailConf != null || emailConf != ""
     ) {
-        var userName = document.forms["register_form"]["username"].value;
-        var email = document.forms["register_form"]["email"].value;
-        var emailConf = document.forms["register_form"]["emailConfirm"].value;
-        var antispam = document.forms["register_form"]["antispam"].value;
-        var validatedEmail = validateEmail(email);
-        var validatedUserName = validateUserName(userName);
 
 
         if (userName == null || userName == "") {

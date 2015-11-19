@@ -179,7 +179,4 @@ class User extends AbstractModel
         $result = $this->query($sqlString);
         return $result;
     }
-
-
-
 }
