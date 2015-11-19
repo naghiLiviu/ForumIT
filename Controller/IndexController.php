@@ -28,7 +28,7 @@ class IndexController
 
             if ($sectionValue["SectionStatus"] == "Active") {
                 if ($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR) {
-                    $editLink = '<a href="../View/editSection.php?sectionId=' . $sectionValue['SectionId'] . '">Edit</a>';
+                    $editLink = '<a href="index.php?Controller=Controller\IndexController&Action=editAction&Template=editSection&sectionId=' . $sectionValue['SectionId'] . '">Edit</a>';
 
                     if ($_SESSION["roleId"] == Role::ADMIN || $_SESSION["roleId"] == Role::MODERATOR) {
                         $deleteLink = '<button class="deleteButton" onclick="deleteFunction(' . $sectionId . ')">Delete</button>';
@@ -68,5 +68,51 @@ class IndexController
 
         return $viewModel;
 
+    }
+
+    public function deleteAction()
+    {
+        $sectionId = $_GET["sectionId"];
+        $section = new Section();
+
+        $section->deleteSection($sectionId);
+
+        header("Location: index.php?Controller=Controller\\IndexController&Action=indexAction&Template=index");
+    }
+
+    public function addAction()
+    {
+        $section = new Section();
+
+        $newSection = $_POST['newSectionName'];
+
+        $section->newSection($newSection);
+    }
+
+    public function editAction()
+    {
+        $section = new Section();
+        $sectionId = $_GET["sectionId"];
+        $sectionName = $_POST['section'];
+
+
+        $sectionToEdit = $section->getSectionById($sectionId);
+        $sectionArray = array();
+        foreach($sectionToEdit as $sectionEdited) {
+            $sectionArray[] = $sectionEdited;
+            if (!empty ($_POST['section'])) {
+                $section->editSection($sectionId, $sectionName);
+                header("Location: index.php?Controller=Controller\\IndexController&Action=indexAction&Template=index");
+            }
+        }
+        $viewVars = array(
+            'sectionArray' => $sectionArray,
+        );
+
+        $viewFactory = new ViewFactory();
+        $viewModel = $viewFactory->create($_GET['Template']);
+        $viewModel->addVariables($viewVars);
+
+        return $viewModel;
     }
 }

@@ -6,12 +6,12 @@ $(document).ready(function () {
         var newSectionName = document.getElementById("newSectionName").value;
         $.ajax({
             method: "POST",
-            url: "../Controller/newSection.php",
+            url: "index.php?Controller=Controller\\IndexController&Action=addAction",
             data: {
                 newSectionName: newSectionName
             },
             success: function () {
-                location.reload();
+                window.location.href =("index.php?Controller=Controller\\IndexController&Action=indexAction&Template=index");
             }
         });
     });
