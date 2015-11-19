@@ -87,6 +87,7 @@ class IndexController
         $newSection = $_POST['newSectionName'];
 
         $section->newSection($newSection);
+        return true;
     }
 
     public function editAction()
