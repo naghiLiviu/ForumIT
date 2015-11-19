@@ -62,10 +62,8 @@
             <br>
 
             <div class="buttons">
-                <a href="index.php?Controller=Controller\UserController&Action=registerAction&Template=register">
-                    <button class="button1">Reset</button>
-                </a>
-                <input type="submit" value="Submit" name="submit" class="button1">
+                <button type="reset" value="Reset" class="button1">Reset</button>
+                <button type="submit" value="Submit" class="button1">Submit</button>
             </div>
 
         </form>

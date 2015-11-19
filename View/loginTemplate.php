@@ -30,10 +30,8 @@
                 <dl>
                     <a class="link" href="forgotPassword.php"> Forgot password?</a><br>
                     <div class="buttons">
-                        <a href="index.php?Controller=Controller\UserController&Action=loginAction&Template=login">
-                            <button class="button1">Reset</button>
-                        </a>
-                        <input type="submit" value="Submit" name="submitButton" class="button1">
+                        <button type="reset" value="Reset" class="button1">Reset</button>
+                        <button type="submit" value="Submit" class="button1">Submit</button>
         </form>
     </div>
 </div>
@@ -54,3 +52,4 @@ Before you register please ensure you are familiar with our terms of use and rel
     </div>
 </div>
 <script src="validationLogin.js"></script>
+
