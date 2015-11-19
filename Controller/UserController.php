@@ -6,6 +6,7 @@
  * Time: 11:57 AM
  */
 namespace Controller;
+
 use Model\User as User;
 use Model\Comment as Comment;
 use Model\ContactDetail as ContactDetail;
@@ -16,7 +17,7 @@ class UserController
 {
     public function loginAction()
     {
-        $user    = new User();
+        $user = new User();
         $comment = new Comment();
         $userLoginArray = array();
 
@@ -28,7 +29,8 @@ class UserController
                     $userLoginArray[] = $idValue;
                 }
                 if ($result->num_rows && $userLoginArray[0]["UserStatus"] == "Active" && ($userLoginArray[0]["Ban"] == 0 ||
-                        ($userLoginArray[0]["Ban"] == 1 && $userLoginArray[0]["BanDate"] < date("Y-m-d")))) {
+                        ($userLoginArray[0]["Ban"] == 1 && $userLoginArray[0]["BanDate"] < date("Y-m-d")))
+                ) {
                     // se efectueaza unban
                     $user->unbanUser($userLoginArray[0]['UserId']);
                     $_SESSION['message'] = "Welcome " . $userLoginArray[0]["UserName"] . " into your account!";
@@ -119,10 +121,10 @@ class UserController
         $userActivate = new User();
         $status = $userActivate->getStatus($userId);
         $userStatus = '';
-        foreach($status as $value) {
+        foreach ($status as $value) {
             $userStatus = $value['UserStatus'];
         }
-        if($userStatus == 'Registered') {
+        if ($userStatus == 'Registered') {
             $userActivate->activateUserAccount($userId);
             $_SESSION['message'] = 'Account succesfully activated !';
             header('Location: index.php?Controller=Controller\UserController&Action=loginAction&Template=login');
@@ -154,8 +156,9 @@ class UserController
                         $user->registerUser($_POST['username'], $_POST['password'], $_POST['email'], Role::USER);
                         $result = $user->getUserId($email);
                         $userId = '';
-                        foreach($result as $value) {
-                            $userId = openssl_encrypt($value['UserId'], "AES-256-CBC", "25c6c7ff35b9979b151f2136cd13b0ff");
+                        foreach ($result as $value) {
+                            $userId = openssl_encrypt($value['UserId'], "AES-256-CBC",
+                                "25c6c7ff35b9979b151f2136cd13b0ff");
                         }
                         $subject = 'Account Activation';
                         $headers = 'From:noreply@forumIT.com' . "\r\n";
@@ -242,10 +245,12 @@ class UserController
                     if ($pass == $passconf && $spam == '6') {
                         $sqlVerify = $contactData->selectUserData($userId, $pass);
                         if ($sqlVerify->num_rows) {
-                            $updateContactDetail = $contactDetails->updateUserProfile($fname, $lname, $phone, $target_path,
+                            $updateContactDetail = $contactDetails->updateUserProfile($fname, $lname, $phone,
+                                $target_path,
                                 $userId);
                             $contactDetailId = $detailArray[0]["ContactDetailId"];
-                            $updateAddress = $contactAddress->updateUserAddress($country, $city, $streetName, $streetNumber,
+                            $updateAddress = $contactAddress->updateUserAddress($country, $city, $streetName,
+                                $streetNumber,
                                 $contactDetailId);
                             $updateEmail = $contactData->updateUserData($userId, $email);
                             $_SESSION['message'] = "Update succesfull";
@@ -285,7 +290,7 @@ class UserController
         $viewVars = array(
             'myEmail' => $myEmail,
             'dataArray' => $dataArray,
-            'detailArray' =>$detailArray,
+            'detailArray' => $detailArray,
         );
 
         $viewFactory = new ViewFactory();
@@ -293,5 +298,24 @@ class UserController
         $viewModel->addVariables($viewVars);
 
         return $viewModel;
+    }
+
+    public function banAction()
+    {
+        $user = new User();
+
+        $banUserId = $_GET["banUserId"];
+        $banDate = date("Y-m-d", strtotime("+15 days"));
+        $user->banUser($banUserId, $banDate);
+        header('Location: index.php?Controller=Controller\MemberController&Action=memberAction&Template=member');
+    }
+
+    public function deleteAction()
+    {
+        $user = new User();
+
+        $user->deleteUser($_GET["deleteUserId"]);
+
+        header("Location: index.php?Controller=Controller\\MemberController&Action=memberAction&Template=member");
     }
 }
