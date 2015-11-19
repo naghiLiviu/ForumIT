@@ -99,7 +99,7 @@
                                     topicId: topicId,
                                     userId: userId
                                 },
-                                success: function () {
+                                complete: function () {
                                     location.reload();
                                 }
                             });
