@@ -60,3 +60,4 @@ use Model\Role as Role;
         var sectionId =<?php echo $section['SectionId']; ?>;
     </script>
     <script src="deleteSection.js"></script>
+</div>

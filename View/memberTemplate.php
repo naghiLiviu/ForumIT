@@ -10,7 +10,7 @@
                 ?>
                 <tr>
                     <td>
-                        <a href="userprofile.php?userId=<?php echo $member['UserId']; ?>"><?php echo $member['UserName']; ?></a>
+                        <a href="index.php?Controller=Controller\UserController&Action=userProfileAction&Template=userProfile&userId=<?php echo $member['UserId']; ?>"><?php echo $member['UserName']; ?></a>
                     </td>
                     <td><?php echo $member['RoleName']; ?></td>
                     <td><?php echo $member['NumberPosts']; ?></td>

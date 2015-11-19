@@ -263,7 +263,7 @@ class UserController
                         $_SESSION['message'] = "Password do not match";
                     }
 
-                    header('Location: ../View/index.php');
+                    header('Location: index.php?Controller=Controller\IndexController&Action=indexAction&Template=index');
                 } else {
                     if ($pass == $passconf && $spam == '6') {
                         $sqlVerify = $contactData->selectUserData($userId, $pass);
@@ -281,7 +281,7 @@ class UserController
                         $_SESSION['message'] = "Password do not match";
                     }
 
-                    header('Location: ../View/index.php');
+                    header('Location: index.php?Controller=Controller\IndexController&Action=indexAction&Template=index');
                 }
 //                $mysqli->close();
             } else {
@@ -323,6 +323,70 @@ class UserController
         } else {
             header("Location: index.php?Controller=Controller\\MemberController&Action=memberAction&Template=member");
         }
+    }
+
+    public function userProfileAction()
+    {
+        $user = new User();
+        $comment = new Comment();
+        $memberId = $_GET['userId'];
+
+        $userProfileArray = array();
+        $userProfile = $user->userProfile($memberId);
+        $countPost = $comment->countComments($memberId);
+
+        foreach ($userProfile as $value) {
+            if (!empty($value['UserName'])) {
+                $detailName = $value['UserName'];
+            } else {
+                $detailName = 'N/A';
+            }
+            if (!empty ($value['Email'])) {
+                $detailEmail = $value['Email'];
+            } else {
+                $detailEmail = 'N/A';
+            }
+            if (!empty($value['RoleName'])) {
+                $role = $value['RoleName'];
+            } else {
+                $role = 'N/A';
+            }
+            $registerDate = $value['RegisterDate'];
+            $picture = $value['Picture'];
+
+
+            $userProfileArray = array(
+                'UserName' => $detailName,
+                'Email' => $detailEmail,
+                'RoleName' => $role,
+                'RegisterDate' => $registerDate,
+                'Picture' => $picture
+            );
+        }
+        $dropDown = $_POST['dropDown'];
+        if ($_POST) {
+
+            if ($_POST['dropDown'] != "") {
+
+                if ($dropDown == "admin") {
+
+                    $user->updateRole(Role::ADMIN, $memberId);
+                } elseif ($dropDown == "moderator") {
+                    $user->updateRole(Role::MODERATOR, $memberId);
+                }
+                header("Location: index.php?Controller=Controller\\MemberController&Action=memberAction&Template=member");
+            }
+        }
+        $viewVars = array(
+            'userProfileArray' => $userProfileArray,
+            'countPost' => $countPost,
+        );
+
+        $viewFactory = new ViewFactory();
+        $viewModel = $viewFactory->create($_GET['Template']);
+        $viewModel->addVariables($viewVars);
+
+        return $viewModel;
     }
 
 }

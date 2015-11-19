@@ -28,7 +28,7 @@
                         <button class="button1" id="submitHidden<?php echo $i; ?>">Submit</button>
                     </div>
                     <?php if (isset($_SESSION['userId']) || $_SESSION['userId'] != null) { ?>
-                        <button id="replyButton<?php echo $i; ?>" type="button" value="hide/show">Reply</button>
+                        <button id="replyButton<?php echo $i; ?>" type="button" value="hide/show" class="button1">Reply</button>
                     <?php } ?>
                 </div>
                 <div class="righttabel">
