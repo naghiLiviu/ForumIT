@@ -314,19 +314,15 @@ class UserController
     public function deleteAction()
     {
         $user = new User();
-
+        if ($_GET['profile'] == 'own') {
+            session_destroy();
+        }
         $user->deleteUser($_GET["deleteUserId"]);
-
-        header("Location: index.php?Controller=Controller\\MemberController&Action=memberAction&Template=member");
+        if ($_GET['profile'] == 'own') {
+            header("Location: index.php?Controller=Controller\\IndexController&Action=indexAction&Template=index");
+        } else {
+            header("Location: index.php?Controller=Controller\\MemberController&Action=memberAction&Template=member");
+        }
     }
 
-    public function deleteProfileAction()
-    {
-        session_destroy();
-        $user = new User();
-
-        $user->deleteUser($_GET["deleteUserId"]);
-
-        header("Location: index.php?Controller=Controller\\IndexController&Action=indexAction&Template=index");
-    }
 }

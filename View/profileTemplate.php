@@ -134,7 +134,7 @@
 <script>
     function deleteFunction(userId) {
         if (confirm("Are you sure you want to leave from our forum?") == true) {
-            window.location.href =("index.php?Controller=Controller\\UserController&Action=deleteProfileAction&deleteUserId=" + userId);
+            window.location.href =("index.php?Controller=Controller\\UserController&Action=deleteAction&profile=own&deleteUserId=" + userId);
         } else {
             window.location.href =("index.php?Controller=Controller\\UserController&Action=profileAction&Template=profile&userId=" + userId);
         }
