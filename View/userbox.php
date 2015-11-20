@@ -13,5 +13,5 @@ include '../Controller/UserBoxController.php';
     ?>
 </span>
 <span class="userProfile">
-    <a href="index.php?Controller=Controller\UserController&Action=profileAction&Template=profile&userId=<?php echo $_SESSION['userId']; ?>">Edit Profile</a>
+    <a href="index.php?Controller=Controller\UserController&Action=profileAction&Template=profile">Edit Profile</a>
 </span>
