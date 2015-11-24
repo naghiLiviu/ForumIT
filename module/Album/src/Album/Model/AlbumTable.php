@@ -8,6 +8,7 @@
 namespace Album\Model;
 
 use Zend\Db\TableGateway\TableGateway;
+use \Zend\Debug\Debug as dump;
 
 class AlbumTable
 {
@@ -26,7 +27,7 @@ class AlbumTable
 
     public function getAlbum($id)
     {
-        \Zend\Debug\Debug::dump($this->tableGateway->getServiceLocator()->get('config'));
+//        dump::dump($this->tableGateway->getServiceLocator()->get('config'));
         $id  = (int) $id;
         $rowset = $this->tableGateway->select(array('id' => $id));
         $row = $rowset->current();

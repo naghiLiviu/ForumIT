@@ -15,6 +15,7 @@ use Zend\Mvc\MvcEvent;
 use Album\Model\Album;
 use Album\Model\AlbumTable;
 use Zend\Db\ResultSet\ResultSet;
+use \Zend\Debug\Debug as dump;
 
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface
@@ -43,7 +44,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
         return array(
             'factories' => array(
                 'Album\Model\AlbumTable' => function ($sm) {
-                    \Zend\Debug\Debug::dump('creating new gateway');
+
                     $tableGateway = $sm->get('AlbumTableGateway');
                     $table = new AlbumTable($tableGateway);
                     return $table;

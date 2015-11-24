@@ -7,10 +7,22 @@
  */
 namespace Album\Controller;
 use \Zend\Debug\Debug as dump;
+use Zend\EventManager\EventManager;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Album\Model\Album;
 use Album\Form\AlbumForm;
+
+
+$wrappedBuzzer = new Buzzer();
+$eventManager = new EventManager();
+
+$eventManager->attach('buzz', function () {echo "Stare at the art!\n";});
+
+$buzzer = new BuzzDelegator($wrappedBuzzer, $eventManager);
+
+echo $buzzer->buzz();
+
 
 class AlbumController extends AbstractActionController
 {
@@ -25,9 +37,9 @@ class AlbumController extends AbstractActionController
         $this->getServiceLocator()->setShared('Album\Model\AlbumTable', false);
         $albumTable = $this->getServiceLocator()->get('Album\Model\AlbumTable');
         $albumTable->myProperty = 7;
-        dump::dump($this->getServiceLocator()->get('Album\Model\AlbumTable'));
-        //\Zend\Debug\Debug::dump($serviceLocator->getRegisteredServices());
-        //\Zend\Debug\Debug::dump($serviceLocator->isShared('Album\Model\AlbumTable'));
+        //dump::dump($this->getServiceLocator()->get('Album\Model\AlbumTable'));
+        //dump::dump($serviceLocator->getRegisteredServices());
+        //dump::dump($serviceLocator->isShared('Album\Model\AlbumTable'));
         return new ViewModel(array(
             'albums' => $this->getAlbumTable()->fetchAll(),
         ));
@@ -134,3 +146,4 @@ class AlbumController extends AbstractActionController
         return $this->albumTable;
     }
 }
+
