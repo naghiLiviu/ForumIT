@@ -13,7 +13,7 @@ class AlbumTable
 {
     protected $tableGateway;
 
-    public function __construct(TableGateway $tableGateway)
+    public function __construct(AlbumTableGateway $tableGateway)
     {
         $this->tableGateway = $tableGateway;
     }
@@ -26,6 +26,7 @@ class AlbumTable
 
     public function getAlbum($id)
     {
+        \Zend\Debug\Debug::dump($this->tableGateway->getServiceLocator()->get('config'));
         $id  = (int) $id;
         $rowset = $this->tableGateway->select(array('id' => $id));
         $row = $rowset->current();

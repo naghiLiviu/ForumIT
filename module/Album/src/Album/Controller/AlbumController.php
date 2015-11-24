@@ -6,7 +6,7 @@
  * Time: 1:18 PM
  */
 namespace Album\Controller;
-
+use \Zend\Debug\Debug as dump;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Album\Model\Album;
@@ -17,6 +17,17 @@ class AlbumController extends AbstractActionController
     protected $albumTable;
     public function indexAction()
     {
+        /**
+         * @var \Zend\ServiceManager\ServiceManager $serviceLocator
+         */
+        $serviceLocator = $this->getServiceLocator();
+        $serviceLocator->addInitializer('Album\Model\SillyInitializer');
+        $this->getServiceLocator()->setShared('Album\Model\AlbumTable', false);
+        $albumTable = $this->getServiceLocator()->get('Album\Model\AlbumTable');
+        $albumTable->myProperty = 7;
+        dump::dump($this->getServiceLocator()->get('Album\Model\AlbumTable'));
+        //\Zend\Debug\Debug::dump($serviceLocator->getRegisteredServices());
+        //\Zend\Debug\Debug::dump($serviceLocator->isShared('Album\Model\AlbumTable'));
         return new ViewModel(array(
             'albums' => $this->getAlbumTable()->fetchAll(),
         ));
