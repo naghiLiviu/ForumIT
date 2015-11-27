@@ -6,31 +6,66 @@
  * Time: 1:18 PM
  */
 namespace Album\Controller;
+
 use \Zend\Debug\Debug as dump;
 use Zend\EventManager\EventManager;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Album\Model\Album;
 use Album\Form\AlbumForm;
+use Zend\Di\Di;
 
 
-$wrappedBuzzer = new Buzzer();
-$eventManager = new EventManager();
+/**
+ * Delegator
+ */
+//$wrappedBuzzer = new Buzzer();
+//$eventManager = new EventManager();
+//
+//$eventManager->attach('buzz', function () {
+//    echo "Stare at the art!\n";
+//});
+//
+//$buzzer = new BuzzDelegator($wrappedBuzzer, $eventManager);
+//
+//echo $buzzer->buzz();
 
-$eventManager->attach('buzz', function () {echo "Stare at the art!\n";});
-
-$buzzer = new BuzzDelegator($wrappedBuzzer, $eventManager);
-
-echo $buzzer->buzz();
+//dump::dump($eventManager);
 
 
 class AlbumController extends AbstractActionController
 {
     protected $albumTable;
+
     public function indexAction()
     {
         /**
+         * DEPENDENCY INJECTION
+         */
+        $arrayUsername = array('username' => 'Lyviu93');
+        $arrayPassword = array('password' => 'Dinamo48');
+
+        $di = new Di();
+
+        $di->instanceManager()->setParameters('Album\Controller\A', $arrayUsername);
+        $di->instanceManager()->setParameters('Album\Controller\A', $arrayPassword);
+        $di->instanceManager()->setShared('Album\Controller\A', false);
+        $di->instanceManager()->setShared('Album\Controller\B', false);
+//        $di->instanceManager()->
+
+//        $c = new C(new B(new A('usr', 'passwd')));
+
+        $c = $di->get('Album\Controller\C');
+        $b = $di->get('Album\Controller\B');
+        $a = $di->get('Album\Controller\A');
+
+//        $c->b->a->username = 'tudor';
+        \Zend\Debug\Debug::dump($b);
+        \Zend\Debug\Debug::dump($c);
+        \Zend\Debug\Debug::dump($a);
+        /**
          * @var \Zend\ServiceManager\ServiceManager $serviceLocator
+         * SERVICE MANAGER
          */
         $serviceLocator = $this->getServiceLocator();
         $serviceLocator->addInitializer('Album\Model\SillyInitializer');
@@ -40,9 +75,12 @@ class AlbumController extends AbstractActionController
         //dump::dump($this->getServiceLocator()->get('Album\Model\AlbumTable'));
         //dump::dump($serviceLocator->getRegisteredServices());
         //dump::dump($serviceLocator->isShared('Album\Model\AlbumTable'));
-        return new ViewModel(array(
+
+        $viewModel = new ViewModel(array(
             'albums' => $this->getAlbumTable()->fetchAll(),
         ));
+        $viewModel->setTemplate('album/album/index.phtml');
+        return $viewModel;
     }
 
     public function addAction()
@@ -71,7 +109,7 @@ class AlbumController extends AbstractActionController
 
     public function editAction()
     {
-        $id = (int) $this->params()->fromRoute('id', 0);
+        $id = (int)$this->params()->fromRoute('id', 0);
         if (!$id) {
             return $this->redirect()->toRoute('album', array(
                 'action' => 'add'
@@ -80,14 +118,13 @@ class AlbumController extends AbstractActionController
 
         try {
             $album = $this->getAlbumTable()->getAlbum($id);
-        }
-        catch (\Exception $ex) {
+        } catch (\Exception $ex) {
             return $this->redirect()->toRoute('album', array(
                 'action' => 'index'
             ));
         }
 
-        $form  = new AlbumForm();
+        $form = new AlbumForm();
         $form->bind($album);
         $form->get('submit')->setAttribute('value', 'Edit');
 
@@ -113,7 +150,7 @@ class AlbumController extends AbstractActionController
 
     public function deleteAction()
     {
-        $id = (int) $this->params()->fromRoute('id', 0);
+        $id = (int)$this->params()->fromRoute('id', 0);
         if (!$id) {
             return $this->redirect()->toRoute('album');
         }
@@ -123,7 +160,7 @@ class AlbumController extends AbstractActionController
             $del = $request->getPost('del', 'No');
 
             if ($del == 'Yes') {
-                $id = (int) $request->getPost('id');
+                $id = (int)$request->getPost('id');
                 $this->getAlbumTable()->deleteAlbum($id);
             }
 
@@ -132,12 +169,11 @@ class AlbumController extends AbstractActionController
         }
 
         return array(
-            'id'    => $id,
+            'id' => $id,
             'album' => $this->getAlbumTable()->getAlbum($id)
         );
     }
-
-    public function getAlbumTable()
+      public function getAlbumTable()
     {
         if (!$this->albumTable) {
             $sm = $this->getServiceLocator();
@@ -146,4 +182,7 @@ class AlbumController extends AbstractActionController
         return $this->albumTable;
     }
 }
+
+
+
 
