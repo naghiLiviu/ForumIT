@@ -9,7 +9,19 @@
 namespace Album\Controller;
 
 
-class A
-{
+    class A
+    {
+        protected $var = 'mere';
+        protected $username = null;
+        protected $password = null;
+        public function __construct($username, $password)
+        {
+            $this->username = $username;
+            $this->password = $password;
+        }
 
-}
+        public function test()
+        {
+            return 'test';
+        }
+    }

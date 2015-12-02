@@ -17,7 +17,6 @@ use Album\Model\AlbumTable;
 use Zend\Db\ResultSet\ResultSet;
 use \Zend\Debug\Debug as dump;
 
-
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface
 {
     public function getAutoloaderConfig()

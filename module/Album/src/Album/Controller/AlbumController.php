@@ -44,25 +44,34 @@ class AlbumController extends AbstractActionController
          */
         $arrayUsername = array('username' => 'Lyviu93');
         $arrayPassword = array('password' => 'Dinamo48');
-
+        $arrayInjection = array('injectionValue' => 'test');
         $di = new Di();
 
         $di->instanceManager()->setParameters('Album\Controller\A', $arrayUsername);
         $di->instanceManager()->setParameters('Album\Controller\A', $arrayPassword);
-        $di->instanceManager()->setShared('Album\Controller\A', false);
+        $di->instanceManager()->setShared('Album\Controller\A', true);
         $di->instanceManager()->setShared('Album\Controller\B', false);
-//        $di->instanceManager()->
+        $di->instanceManager()->setShared('Album\Controller\C', false);
+//        $di->instanceManager()->setInjections('Album\Controller\A', $arrayInjection);
+//        \Zend\Debug\Debug::dump($di->instanceManager()->getConfig('Album\Controller\A'));
+        \Zend\Debug\Debug::dump($di->instanceManager()->getClasses());
 
-//        $c = new C(new B(new A('usr', 'passwd')));
 
+
+
+
+//        $c = new C(new B(new A('usr', 'password')));
+//
         $c = $di->get('Album\Controller\C');
-        $b = $di->get('Album\Controller\B');
-        $a = $di->get('Album\Controller\A');
+//        $b = $di->get('Album\Controller\B');
+//        $a = $di->get('Album\Controller\A');
+        $getClasses = $di->instanceManager()->getClasses();
 
+//        \Zend\Debug\Debug::dump($getClasses);
 //        $c->b->a->username = 'tudor';
-        \Zend\Debug\Debug::dump($b);
-        \Zend\Debug\Debug::dump($c);
-        \Zend\Debug\Debug::dump($a);
+//        \Zend\Debug\Debug::dump($b);
+//        \Zend\Debug\Debug::dump($c);
+//        \Zend\Debug\Debug::dump($a);
         /**
          * @var \Zend\ServiceManager\ServiceManager $serviceLocator
          * SERVICE MANAGER

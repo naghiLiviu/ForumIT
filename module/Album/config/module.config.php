@@ -9,6 +9,9 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Album\Controller\Album' => 'Album\Controller\AlbumController',
+            'Album\Controller\A' => 'Album\Controller\A',
+            'Album\Controller\B' => 'Album\Controller\A',
+            'Album\Controller\C' => 'Album\Controller\A',
         ),
     ),
     'router' => array(
@@ -44,4 +47,9 @@ return array(
             ),
         ),
     ),
+    'di' => array(
+        'allowed_controllers' => array(
+            'Album\Controller\A',
+        )
+    )
 );
