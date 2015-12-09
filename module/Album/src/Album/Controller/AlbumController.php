@@ -7,14 +7,21 @@
  */
 namespace Album\Controller;
 
+use Album\Form\RegisterForm;
 use \Zend\Debug\Debug as dump;
 use Zend\EventManager\EventManager;
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\Stdlib\ArrayObject;
 use Zend\View\Model\ViewModel;
 use Album\Model\Album;
 use Album\Form\AlbumForm;
 use Zend\Di\Di;
-
+use Zend\Captcha;
+use Zend\Form\Element;
+use Zend\Form\Fieldset;
+use Zend\Form\Form;
+use Zend\InputFilter\Input;
+use Zend\InputFilter\InputFilter;
 
 /**
  * Delegator
@@ -42,30 +49,38 @@ class AlbumController extends AbstractActionController
         /**
          * DEPENDENCY INJECTION
          */
-        $arrayUsername = array('username' => 'Lyviu93');
-        $arrayPassword = array('password' => 'Dinamo48');
-        $arrayInjection = array('injectionValue' => 'test');
-        $di = new Di();
-
-        $di->instanceManager()->setParameters('Album\Controller\A', $arrayUsername);
-        $di->instanceManager()->setParameters('Album\Controller\A', $arrayPassword);
-        $di->instanceManager()->setShared('Album\Controller\A', true);
-        $di->instanceManager()->setShared('Album\Controller\B', false);
-        $di->instanceManager()->setShared('Album\Controller\C', false);
+//        $arrayUsername = array('username' => 'Lyviu93');
+//        $arrayPassword = array('password' => 'Dinamo48');
+//        $arrayInjection = array('injectionValue' => 'test');
+//        $di = new Di();
+//
+//        $di->instanceManager()->setParameters('Album\Controller\A', $arrayUsername);
+//        $di->instanceManager()->setParameters('Album\Controller\A', $arrayPassword);
+//        $di->instanceManager()->setShared('Album\Controller\A', true);
+//        $di->instanceManager()->setShared('Album\Controller\B', false);
+//        $di->instanceManager()->setShared('Album\Controller\C', false);
 //        $di->instanceManager()->setInjections('Album\Controller\A', $arrayInjection);
 //        \Zend\Debug\Debug::dump($di->instanceManager()->getConfig('Album\Controller\A'));
-        \Zend\Debug\Debug::dump($di->instanceManager()->getClasses());
-
+//        \Zend\Debug\Debug::dump($di->instanceManager()->getClasses());
+//        \Zend\Debug\Debug::dump(get_class_methods(get_class($this->getServiceLocator())));
+//        \Zend\Debug\Debug::dump($this->getServiceLocator()->getRegisteredServices());
+//        $router = $this->getServiceLocator()->get('router');
+//        $router->proprietateTrosnita = 234;
+//
+//        \Zend\Debug\Debug::dump($this->getServiceLocator()->get('router'));
+//        \Zend\Debug\Debug::dump($this->getServiceLocator()->get('httpRouter'));
+//        \Zend\Debug\Debug::dump($this->getServiceLocator()->get('consoleRouter'));
+//
 
 
 
 
 //        $c = new C(new B(new A('usr', 'password')));
 //
-        $c = $di->get('Album\Controller\C');
+//        $c = $di->get('Album\Controller\C');
 //        $b = $di->get('Album\Controller\B');
 //        $a = $di->get('Album\Controller\A');
-        $getClasses = $di->instanceManager()->getClasses();
+//        $getClasses = $di->instanceManager()->getClasses();
 
 //        \Zend\Debug\Debug::dump($getClasses);
 //        $c->b->a->username = 'tudor';
@@ -76,11 +91,11 @@ class AlbumController extends AbstractActionController
          * @var \Zend\ServiceManager\ServiceManager $serviceLocator
          * SERVICE MANAGER
          */
-        $serviceLocator = $this->getServiceLocator();
-        $serviceLocator->addInitializer('Album\Model\SillyInitializer');
-        $this->getServiceLocator()->setShared('Album\Model\AlbumTable', false);
-        $albumTable = $this->getServiceLocator()->get('Album\Model\AlbumTable');
-        $albumTable->myProperty = 7;
+//        $serviceLocator = $this->getServiceLocator();
+//        $serviceLocator->addInitializer('Album\Model\SillyInitializer');
+//        $this->getServiceLocator()->setShared('Album\Model\AlbumTable', false);
+//        $albumTable = $this->getServiceLocator()->get('Album\Model\AlbumTable');
+//        $albumTable->myProperty = 7;
         //dump::dump($this->getServiceLocator()->get('Album\Model\AlbumTable'));
         //dump::dump($serviceLocator->getRegisteredServices());
         //dump::dump($serviceLocator->isShared('Album\Model\AlbumTable'));
@@ -190,6 +205,61 @@ class AlbumController extends AbstractActionController
         }
         return $this->albumTable;
     }
+
+    public function registerAction()
+    {
+        $captcha = new Element\Captcha('captcha');
+        //$captcha->setCaptcha(new Captcha\Dumb());
+        //$captcha->setLabel('Please verify you are human');
+        $form = new RegisterForm();
+        //$form->add($captcha);
+//       print_r($captcha);
+
+        $form->get('submit')->setValue('Register');
+
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $data = $this->getRequest()->getPost();
+            \Zend\Debug\Debug::dump($data);
+            $form->setInputFilter($form->getInputFilter());
+            //$form->setData($data);
+            $form->bind($data);
+            \Zend\Debug\Debug::dump($form->get('my-hidden-field')->getValue());
+            \Zend\Debug\Debug::dump($form->isValid());
+            \Zend\Debug\Debug::dump($form->get('my-hidden-field')->getValue());
+            \Zend\Debug\Debug::dump($data);
+            //\Zend\Debug\Debug::dump($form->getData(\Zend\Form\FormInterface::VALUES_AS_ARRAY));
+//            \Zend\Debug\Debug::dump($request);
+//                return $this->redirect()->toRoute('album');
+
+        }
+
+        return array('form' => $form);
+    }
+
+    public function binding()
+    {
+        $register = new ArrayObject();
+        $register['subject'] = '[Register Form]';
+        $register['username'] = 'Type your username here';
+        $register['email'] = 'Type your username here';
+        $register['password'] = 'Type your password here';
+        $register['confirmPassword'] = 'Retype your password here';
+
+        $form = new AlbumForm();
+        $form->bind($register);
+
+
+        $autoCompleteData = array(
+            'username' => 'Lyviu93',
+            'email' => 'liviu.naghi93@gmail.com',
+
+        );
+
+        $form->setData($autoCompleteData);
+    }
+
+
 }
 
 
