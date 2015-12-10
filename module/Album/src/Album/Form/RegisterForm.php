@@ -134,20 +134,30 @@ class RegisterForm extends Form
 
     public function getInputFilter()
     {
-
-        $email = new Input('my-hidden-field');
-        $email->getValidatorChain()
-            ->attach(new Validator\EmailAddress());
-
-        //$tagsFilter = new Filter\StringTrim('');
-
-        $email->getFilterChain()->attach(new Filter\StringTrim());
-
+        //email fileter
+//        $email = new Input('my-hidden-field');
+//        $email->getValidatorChain()
+//            ->attach(new Validator\EmailAddress());
+//
+//        $tagsFilter = new Filter\StringTrim('');
+////        $test = new Filter\StringToUpper();
+//
+//        $email->getFilterChain()->attach($tagsFilter);
+//
         $inputFilter = new InputFilter();
-        $inputFilter->add($email);
+//        $inputFilter->add($email);
+
+        // username filter
+
+        $username = new Input('username');
+        $username->getValidatorChain()
+            ->attach(new Validator\StringLength(5));
+
+        $upperFilter = new Filter\StringToUpper();
+        $username->getFilterChain()->attach($upperFilter);
+        $inputFilter->add($username);
 
         return $inputFilter;
-
     }
 
 }

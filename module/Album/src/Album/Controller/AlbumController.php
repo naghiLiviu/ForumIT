@@ -224,9 +224,9 @@ class AlbumController extends AbstractActionController
             $form->setInputFilter($form->getInputFilter());
             //$form->setData($data);
             $form->bind($data);
-            \Zend\Debug\Debug::dump($form->get('my-hidden-field')->getValue());
+            \Zend\Debug\Debug::dump($form->get('username')->getValue());
             \Zend\Debug\Debug::dump($form->isValid());
-            \Zend\Debug\Debug::dump($form->get('my-hidden-field')->getValue());
+            \Zend\Debug\Debug::dump($form->get('username')->getValue());
             \Zend\Debug\Debug::dump($data);
             //\Zend\Debug\Debug::dump($form->getData(\Zend\Form\FormInterface::VALUES_AS_ARRAY));
 //            \Zend\Debug\Debug::dump($request);
