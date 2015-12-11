@@ -222,9 +222,11 @@ class AlbumController extends AbstractActionController
             $data = $this->getRequest()->getPost();
             $newData = clone($data);
             //\Zend\Debug\Debug::dump($data);
+            $form->setData($data);
             $form->setInputFilter($form->getMyInputFilter());
             //$form->bind($data);
-            $form->setData($data);
+
+
             //\Zend\Debug\Debug::dump($form->get('date')->getValue());
             //\Zend\Debug\Debug::dump($form->isValid());
             //\Zend\Debug\Debug::dump($form->get('username')->getValue());
@@ -232,6 +234,7 @@ class AlbumController extends AbstractActionController
             //\Zend\Debug\Debug::dump($form->getData());
             //\Zend\Debug\Debug::dump($form->getMessages());
 //                return $this->redirect()->toRoute('album');
+
 
         }
 

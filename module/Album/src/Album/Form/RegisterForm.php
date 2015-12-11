@@ -141,25 +141,28 @@ class RegisterForm extends Form
          * Email filter + validator
          */
 
-        $email = new Input();
+        $email = new Input('username');
         $email->getValidatorChain()
             ->attach(new Validator\EmailAddress());
-
         $tagsFilter = new Filter\StringTrim();
         $helloWorldFilter = new HelloWorldFilter();
-        $helloWorldFilter->filter($email->getValue());
 
+
+        $email->setValue('123test');
+        $helloWorldFilter->filter($email->getValue());
         $email->getFilterChain()->attach($tagsFilter);
         $email->getFilterChain()->attach($helloWorldFilter);
+//        \Zend\Debug\Debug::dump($helloWorldFilter);
+//        \Zend\Debug\Debug::dump($email->getMessages());
+
         //echo '<pre>';
         //print_r($email->getFilterChain());
         //echo '</pre>';
-        $email->setValue('test');
         $inputFilter = new InputFilter();
         $inputFilter->add($email);
 //        \Zend\Debug\Debug::dump($helloWorldFilter);
 //        \Zend\Debug\Debug::dump($inputFilter);
-/*
+/*a
  * Username filter + validator
  */
         /*$username = new Input('username');

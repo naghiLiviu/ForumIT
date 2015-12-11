@@ -14,7 +14,7 @@ class HelloWorldFilter extends AbstractFilter
     public function filter($value)
     {
 //        $value='test';
-            \Zend\Debug\Debug::dump($value);
+        \Zend\Debug\Debug::dump($value);
     //        die('');
         return $value;
     }
