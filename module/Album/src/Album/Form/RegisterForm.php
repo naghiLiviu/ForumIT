@@ -170,7 +170,7 @@ class RegisterForm extends Form
         $username->getFilterChain()->attach($upperFilter);
         $inputFilter->add($username);*/
 
-a/*
+/*
  * Date filter + validator
  */
         /*$dateInput = new Input('date');
