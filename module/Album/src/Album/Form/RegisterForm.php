@@ -9,6 +9,8 @@
 namespace Album\Form;
 
 //include_once 'RegisterFormValidator.php';
+use Album\Model\Filter\HelloWorldFilter;
+use Zend\EventManager\FilterChain;
 use Zend\Form\Element\Hidden;
 use Zend\Form\Form;
 use Zend\Validator;
@@ -52,15 +54,6 @@ class RegisterForm extends Form
                 'label' => 'Confirm Password',
             ),
         ));
-        $this->add(array(
-            'name' => 'csrf',
-            'type' => 'Zend\Form\Element\Csrf',
-            'options' => array(
-                'csrf_options' => array(
-                    'timeout' => 600,
-                )
-            )
-        ));
 
         $this->add(array(
             'name' => 'submit',
@@ -70,6 +63,15 @@ class RegisterForm extends Form
                 'id' => 'submitbutton',
             ),
         ));
+
+        $this->add(array(
+            'name' => 'date',
+            'type' => 'Zend\Form\Element\Date',
+            'options' => array(
+                'label' => 'Date',
+            ),
+        ));
+
         $myField = new Hidden();
         $myField->setName('my-hidden-field');
         $myField->setValue('  traala@trilili.com');
@@ -132,32 +134,56 @@ class RegisterForm extends Form
         }
     }*/
 
-    public function getInputFilter()
+    public function getMyInputFilter()
     {
-        //email fileter
-//        $email = new Input('my-hidden-field');
-//        $email->getValidatorChain()
-//            ->attach(new Validator\EmailAddress());
-//
-//        $tagsFilter = new Filter\StringTrim('');
-////        $test = new Filter\StringToUpper();
-//
-//        $email->getFilterChain()->attach($tagsFilter);
-//
+
+        /*
+         * Email filter + validator
+         */
+
+        $email = new Input();
+        $email->getValidatorChain()
+            ->attach(new Validator\EmailAddress());
+
+        $tagsFilter = new Filter\StringTrim();
+        $helloWorldFilter = new HelloWorldFilter();
+        $helloWorldFilter->filter($email->getValue());
+
+        $email->getFilterChain()->attach($tagsFilter);
+        $email->getFilterChain()->attach($helloWorldFilter);
+        //echo '<pre>';
+        //print_r($email->getFilterChain());
+        //echo '</pre>';
+        $email->setValue('test');
         $inputFilter = new InputFilter();
-//        $inputFilter->add($email);
-
-        // username filter
-
-        $username = new Input('username');
+        $inputFilter->add($email);
+//        \Zend\Debug\Debug::dump($helloWorldFilter);
+//        \Zend\Debug\Debug::dump($inputFilter);
+/*
+ * Username filter + validator
+ */
+        /*$username = new Input('username');
         $username->getValidatorChain()
             ->attach(new Validator\StringLength(5));
 
         $upperFilter = new Filter\StringToUpper();
         $username->getFilterChain()->attach($upperFilter);
-        $inputFilter->add($username);
+        $inputFilter->add($username);*/
+
+/*
+ * Date filter + validator
+ */
+        /*$dateInput = new Input('date');
+        $dateInput->getValidatorChain()
+            ->attach(new Validator\Date());
+
+        $dateFilter = new Filter\DateSelect();
+        $dateInput->getFilterChain()->attach($dateFilter);
+        $inputFilter->add($dateInput);*/
 
         return $inputFilter;
     }
+
+
 
 }

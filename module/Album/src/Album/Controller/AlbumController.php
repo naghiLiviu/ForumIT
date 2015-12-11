@@ -208,7 +208,7 @@ class AlbumController extends AbstractActionController
 
     public function registerAction()
     {
-        $captcha = new Element\Captcha('captcha');
+//        $captcha = new Element\Captcha('captcha');
         //$captcha->setCaptcha(new Captcha\Dumb());
         //$captcha->setLabel('Please verify you are human');
         $form = new RegisterForm();
@@ -220,16 +220,17 @@ class AlbumController extends AbstractActionController
         $request = $this->getRequest();
         if ($request->isPost()) {
             $data = $this->getRequest()->getPost();
-            \Zend\Debug\Debug::dump($data);
-            $form->setInputFilter($form->getInputFilter());
-            //$form->setData($data);
-            $form->bind($data);
-            \Zend\Debug\Debug::dump($form->get('username')->getValue());
-            \Zend\Debug\Debug::dump($form->isValid());
-            \Zend\Debug\Debug::dump($form->get('username')->getValue());
-            \Zend\Debug\Debug::dump($data);
-            //\Zend\Debug\Debug::dump($form->getData(\Zend\Form\FormInterface::VALUES_AS_ARRAY));
-//            \Zend\Debug\Debug::dump($request);
+            $newData = clone($data);
+            //\Zend\Debug\Debug::dump($data);
+            $form->setInputFilter($form->getMyInputFilter());
+            //$form->bind($data);
+            $form->setData($data);
+            //\Zend\Debug\Debug::dump($form->get('date')->getValue());
+            //\Zend\Debug\Debug::dump($form->isValid());
+            //\Zend\Debug\Debug::dump($form->get('username')->getValue());
+//            \Zend\Debug\Debug::dump($data);
+            //\Zend\Debug\Debug::dump($form->getData());
+            //\Zend\Debug\Debug::dump($form->getMessages());
 //                return $this->redirect()->toRoute('album');
 
         }
@@ -245,6 +246,8 @@ class AlbumController extends AbstractActionController
         $register['email'] = 'Type your username here';
         $register['password'] = 'Type your password here';
         $register['confirmPassword'] = 'Retype your password here';
+        $register['date'] = 'Insert date';
+
 
         $form = new AlbumForm();
         $form->bind($register);
