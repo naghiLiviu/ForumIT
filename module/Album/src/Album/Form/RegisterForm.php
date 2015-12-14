@@ -136,7 +136,6 @@ class RegisterForm extends Form
 
     public function getMyInputFilter()
     {
-
         /*
          * Email filter + validator
          */
@@ -147,10 +146,9 @@ class RegisterForm extends Form
         $tagsFilter = new Filter\StringTrim();
         $helloWorldFilter = new HelloWorldFilter();
 
-
         $email->setValue('123test');
-        $helloWorldFilter->filter($email->getValue());
-        $email->getFilterChain()->attach($tagsFilter);
+        //$helloWorldFilter->filter($email->getValue());
+        //$email->getFilterChain()->attach($tagsFilter);
         $email->getFilterChain()->attach($helloWorldFilter);
 //        \Zend\Debug\Debug::dump($helloWorldFilter);
 //        \Zend\Debug\Debug::dump($email->getMessages());

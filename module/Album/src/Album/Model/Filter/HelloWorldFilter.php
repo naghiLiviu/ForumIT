@@ -8,14 +8,13 @@
 namespace Album\Model\Filter;
 
 use Zend\Filter\AbstractFilter;
+use Zend\Filter\FilterInterface;
 
-class HelloWorldFilter extends AbstractFilter
+class HelloWorldFilter implements FilterInterface
 {
     public function filter($value)
     {
-//        $value='test';
         \Zend\Debug\Debug::dump($value);
-    //        die('');
         return $value;
     }
 
