@@ -71,13 +71,13 @@ class AlbumForm extends Form
                 'label' => 'Please insert your comment',
             ),
         ));
-        $this->add(array(
-            'name' => 'fileUpload',
-            'type' => 'Zend\Form\Element\File',
-            'options' => array(
-                'label' => 'File Upload',
-            )
-        ));
+//        $this->add(array(
+//            'name' => 'fileUpload',
+//            'type' => 'Zend\Form\Element\File',
+//            'options' => array(
+//                'label' => 'File Upload',
+//            )
+//        ));
 
 
         $this->add(array(
@@ -93,32 +93,32 @@ class AlbumForm extends Form
         //$this->addInputFilter();
     }
 
-    public function addInputFilter()
-    {
-        $inputFilter = new InputFilter\InputFilter();
-
-        // File Input
-        $fileInput = new InputFilter\FileInput('fileUpload');
-        $fileInput->setRequired(true);
-
-        // You only need to define validators and filters
-        // as if only one file was being uploaded. All files
-        // will be run through the same validators and filters
-        // automatically.
-        $fileInput->getValidatorChain()
-            ->attachByName('filesize',      array('max' => 2048000))
-            //->attachByName('filemimetype',  array('mimeType' => 'image/png,image/x-png'))
-            ->attachByName('fileimagesize', array('maxWidth' => 1000, 'maxHeight' => 1000));
-
-        $fileInput->getFilterChain()->attachByName(
-            'filerenameupload',
-            array(
-                'target'    => './data/tmpuploads/avatar.png',
-                'randomize' => true,
-            )
-        );
-        $inputFilter->add($fileInput);
-
-        $this->setInputFilter($inputFilter);
-    }
+//    public function addInputFilter()
+//    {
+//        $inputFilter = new InputFilter\InputFilter();
+//
+//        // File Input
+//        $fileInput = new InputFilter\FileInput('fileUpload');
+//        $fileInput->setRequired(true);
+//
+//        // You only need to define validators and filters
+//        // as if only one file was being uploaded. All files
+//        // will be run through the same validators and filters
+//        // automatically.
+//        $fileInput->getValidatorChain()
+//            ->attachByName('filesize',      array('max' => 2048000))
+//            //->attachByName('filemimetype',  array('mimeType' => 'image/png,image/x-png'))
+//            ->attachByName('fileimagesize', array('maxWidth' => 1000, 'maxHeight' => 1000));
+//
+//        $fileInput->getFilterChain()->attachByName(
+//            'filerenameupload',
+//            array(
+//                'target'    => './data/tmpuploads/avatar.png',
+//                'randomize' => true,
+//            )
+//        );
+//        $inputFilter->add($fileInput);
+//
+//        $this->setInputFilter($inputFilter);
+//    }
 }

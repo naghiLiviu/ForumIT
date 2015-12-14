@@ -2,7 +2,7 @@
 $title = 'Add new album';
 $this->headTitle($title);
 ?>
-<h1><?php echo $this->escapeHtml($title); ?></h1>
+    <h1><?php echo $this->escapeHtml($title); ?></h1>
 <?php
 $form->setAttribute('action', $this->url('album', array('action' => 'add')));
 $form->prepare();
@@ -10,6 +10,26 @@ $form->prepare();
 echo $this->form()->openTag($form);
 echo $this->formHidden($form->get('id'));
 echo $this->formRow($form->get('title'));
+
+echo "<br>";
+echo "<br>";
 echo $this->formRow($form->get('artist'));
+echo "<br>";
+echo "<br>";
+echo $this->formRow($form->get('email'));
+echo " <br> ";
+echo " <br> ";
+echo $this->formRow($form->get('username'));
+echo " <br> ";
+echo " <br> ";
+echo $this->formRow($form->get('radio'));
+echo " <br> ";
+echo $this->formRow($form->get('comment'));
+echo " <br> ";
+
+echo " <br> ";
+//echo $this->formRow($form->get('fileUpload'));
+echo " <br> ";
+echo " <br> ";
 echo $this->formSubmit($form->get('submit'));
 echo $this->form()->closeTag();

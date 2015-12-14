@@ -8,13 +8,12 @@
 namespace Album\Model;
 
 use Zend\Db\TableGateway\TableGateway;
-use \Zend\Debug\Debug as dump;
 
 class AlbumTable
 {
     protected $tableGateway;
 
-    public function __construct(AlbumTableGateway $tableGateway)
+    public function __construct(TableGateway $tableGateway)
     {
         $this->tableGateway = $tableGateway;
     }
@@ -27,7 +26,6 @@ class AlbumTable
 
     public function getAlbum($id)
     {
-//        dump::dump($this->tableGateway->getServiceLocator()->get('config'));
         $id  = (int) $id;
         $rowset = $this->tableGateway->select(array('id' => $id));
         $row = $rowset->current();
@@ -40,10 +38,13 @@ class AlbumTable
     public function saveAlbum(Album $album)
     {
         $data = array(
-            'artist' => $album->artist,
+        'artist' => $album->artist,
             'title'  => $album->title,
+            'email' => $album->email,
+            'username' => $album->username,
+            'radio' => $album->radio,
+            'comment' => $album->comment,
         );
-
         $id = (int) $album->id;
         if ($id == 0) {
             $this->tableGateway->insert($data);
