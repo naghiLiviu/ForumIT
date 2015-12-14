@@ -1,0 +1,28 @@
+<?php
+$title = 'your formulaire';
+$this->headTitle($title);
+?>
+    <h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form->setAttribute('action', $this->url('ContactDetail', array('action' => 'insert')));
+$form->prepare();
+\Zend\Debug\Debug::dump($title);
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('Id'));
+echo $this->formRow($form->get('FirstName'));
+echo "<br>";
+echo "<br>";
+echo $this->formRow($form->get('LastName'));
+echo "<br>";
+echo "<br>";
+echo $this->formRow($form->get('PhoneNumber'));
+echo " <br> ";
+echo " <br> ";
+echo $this->formRow($form->get('City'));
+echo " <br> ";
+echo $this->formRow($form->get('Street'));
+echo " <br> ";
+echo $this->formRow($form->get('NumberStreet'));
+echo " <br> ";
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
