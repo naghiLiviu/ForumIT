@@ -43,7 +43,7 @@ class AlbumTable
             'email' => $album->email,
             'username' => $album->username,
             'radio' => $album->radio,
-            'comment' => $album->comment,
+            'comment' => ($album->comment) ? $album->comment : '',
         );
         $id = (int) $album->id;
         if ($id == 0) {

@@ -56,7 +56,7 @@ class AlbumForm extends Form
             'name' => 'radio',
             'type' => 'Zend\Form\Element\Radio',
             'options' => array(
-                'label' => 'Do you like this ?',
+                'label' => 'Are you hungry?',
                 'value_options' => array(
                     'No' => 'No',
                     'Yes' => 'Yes',

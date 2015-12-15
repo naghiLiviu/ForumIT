@@ -37,16 +37,14 @@ class AlbumController extends AbstractActionController
         $form = new AlbumForm();
         $form->get('submit')->setValue('Add');
         $request = $this->getRequest();
-        \Zend\Debug\Debug::dump($request->isPost());
         if ($request->isPost()) {
 
             $album = new Album();
             $form->setData($request->getPost());
             $form->setInputFilter($album->getMyInputFilter());
-\Zend\Debug\Debug::dump($form->isValid());
             if ($form->isValid()) {
                 $album->exchangeArray($form->getData());
-                $this->getAlbumTable()->saveAlbum($album);
+               $this->getAlbumTable()->saveAlbum($album);
 
                 // Redirect to list of albums
 
@@ -74,19 +72,16 @@ class AlbumController extends AbstractActionController
                 'action' => 'index'
             ));
         }
-
         $form = new AlbumForm();
         $form->bind($album);
         $form->get('submit')->setAttribute('value', 'Edit');
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $form->setInputFilter($album->getInputFilter());
+            $form->setInputFilter($album->getMyInputFilter());
             $form->setData($request->getPost());
-
             if ($form->isValid()) {
                 $this->getAlbumTable()->saveAlbum($album);
-
                 // Redirect to list of albums
                 return $this->redirect()->toRoute('album');
             }

@@ -136,10 +136,10 @@ class Album
                 'name'     => 'radio',
                 'required' => true,
             ));
-            $inputFilter->add(array(
-                'name' => 'fileUpload',
-                'required' => true,
-            ));
+//            $inputFilter->add(array(
+//                'name' => 'fileUpload',
+//                'required' => true,
+//            ));
             $inputFilter->add(array(
                 'name'     => 'comment',
                 'required' => false,
