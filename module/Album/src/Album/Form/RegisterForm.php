@@ -25,12 +25,14 @@ class RegisterForm extends Form
     {
         // we want to ignore the name passed
         parent::__construct('album');
-
         $this->add(array(
             'name' => 'username',
             'type' => 'Zend\Form\Element\Text',
             'options' => array(
                 'label' => 'Username',
+            ),
+            'attributes' => array(
+                'placeholder' => 'Insert your username',
             ),
         ));
         $this->add(array(
@@ -39,6 +41,9 @@ class RegisterForm extends Form
             'options' => array(
                 'label' => 'Email',
             ),
+            'attributes' => array(
+                'placeholder' => 'Insert your email',
+            ),
         ));
         $this->add(array(
             'name' => 'password',
@@ -46,12 +51,18 @@ class RegisterForm extends Form
             'options' => array(
                 'label' => 'Password',
             ),
+            'attributes' => array(
+                'placeholder' => 'Insert your password',
+            ),
         ));
         $this->add(array(
             'name' => 'confirmPassword',
             'type' => 'Zend\Form\Element\Password',
             'options' => array(
                 'label' => 'Confirm Password',
+            ),
+            'attributes' => array(
+                'placeholder' => 'Retype password',
             ),
         ));
 
@@ -69,6 +80,30 @@ class RegisterForm extends Form
             'type' => 'Zend\Form\Element\Date',
             'options' => array(
                 'label' => 'Date',
+            ),
+        ));
+
+        $this->add(array(
+            'name' => 'dropdown',
+            'type' => 'Zend\Form\Element\Select',
+            'options' => array(
+                'label' => 'Select Theme',
+            ),
+            'attributes' => array(
+                'options' => array(
+                    '1' => '...',
+                    '2' => 'White',
+                    '3' => 'Black',
+                    '4' => 'Red',
+                ),
+            ),
+        ));
+
+        $this->add(array(
+            'name' => 'checkbox',
+            'type' => 'Zend\Form\Element\Checkbox',
+            'options' => array(
+                'label' => 'I agree',
             ),
         ));
 

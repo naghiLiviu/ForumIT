@@ -23,9 +23,9 @@ $this->headTitle($title);
             <td><?php echo $this->escapeHtml($album->artist);?></td>
             <td>
                 <a href="<?php echo $this->url('album',
-                    array('action'=>'edit', 'id' => $album->id));?>" class="btn-info">Edit</a>
+                    array('action'=>'edit', 'id' => $album->id));?>" class="btn-success">Edit</a>
                 <a href="<?php echo $this->url('album',
-                    array('action'=>'delete', 'id' => $album->id));?>" class="btn-success">Delete</a>
+                    array('action'=>'delete', 'id' => $album->id));?>" class="btn-danger">Delete</a>
             </td>
         </tr>
     <?php endforeach; ?>
