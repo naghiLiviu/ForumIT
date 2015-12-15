@@ -2,11 +2,12 @@
 $title = 'My albums';
 $this->headTitle($title);
 ?>
+
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <p>
-    <a href="<?php echo $this->url('album', array('action'=>'add'));?>">Add new album</a>
+    <a href="<?php echo $this->url('album', array('action'=>'add'));?>" class="btn-default">Add new album</a>
     <hr>
-    <a href="<?php echo $this->url('album', array('action'=>'register'));?>">Register</a>
+    <a href="<?php echo $this->url('album', array('action'=>'register'));?>" class="btn-default">Register</a>
     <hr>
 </p>
 
@@ -22,9 +23,9 @@ $this->headTitle($title);
             <td><?php echo $this->escapeHtml($album->artist);?></td>
             <td>
                 <a href="<?php echo $this->url('album',
-                    array('action'=>'edit', 'id' => $album->id));?>">Edit</a>
+                    array('action'=>'edit', 'id' => $album->id));?>" class="btn-info">Edit</a>
                 <a href="<?php echo $this->url('album',
-                    array('action'=>'delete', 'id' => $album->id));?>">Delete</a>
+                    array('action'=>'delete', 'id' => $album->id));?>" class="btn-success">Delete</a>
             </td>
         </tr>
     <?php endforeach; ?>
