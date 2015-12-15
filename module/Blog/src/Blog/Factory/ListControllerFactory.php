@@ -6,10 +6,7 @@
  * Date: 11/26/15
  * Time: 1:34 PM
  */
-=======
- * Date: 11/25/15
- * Time: 4:02 PM
- */
+
 namespace Blog\Factory;
 
 use Blog\Controller\ListController;
@@ -26,4 +23,4 @@ class ListControllerFactory implements FactoryInterface
         return new ListController($postService);
     }
 }
->>>>>>> 1f6c5c2280ca89195f98dfb7fed1fb921e8fc643
+

@@ -9,21 +9,24 @@ $this->headTitle($title);
 
 <table class="table">
     <tr>
-        <th>Title</th>
+        <th class="th">Title</th>
         <th>Artist</th>
         <th>Email</th>
         <th>Username</th>
+        <th>Language</th>
         <th>Comment</th>
-<!--        <th>FileUploaded</th>-->
+        <th>Date</th>
         <th>&nbsp;</th>
     </tr>
     <?php foreach ($albums as $album) : ?>
-        <tr>
+        <tr class="tr">
             <td><?php echo $this->escapeHtml($album->title);?></td>
             <td><?php echo $this->escapeHtml($album->artist);?></td>
             <td><?php echo $this->escapeHtml($album->email);?></td>
             <td><?php echo $this->escapeHtml($album->username);?></td>
+            <td><?php echo $this->escapeHtml($album->language);?></td>
             <td><?php echo $this->escapeHtml($album->comment);?></td>
+            <td><?php echo $this->escapeHtml($album->date);?></td>
                         <td>
                             <a href="<?php echo $this->url('album',
                                 array('action'=>'edit', 'id' => $album->id));?>">Edit |</a>

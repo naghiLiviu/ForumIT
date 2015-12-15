@@ -29,6 +29,7 @@ class AlbumController extends AbstractActionController
         ));
         $viewModel->setTemplate('album/album/index.phtml');
         return $viewModel;
+
     }
 
     public function addAction()
@@ -127,6 +128,7 @@ class AlbumController extends AbstractActionController
         }
         return $this->albumTable;
     }
+
 }
 
 

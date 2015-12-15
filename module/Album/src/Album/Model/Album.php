@@ -24,6 +24,8 @@ class Album
     public $username;
     public $radio;
     public $comment;
+    public $language;
+    public $date;
 
     public function exchangeArray($data)
     {
@@ -34,6 +36,8 @@ class Album
         $this->username  = (!empty($data['username'])) ? $data['username'] : null;
         $this->radio  = (!empty($data['radio'])) ? $data['radio'] : null;
         $this->comment  = (!empty($data['comment'])) ? $data['comment'] : null;
+        $this->language  = (!empty($data['language'])) ? $data['language'] : null;
+        $this->date  = (!empty($data['date'])) ? $data['date'] : null;
     }
 
     public function getArrayCopy()
@@ -132,6 +136,12 @@ class Album
                     ),
                 ),
             ));
+
+            $inputFilter->add(array(
+                'name' => 'language',
+                'required' => true,
+
+            ));
             $inputFilter->add(array(
                 'name'     => 'radio',
                 'required' => true,
@@ -156,6 +166,19 @@ class Album
                 ),
             ));
 
+            $inputFilter->add(array(
+                'name' => 'date',
+                'required' => 'true',
+                'validators' => array(
+                array(
+                    'name' => 'date',
+                    'type' => 'Zend\Form\Element\Date',
+                    'options' => array(
+                        'message'  => 'Invalid date: Format should be Y-m-d',
+                    ),
+                ),
+            ),
+            ));
             $this->inputFilter = $inputFilter;
         }
 

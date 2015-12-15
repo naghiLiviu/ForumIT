@@ -27,37 +27,47 @@ class AlbumForm extends Form
             'name' => 'title',
             'type' => 'Text',
             'options' => array(
-                'label' => 'Title',
+                'label' => 'Title ',
             ),
         ));
         $this->add(array(
             'name' => 'artist',
             'type' => 'Text',
             'options' => array(
-                'label' => 'Artist',
+                'label' => 'Artist ',
             ),
         ));
         $this->add(array(
             'name' => 'username',
             'type' => 'Text',
-            'attributes' => array('maxlength' => '12', 'size' => '32', 'type' => 'username'),
+            'attributes' => array(
+                'maxlength' => '12',
+                'size' => '32',
+                'type' => 'username'
+            ),
             'options' => array(
-                'label' => 'Username',
+                'label' => 'Username ',
             ),
         ));
         $this->add(array(
             'name' => 'email',
             'type' => 'Zend\Form\Element\Email',
 
-            'attributes' => array('maxlength' => '128', 'size' => '32', 'type' => 'email'),
-            'options' => array('label' => 'Email', 'appendText' => '@'),
+            'attributes' => array(
+                'maxlength' => '128',
+                'size' => '32', '
+                type' => 'email'
+            ),
+            'options' => array(
+                'label' => 'Email ',
+                'appendText' => '@'),
         ));
         $this->add(array(
             'name' => 'radio',
             'type' => 'Zend\Form\Element\Radio',
             'options' => array(
                 'label' => 'Are you hungry?',
-                'value_options' => array(
+                'options' => array(
                     'No' => 'No',
                     'Yes' => 'Yes',
                 ),
@@ -66,18 +76,42 @@ class AlbumForm extends Form
         $this->add(array(
             'name' => 'comment',
             'type' => 'Zend\Form\Element\Textarea',
-            'attributes' => array('maxlength' => '250', 'type' => 'textarea'),
+            'attributes' => array(
+                'maxlength' => '250',
+                'type' => 'textarea',
+                'placeholder' => 'Insert your comment'
+            ),
             'options' => array(
-                'label' => 'Please insert your comment',
+                'label' => 'Please insert your comment ',
             ),
         ));
-//        $this->add(array(
-//            'name' => 'fileUpload',
-//            'type' => 'Zend\Form\Element\File',
-//            'options' => array(
-//                'label' => 'File Upload',
-//            )
-//        ));
+        $this->add(array(
+            'type' => 'Zend\Form\Element\Select',
+            'name' => 'language',
+            'options' => array(
+                'label' => 'Which is your favourite language? ',
+                'options' => array(
+                    ' ' => '...',
+                    'PHP' => 'PHP',
+                    'JavaScript' => 'JavaScript',
+                    'C++' => 'C++',
+                )
+            )
+        ));
+
+        $this->add(array(
+            'type' => 'Zend\Form\Element\Date',
+            'name' => 'date',
+            'options' => array(
+            'label' => 'Register Date ',
+            'format' => 'Y-m-d',
+            ),
+            'attributes' => array(
+                'min' => '2010-01-01',
+                'max' => '2020-01-01',
+                'step' => '1',
+            )
+        ));
 
 
         $this->add(array(
@@ -121,4 +155,5 @@ class AlbumForm extends Form
 //
 //        $this->setInputFilter($inputFilter);
 //    }
+
 }

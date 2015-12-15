@@ -1,5 +1,5 @@
 <?php
-$title = 'Add new album';
+$title = 'Add new data';
 $this->headTitle($title);
 ?>
     <h1><?php echo $this->escapeHtml($title); ?></h1>
@@ -26,9 +26,11 @@ echo $this->formRow($form->get('radio'));
 echo " <br> ";
 echo $this->formRow($form->get('comment'));
 echo " <br> ";
-
 echo " <br> ";
-//echo $this->formRow($form->get('fileUpload'));
+echo $this->formRow($form->get('language'));
+echo " <br> ";
+echo " <br> ";
+echo $this->formRow($form->get('date'));
 echo " <br> ";
 echo " <br> ";
 echo $this->formSubmit($form->get('submit'));

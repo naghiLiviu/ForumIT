@@ -44,6 +44,8 @@ class AlbumTable
             'username' => $album->username,
             'radio' => $album->radio,
             'comment' => ($album->comment) ? $album->comment : '',
+            'language' => $album->language,
+            'date' => $album->date,
         );
         $id = (int) $album->id;
         if ($id == 0) {
