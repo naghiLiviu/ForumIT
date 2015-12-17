@@ -81,6 +81,11 @@ class RegisterForm extends Form
             'options' => array(
                 'label' => 'Date',
             ),
+            'attributes' => array(
+                'min' => '2002-01-01T00:00:00Z',
+                'max' => '2020-01-01T00:00:00Z',
+                'step' => '1',
+            ),
         ));
 
         $this->add(array(

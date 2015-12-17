@@ -225,6 +225,7 @@ class AlbumController extends AbstractActionController
             $form->setData($data);
             $form->setInputFilter($form->getMyInputFilter());
             //$form->bind($data);
+            \Zend\Debug\Debug::dump($request->getPost());
 
 
             //\Zend\Debug\Debug::dump($form->get('date')->getValue());
@@ -240,7 +241,6 @@ class AlbumController extends AbstractActionController
 
         return array('form' => $form);
     }
-
     public function binding()
     {
         $register = new ArrayObject();
