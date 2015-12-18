@@ -2,6 +2,8 @@
 $title = 'Add new data';
 $this->headTitle($title);
 ?>
+
+
     <h1><?php echo $this->escapeHtml($title); ?></h1>
 <?php
 $form->setAttribute('action', $this->url('album', array('action' => 'add')));
@@ -34,4 +36,13 @@ echo $this->formRow($form->get('date'));
 echo " <br> ";
 echo " <br> ";
 echo $this->formSubmit($form->get('submit'));
-echo $this->form()->closeTag();
+echo $this->form()->closeTag(); ?>
+<!--<ul class="pager">-->
+<!--      <li><a href="#">Previous</a></li>-->
+<!--      <li><a href="#">Next</a></li>-->
+<!--    </ul>-->
+<!--<div class="btn-group">-->
+<!--    <button class="btn">Left</button>-->
+<!--    <button class="btn">Middle</button>-->
+<!--    <button class="btn">Right</button>-->
+<!--</div>-->

@@ -1,28 +1,33 @@
-<?php
-$title = 'your formulaire';
-$this->headTitle($title);
-?>
-    <h1><?php echo $this->escapeHtml($title); ?></h1>
-<?php
-$form->setAttribute('action', $this->url('ContactDetail', array('action' => 'insert')));
-$form->prepare();
-\Zend\Debug\Debug::dump($title);
-echo $this->form()->openTag($form);
-echo $this->formHidden($form->get('Id'));
-echo $this->formRow($form->get('FirstName'));
-echo "<br>";
-echo "<br>";
-echo $this->formRow($form->get('LastName'));
-echo "<br>";
-echo "<br>";
-echo $this->formRow($form->get('PhoneNumber'));
-echo " <br> ";
-echo " <br> ";
-echo $this->formRow($form->get('City'));
-echo " <br> ";
-echo $this->formRow($form->get('Street'));
-echo " <br> ";
-echo $this->formRow($form->get('NumberStreet'));
-echo " <br> ";
-echo $this->formSubmit($form->get('submit'));
-echo $this->form()->closeTag();
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                alert("Connect into your account more infos.");
+            });
+        });
+    </script>
+</head>
+<body>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<div class="btn-group">
+    <a class ="btn dropdown-toggle" data-toogle="dropdown" href="index.phtml">
+        Select your action
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+
+    </ul>
+
+</div>
+
+
+
+
+
+</body>
+</html>
